@@ -1,0 +1,648 @@
+<!doctype html>
+<html class="no-js">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="../../../genindex.html" /><link rel="search" title="Search" href="../../../search.html" /><link rel="next" title="Advanced Usage" href="advanced_usage.html" /><link rel="prev" title="Resource Usage" href="resource_usage.html" />
+
+    <meta name="generator" content="sphinx-3.5.4, furo 2021.04.11.beta34"/>
+        <title>Basic Usage - Keith&#39;s Docs 23.2.17 documentation</title>
+      <link rel="stylesheet" href="../../../_static/styles/furo.css?digest=59ab60ac09ea94ccfe6deddff6d715cce948a6fc">
+    <link rel="stylesheet" href="../../../_static/pygments.css">
+    <link media="(prefers-color-scheme: dark)" rel="stylesheet" href="../../../_static/pygments_dark.css">
+    
+
+
+<style>
+  :root {
+    --color-code-background: #f8f8f8;
+  --color-code-foreground: black;
+  
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+  }
+
+  /* For allowing end-user-specific overrides */
+  .override-light {
+    --color-code-background: #f8f8f8;
+  --color-code-foreground: black;
+  
+  }
+  .override-dark {
+    --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+  }
+</style><link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/tabs.css" />
+    <link rel="stylesheet" href="../../../_static/styles/furo-extensions.css?digest=d391b54134226e4196576da3bdb6dddb7e05ba2b"></head>
+  <body dir="">
+    
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+      stroke-width="1.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+      <path stroke="none" d="M0 0h24v24H0z"/>
+      <line x1="4" y1="6" x2="20" y2="6" />
+      <line x1="10" y1="12" x2="20" y2="12" />
+      <line x1="6" y1="18" x2="20" y2="18" />
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+      class="feather feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+      class="feather feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation"></label>
+<label class="overlay toc-overlay" for="__toc"></label>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="../../../index.html"><div class="brand">Keith's Docs 23.2.17 documentation</div></a>
+    </div>
+    <div class="header-right">
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand centered" href="../../../index.html">
+  
+  <div class="sidebar-logo-container">
+    <img class="sidebar-logo" src="../../../_static/xmos_logo.png" alt="Logo"/>
+  </div>
+  
+  <span class="sidebar-brand-text">Keith's Docs 23.2.17 documentation</span>
+  
+</a><form class="sidebar-search-container" method="get" action="../../../search.html">
+  <input class="sidebar-search" placeholder=Search name="q">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form><div class="sidebar-scroll"><div class="sidebar-tree">
+  <ul class="current">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../doc/rst/before_you_start.html">Before you start</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label for="toctree-checkbox-1"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../doc/rst/version_info.html">Tool and Architecture Dependencies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../doc/rst/inc_changelog.html">lib_xud Change Log</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../doc/rst/inc_license.html">XMOS PUBLIC LICENCE: Version 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../doc/rst/inc_copyrights.html">Copyright</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../doc/rst/inc_contributions.html">How to contribute</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../doc/rst/build_the_documentation_yourself.html">How to build the documenation</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current has-children"><a class="reference internal" href="the_xud_library.html">The XUD library</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label for="toctree-checkbox-2"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="overview.html">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="file_arrangement.html">File Arrangement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="resource_usage.html">Resource Usage</a></li>
+<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">Basic Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="advanced_usage.html">Advanced Usage</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../examples/doc/usb_class_examples.html">USB Class examples</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label for="toctree-checkbox-3"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../examples/AN00124_CDC_VCOM_class/doc/rst/AN00124.html">CDC VCOM class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../examples/AN00125_mass_storage_class/doc/rst/AN00125.html">Mass Storage class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../examples/AN00126_printer_class/doc/rst/AN00126.html">Printer class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../examples/AN00127_video_class/doc/rst/AN00127.html">Video class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../examples/AN00129_hid_class/doc/rst/AN00129.html">HID class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../examples/AN00131_CDC_EDC_class/doc/rst/AN00131.html">CDC EDC class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../examples/AN00132_image_class/doc/rst/AN00132.html">Image class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../examples/AN00135_test_and_measurement_class/doc/rst/AN00135.html">Test and Measurement class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../examples/AN00136_vendor_specific/doc/rst/AN00136.html">Vendor Sepcific (Custom USB device)</a></li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+      </div>
+      
+    </div>
+  </aside>
+  <main class="main">
+    <div class="content">
+      <article role="main">
+        <label class="toc-overlay-icon toc-content-icon" for="__toc">
+          <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+        </label>
+        <div class="section" id="basic-usage">
+<h1>Basic Usage<a class="headerlink" href="#basic-usage" title="Permalink to this headline">¶</a></h1>
+<p>Basic use is termed to mean each endpoint runs in its own dedicated core.
+Multiple endpoints in a single core are possible, please see Advanced Usage.</p>
+<div class="section" id="xud-core-xud-main">
+<h2>XUD Core: <code class="docutils literal notranslate"><span class="pre">XUD_Main()</span></code><a class="headerlink" href="#xud-core-xud-main" title="Permalink to this headline">¶</a></h2>
+<p>This is the main XUD task that interfaces with the USB transceiver.
+It performs power-signalling/handshaking on the USB bus, and passes packets
+to/from the various endpoints.</p>
+<p>This function should be called directly from the top-level <code class="docutils literal notranslate"><span class="pre">par</span></code>
+statement in <code class="docutils literal notranslate"><span class="pre">main()</span></code> to ensure that the XUD library is ready
+within the 100ms allowed by the USB specification.</p>
+<dl class="cpp function">
+<dt id="_CPPv48XUD_MainA_7chanendiA_7chanendiF17NULLABLE_RESOURCE7chanend5c_sofEA_10XUD_EpTypeA_10XUD_EpTypeF17NULLABLE_RESOURCE3out9p_usb_rstEF17NULLABLE_RESOURCE5clock3clkEj14XUD_BusSpeed_t13XUD_PwrConfig">
+<span id="_CPPv38XUD_MainA_7chanendiA_7chanendiF17NULLABLE_RESOURCE7chanend5c_sofEA_10XUD_EpTypeA_10XUD_EpTypeF17NULLABLE_RESOURCE3out9p_usb_rstEF17NULLABLE_RESOURCE5clock3clkEj14XUD_BusSpeed_t13XUD_PwrConfig"></span><span id="_CPPv28XUD_MainA_7chanendiA_7chanendiF17NULLABLE_RESOURCE7chanend5c_sofEA_10XUD_EpTypeA_10XUD_EpTypeF17NULLABLE_RESOURCE3out9p_usb_rstEF17NULLABLE_RESOURCE5clock3clkEj14XUD_BusSpeed_t13XUD_PwrConfig"></span><span class="target" id="xud_8h_1a5fee722022cad84318b575bfc72c1aab"></span><span class="pre">int</span> <code class="sig-name descname"><span class="pre">XUD_Main</span></code><span class="sig-paren">(</span><span class="pre">chanend</span> <em><span class="pre">c_epOut</span></em><span class="pre">[</span><span class="pre">]</span>, <span class="pre">int</span> <em><span class="pre">noEpOut</span></em>, <span class="pre">chanend</span> <em><span class="pre">c_epIn</span></em><span class="pre">[</span><span class="pre">]</span>, <span class="pre">int</span> <em><span class="pre">noEpIn</span></em>, <span class="pre">NULLABLE_RESOURCE</span><span class="sig-paren">(</span><span class="pre">chanend</span>, <span class="pre">c_sof</span><span class="sig-paren">)</span>, <span class="pre">XUD_EpType</span> <em><span class="pre">epTypeTableOut</span></em><span class="pre">[</span><span class="pre">]</span>, <span class="pre">XUD_EpType</span> <em><span class="pre">epTypeTableIn</span></em><span class="pre">[</span><span class="pre">]</span>, <span class="pre">NULLABLE_RESOURCE</span><span class="sig-paren">(</span><span class="pre">out</span> <span class="pre">port</span>, <span class="pre">p_usb_rst</span><span class="sig-paren">)</span>, <span class="pre">NULLABLE_RESOURCE</span><span class="sig-paren">(</span><span class="pre">clock</span>, <span class="pre">clk</span><span class="sig-paren">)</span>, <span class="pre">unsigned</span> <em><span class="pre">rstMask</span></em>, <span class="pre">XUD_BusSpeed_t</span> <em><span class="pre">desiredSpeed</span></em>, <span class="pre">XUD_PwrConfig</span> <em><span class="pre">pwrConfig</span></em>, <span class="sig-paren">)</span><a class="headerlink" href="#_CPPv48XUD_MainA_7chanendiA_7chanendiF17NULLABLE_RESOURCE7chanend5c_sofEA_10XUD_EpTypeA_10XUD_EpTypeF17NULLABLE_RESOURCE3out9p_usb_rstEF17NULLABLE_RESOURCE5clock3clkEj14XUD_BusSpeed_t13XUD_PwrConfig" title="Permalink to this definition">¶</a><br/></dt>
+<dd><p>This performs the low-level USB I/O operations. Note that this needs to run in a thread with at least 80 MIPS worst case execution speed.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>c_epOut</strong> – An array of channel ends, one channel end per output endpoint (USB OUT transaction); this includes a channel to obtain requests on Endpoint 0. </p></li>
+<li><p><strong>noEpOut</strong> – The number of output endpoints, should be at least 1 (for Endpoint 0). </p></li>
+<li><p><strong>c_epIn</strong> – An array of channel ends, one channel end per input endpoint (USB IN transaction); this includes a channel to respond to requests on Endpoint 0. </p></li>
+<li><p><strong>noEpIn</strong> – The number of input endpoints, should be at least 1 (for Endpoint 0). </p></li>
+<li><p><strong>c_sof</strong> – A channel to receive SOF tokens on. This channel must be connected to a process that can receive a token once every 125 ms. If tokens are not read, the USB layer will lock up. If no SOF tokens are required <code class="docutils literal notranslate"><span class="pre">null</span></code> should be used for this parameter.</p></li>
+<li><p><strong>epTypeTableOut</strong> – See <code class="docutils literal notranslate"><span class="pre">epTypeTableIn</span></code>. </p></li>
+<li><p><strong>epTypeTableIn</strong> – This and <code class="docutils literal notranslate"><span class="pre">epTypeTableOut</span></code> are two arrays indicating the type of the endpoint. Legal types include: <code class="docutils literal notranslate"><span class="pre">XUD_EPTYPE_CTL</span></code> (Endpoint 0), <code class="docutils literal notranslate"><span class="pre">XUD_EPTYPE_BUL</span></code> (Bulk endpoint), <code class="docutils literal notranslate"><span class="pre">XUD_EPTYPE_ISO</span></code> (Isochronous endpoint), <code class="docutils literal notranslate"><span class="pre">XUD_EPTYPE_INT</span></code> (Interrupt endpoint), <code class="docutils literal notranslate"><span class="pre">XUD_EPTYPE_DIS</span></code> (Endpoint not used). The first array contains the endpoint types for each of the OUT endpoints, the second array contains the endpoint types for each of the IN endpoints. </p></li>
+<li><p><strong>p_usb_rst</strong> – The port to used to connect to an external phy reset line. Should be <code class="docutils literal notranslate"><span class="pre">null</span></code> for U-Series. </p></li>
+<li><p><strong>clk</strong> – The clock block to use for the p_usb_rst port - this should not be clock block 0. Should be <code class="docutils literal notranslate"><span class="pre">null</span></code> for U-Series. </p></li>
+<li><p><strong>rstMask</strong> – The mask to use when taking an external phy into/out of reset. The mask is ORed into the port to disable reset, and unset when deasserting reset. Use ‘-1’ as a default mask if this port is not shared. </p></li>
+<li><p><strong>desiredSpeed</strong> – This parameter specifies what speed the device will attempt to run at i.e. full-speed (ie 12Mbps) or high-speed (480Mbps) if supported by the host. Pass <code class="docutils literal notranslate"><span class="pre">XUD_SPEED_HS</span></code> if high-speed is desired or <code class="docutils literal notranslate"><span class="pre">XUD_SPEED_FS</span></code> if not. Low speed USB is not supported by XUD. </p></li>
+<li><p><strong>pwrConfig</strong> – Specifies whether the device is bus or self-powered. When self-powered the XUD will monitor the VBUS line for host disconnections. This is required for compliance reasons. Valid values are XUD_PWR_SELF and XUD_PWR_BUS. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+<div class="section" id="endpoint-type-table">
+<h3>Endpoint Type Table<a class="headerlink" href="#endpoint-type-table" title="Permalink to this headline">¶</a></h3>
+<p>The endpoint type table should take an array of <code class="docutils literal notranslate"><span class="pre">XUD_EpType</span></code> to inform XUD
+about endpoints being used.  This is mainly used to indicate the transfer-type
+of each endpoint (bulk, control, isochronous or interrupt) as well as
+whether the endpoint wishes to be informed about bus-resets (see <a class="reference internal" href="#status-reporting">Status Reporting</a>).</p>
+<p><em>Note:</em> endpoints can also be marked as disabled.</p>
+<p>Endpoints that are not used will <code class="docutils literal notranslate"><span class="pre">NAK</span></code> any traffic from the host.</p>
+</div>
+<div class="section" id="pwrconfig">
+<h3><code class="docutils literal notranslate"><span class="pre">PwrConfig</span></code><a class="headerlink" href="#pwrconfig" title="Permalink to this headline">¶</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">PwrConfig</span></code> parameter to <code class="docutils literal notranslate"><span class="pre">XUD_Main()</span></code> indicates if the device is bus or self-powered.</p>
+<p>Valid values for this parameter are <code class="docutils literal notranslate"><span class="pre">XUD_PWR_SELF</span></code> and <code class="docutils literal notranslate"><span class="pre">XUD_PWR_BUS</span></code>.</p>
+<p>When <code class="docutils literal notranslate"><span class="pre">XUD_PWR_SELF</span></code> is used, <code class="docutils literal notranslate"><span class="pre">XUD_Main()</span></code> monitors the VBUS input for a valid voltage and reponds appropriately. The USB Specification states that the devices pull-ups must be disabled when a valid VBUS is not present. This is important when submitting a device for compliance testing since this is explicitly tested.</p>
+<p>If the device is bus-powered <code class="docutils literal notranslate"><span class="pre">XUD_PWR_BUS</span></code> can be used since is assumed that the device is not powered up when VBUS is not present and therefore no voltage monitoring is required.  In this configuration the VBUS input to the device/PHY need not be present.</p>
+<p><code class="docutils literal notranslate"><span class="pre">XUD_PWR_BUS</span></code> can be used in order to run on a self-powered board without provision for VBUS wiring to the PHY/device, but this is not advised.</p>
+</div>
+</div>
+<div class="section" id="endpoint-communication-with-xud-main">
+<h2>Endpoint Communication with <code class="docutils literal notranslate"><span class="pre">XUD_Main()</span></code><a class="headerlink" href="#endpoint-communication-with-xud-main" title="Permalink to this headline">¶</a></h2>
+<p>Communication state between a core and the XUD library is encapsulated
+in an opaque type:</p>
+<dl class="cpp type">
+<dt id="_CPPv46XUD_ep">
+<span id="_CPPv36XUD_ep"></span><span id="_CPPv26XUD_ep"></span><span id="XUD_ep"></span><span class="target" id="xud_8h_1ad4a3e851b213dcda8fc81bf2d367b72a"></span><em class="property"><span class="pre">typedef</span> </em><span class="pre">unsigned</span> <span class="pre">int</span> <code class="sig-name descname"><span class="pre">XUD_ep</span></code><a class="headerlink" href="#_CPPv46XUD_ep" title="Permalink to this definition">¶</a><br/></dt>
+<dd><p>Typedef for endpoint identifiers. </p>
+</dd></dl>
+<p>All client calls communicating with the XUD library pass in this type.
+These data structures can be created at the start of execution of a
+client core with the following call that takes as an argument the
+endpoint channel connected to the XUD library:</p>
+<dl class="cpp function">
+<dt id="_CPPv410XUD_InitEp7chanend">
+<span id="_CPPv310XUD_InitEp7chanend"></span><span id="_CPPv210XUD_InitEp7chanend"></span><span id="XUD_InitEp__chanend"></span><span class="target" id="xud_8h_1a84b7ae57c201f82efd2a67d0e66850d9"></span><a class="reference internal" href="#_CPPv46XUD_ep" title="XUD_ep"><span class="pre">XUD_ep</span></a> <code class="sig-name descname"><span class="pre">XUD_InitEp</span></code><span class="sig-paren">(</span><span class="pre">chanend</span> <em><span class="pre">c_ep</span></em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv410XUD_InitEp7chanend" title="Permalink to this definition">¶</a><br/></dt>
+<dd><p>Initialises an XUD_ep. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>c_ep</strong> – Endpoint channel to be connected to the XUD library. </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Endpoint identifier </p>
+</dd>
+</dl>
+</dd></dl>
+<p>Endpoint data is sent/received using three main functions,
+<code class="docutils literal notranslate"><span class="pre">XUD_SetData()</span></code>, <code class="docutils literal notranslate"><span class="pre">XUD_GetData()</span></code> and <code class="docutils literal notranslate"><span class="pre">XUD_GetSetupData()</span></code>.</p>
+<p>These assembly functions implement the low-level shared memory/channel
+communication with the <code class="docutils literal notranslate"><span class="pre">XUD_Main()</span></code> core. For developer convenience
+these calls are wrapped up by XC functions.</p>
+<p>These functions will automatically deal with any low-level complications required
+such as Packet ID toggling etc.</p>
+<div class="section" id="xud-getbuffer">
+<h3><code class="docutils literal notranslate"><span class="pre">XUD_GetBuffer()</span></code><a class="headerlink" href="#xud-getbuffer" title="Permalink to this headline">¶</a></h3>
+<dl class="cpp function">
+<dt id="_CPPv413XUD_GetBuffer6XUD_epA_hF15REFERENCE_PARAMj6lengthE">
+<span id="_CPPv313XUD_GetBuffer6XUD_epA_hF15REFERENCE_PARAMj6lengthE"></span><span id="_CPPv213XUD_GetBuffer6XUD_epA_hF15REFERENCE_PARAMj6lengthE"></span><span class="target" id="xud_8h_1aa249106bc006b7b41ca1877c21df844d"></span><span class="pre">XUD_Result_t</span> <code class="sig-name descname"><span class="pre">XUD_GetBuffer</span></code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv46XUD_ep" title="XUD_ep"><span class="pre">XUD_ep</span></a> <em><span class="pre">ep_out</span></em>, <span class="pre">unsigned</span> <span class="pre">char</span> <em><span class="pre">buffer</span></em><span class="pre">[</span><span class="pre">]</span>, <span class="pre">REFERENCE_PARAM</span><span class="sig-paren">(</span><span class="pre">unsigned</span>, <span class="pre">length</span><span class="sig-paren">)</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv413XUD_GetBuffer6XUD_epA_hF15REFERENCE_PARAMj6lengthE" title="Permalink to this definition">¶</a><br/></dt>
+<dd><p>This function must be called by a thread that deals with an OUT endpoint. When the host sends data, the low-level driver will fill the buffer. It pauses until data is available. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ep_out</strong> – The OUT endpoint identifier (created by <code class="docutils literal notranslate"><span class="pre">XUD_InitEP</span></code>). </p></li>
+<li><p><strong>buffer</strong> – The buffer in which to store data received from the host. The buffer is assumed to be word aligned. </p></li>
+<li><p><strong>length</strong> – The number of bytes written to the buffer </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>XUD_RES_OKAY on success, for errors see <code class="docutils literal notranslate"><span class="pre">Status</span> <span class="pre">Reporting</span></code>_. </p>
+</dd>
+</dl>
+</dd></dl>
+</div>
+<div class="section" id="xud-setbuffer">
+<h3><code class="docutils literal notranslate"><span class="pre">XUD_SetBuffer()</span></code><a class="headerlink" href="#xud-setbuffer" title="Permalink to this headline">¶</a></h3>
+<dl class="cpp function">
+<dt id="_CPPv413XUD_SetBuffer6XUD_epA_hj">
+<span id="_CPPv313XUD_SetBuffer6XUD_epA_hj"></span><span id="_CPPv213XUD_SetBuffer6XUD_epA_hj"></span><span id="XUD_SetBuffer__XUD_ep.unsigned-cA.unsigned"></span><span class="target" id="xud_8h_1ab2f4a6897b705da9224deb4c38f22add"></span><span class="pre">XUD_Result_t</span> <code class="sig-name descname"><span class="pre">XUD_SetBuffer</span></code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv46XUD_ep" title="XUD_ep"><span class="pre">XUD_ep</span></a> <em><span class="pre">ep_in</span></em>, <span class="pre">unsigned</span> <span class="pre">char</span> <em><span class="pre">buffer</span></em><span class="pre">[</span><span class="pre">]</span>, <span class="pre">unsigned</span> <em><span class="pre">datalength</span></em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv413XUD_SetBuffer6XUD_epA_hj" title="Permalink to this definition">¶</a><br/></dt>
+<dd><p>This function must be called by a thread that deals with an IN endpoint. When the host asks for data, the low-level driver will transmit the buffer to the host. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ep_in</strong> – The endpoint identifier (created by <code class="docutils literal notranslate"><span class="pre">XUD_InitEp</span></code>). </p></li>
+<li><p><strong>buffer</strong> – The buffer of data to transmit to the host. </p></li>
+<li><p><strong>datalength</strong> – The number of bytes in the buffer. </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>XUD_RES_OKAY on success, for errors see <code class="docutils literal notranslate"><span class="pre">Status</span> <span class="pre">Reporting</span></code>_. </p>
+</dd>
+</dl>
+</dd></dl>
+</div>
+<div class="section" id="xud-setbuffer-epmax">
+<h3><code class="docutils literal notranslate"><span class="pre">XUD_SetBuffer_EpMax()</span></code><a class="headerlink" href="#xud-setbuffer-epmax" title="Permalink to this headline">¶</a></h3>
+<p>This function provides a similar function to <code class="docutils literal notranslate"><span class="pre">XUD_SetBuffer</span></code> function
+but it breaks the data up in packets of a fixed
+maximum size. This is especially useful for control transfers where large
+descriptors must be sent in typically 64 byte transactions.</p>
+<dl class="cpp function">
+<dt id="_CPPv419XUD_SetBuffer_EpMax6XUD_epA_hjj">
+<span id="_CPPv319XUD_SetBuffer_EpMax6XUD_epA_hjj"></span><span id="_CPPv219XUD_SetBuffer_EpMax6XUD_epA_hjj"></span><span id="XUD_SetBuffer_EpMax__XUD_ep.unsigned-cA.unsigned.unsigned"></span><span class="target" id="xud_8h_1ac6670d73558d37eb8d7513f39fe38bcb"></span><span class="pre">XUD_Result_t</span> <code class="sig-name descname"><span class="pre">XUD_SetBuffer_EpMax</span></code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv46XUD_ep" title="XUD_ep"><span class="pre">XUD_ep</span></a> <em><span class="pre">ep_in</span></em>, <span class="pre">unsigned</span> <span class="pre">char</span> <em><span class="pre">buffer</span></em><span class="pre">[</span><span class="pre">]</span>, <span class="pre">unsigned</span> <em><span class="pre">datalength</span></em>, <span class="pre">unsigned</span> <em><span class="pre">epMax</span></em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv419XUD_SetBuffer_EpMax6XUD_epA_hjj" title="Permalink to this definition">¶</a><br/></dt>
+<dd><p>Similar to XUD_SetBuffer but breaks up data transfers into smaller packets. This function must be called by a thread that deals with an IN endpoint. When the host asks for data, the low-level driver will transmit the buffer to the host. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ep_in</strong> – The IN endpoint identifier (created by <code class="docutils literal notranslate"><span class="pre">XUD_InitEp</span></code>). </p></li>
+<li><p><strong>buffer</strong> – The buffer of data to transmit to the host. </p></li>
+<li><p><strong>datalength</strong> – The number of bytes in the buffer. </p></li>
+<li><p><strong>epMax</strong> – The maximum packet size in bytes. </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>XUD_RES_OKAY on success, for errors see <code class="docutils literal notranslate"><span class="pre">Status</span> <span class="pre">Reporting</span></code>_. </p>
+</dd>
+</dl>
+</dd></dl>
+</div>
+<div class="section" id="xud-dogetrequest">
+<h3><code class="docutils literal notranslate"><span class="pre">XUD_DoGetRequest()</span></code><a class="headerlink" href="#xud-dogetrequest" title="Permalink to this headline">¶</a></h3>
+<dl class="cpp function">
+<dt id="_CPPv416XUD_DoGetRequest6XUD_ep6XUD_epA_hjj">
+<span id="_CPPv316XUD_DoGetRequest6XUD_ep6XUD_epA_hjj"></span><span id="_CPPv216XUD_DoGetRequest6XUD_ep6XUD_epA_hjj"></span><span id="XUD_DoGetRequest__XUD_ep.XUD_ep.unsigned-cA.unsigned.unsigned"></span><span class="target" id="xud_8h_1adf214a80ba0398ec96be3392e759dd75"></span><span class="pre">XUD_Result_t</span> <code class="sig-name descname"><span class="pre">XUD_DoGetRequest</span></code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv46XUD_ep" title="XUD_ep"><span class="pre">XUD_ep</span></a> <em><span class="pre">ep_out</span></em>, <a class="reference internal" href="#_CPPv46XUD_ep" title="XUD_ep"><span class="pre">XUD_ep</span></a> <em><span class="pre">ep_in</span></em>, <span class="pre">unsigned</span> <span class="pre">char</span> <em><span class="pre">buffer</span></em><span class="pre">[</span><span class="pre">]</span>, <span class="pre">unsigned</span> <em><span class="pre">length</span></em>, <span class="pre">unsigned</span> <em><span class="pre">requested</span></em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv416XUD_DoGetRequest6XUD_ep6XUD_epA_hjj" title="Permalink to this definition">¶</a><br/></dt>
+<dd><p>Performs a combined <code class="docutils literal notranslate"><span class="pre">XUD_SetBuffer</span></code> and <code class="docutils literal notranslate"><span class="pre">XUD_GetBuffer</span></code>. It transmits the buffer of the given length over the <code class="docutils literal notranslate"><span class="pre">ep_in</span></code> endpoint to answer an IN request, and then waits for a 0 length Status OUT transaction on <code class="docutils literal notranslate"><span class="pre">ep_out</span></code>. This function is normally called to handle Get control requests to Endpoint 0. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ep_out</strong> – The endpoint identifier that handles Endpoint 0 OUT data in the XUD manager. </p></li>
+<li><p><strong>ep_in</strong> – The endpoint identifier that handles Endpoint 0 IN data in the XUD manager. </p></li>
+<li><p><strong>buffer</strong> – The data to send in response to the IN transaction. Note that this data is chopped up in fragments of at most 64 bytes. </p></li>
+<li><p><strong>length</strong> – Length of data to be sent. </p></li>
+<li><p><strong>requested</strong> – The length that the host requested, (Typically pass the value <code class="docutils literal notranslate"><span class="pre">wLength</span></code>). </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>XUD_RES_OKAY on success, for errors see <code class="docutils literal notranslate"><span class="pre">Status</span> <span class="pre">Reporting</span></code>_ </p>
+</dd>
+</dl>
+</dd></dl>
+</div>
+<div class="section" id="xud-dosetrequeststatus">
+<h3><code class="docutils literal notranslate"><span class="pre">XUD_DoSetRequestStatus()</span></code><a class="headerlink" href="#xud-dosetrequeststatus" title="Permalink to this headline">¶</a></h3>
+<dl class="cpp function">
+<dt id="_CPPv422XUD_DoSetRequestStatus6XUD_ep">
+<span id="_CPPv322XUD_DoSetRequestStatus6XUD_ep"></span><span id="_CPPv222XUD_DoSetRequestStatus6XUD_ep"></span><span id="XUD_DoSetRequestStatus__XUD_ep"></span><span class="target" id="xud_8h_1a5c9de0183e72dd9cf4bcb37bf0a4ac76"></span><span class="pre">XUD_Result_t</span> <code class="sig-name descname"><span class="pre">XUD_DoSetRequestStatus</span></code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv46XUD_ep" title="XUD_ep"><span class="pre">XUD_ep</span></a> <em><span class="pre">ep_in</span></em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv422XUD_DoSetRequestStatus6XUD_ep" title="Permalink to this definition">¶</a><br/></dt>
+<dd><p>This function sends an empty packet back on the next IN request with PID1. It is normally used by Endpoint 0 to acknowledge success of a control transfer. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>ep_in</strong> – The Endpoint 0 IN identifier to the XUD manager. </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>XUD_RES_OKAY on success, for errors see <code class="docutils literal notranslate"><span class="pre">Status</span> <span class="pre">Reporting</span></code>_. </p>
+</dd>
+</dl>
+</dd></dl>
+</div>
+<div class="section" id="xud-setdevaddr">
+<h3><code class="docutils literal notranslate"><span class="pre">XUD_SetDevAddr()</span></code><a class="headerlink" href="#xud-setdevaddr" title="Permalink to this headline">¶</a></h3>
+<dl class="cpp function">
+<dt id="_CPPv414XUD_SetDevAddrj">
+<span id="_CPPv314XUD_SetDevAddrj"></span><span id="_CPPv214XUD_SetDevAddrj"></span><span id="XUD_SetDevAddr__unsigned"></span><span class="target" id="xud_8h_1ab3f1292feafc2458c802883695b6a61c"></span><span class="pre">XUD_Result_t</span> <code class="sig-name descname"><span class="pre">XUD_SetDevAddr</span></code><span class="sig-paren">(</span><span class="pre">unsigned</span> <em><span class="pre">addr</span></em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv414XUD_SetDevAddrj" title="Permalink to this definition">¶</a><br/></dt>
+<dd><p>Sets the device’s address. This function must be called by Endpoint 0 once a <code class="docutils literal notranslate"><span class="pre">setDeviceAddress</span></code> request is made by the host. </p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Must be run on USB core </p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>addr</strong> – New device address. </p>
+</dd>
+</dl>
+</dd></dl>
+</div>
+<div class="section" id="xud-setstall">
+<h3><code class="docutils literal notranslate"><span class="pre">XUD_SetStall()</span></code><a class="headerlink" href="#xud-setstall" title="Permalink to this headline">¶</a></h3>
+<dl class="cpp function">
+<dt id="_CPPv412XUD_SetStall6XUD_ep">
+<span id="_CPPv312XUD_SetStall6XUD_ep"></span><span id="_CPPv212XUD_SetStall6XUD_ep"></span><span id="XUD_SetStall__XUD_ep"></span><span class="target" id="xud_8h_1a2e33a2ac5707454fb1fc99a4a9334ad3"></span><span class="pre">void</span> <code class="sig-name descname"><span class="pre">XUD_SetStall</span></code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv46XUD_ep" title="XUD_ep"><span class="pre">XUD_ep</span></a> <em><span class="pre">ep</span></em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv412XUD_SetStall6XUD_ep" title="Permalink to this definition">¶</a><br/></dt>
+<dd><p>Mark an endpoint as STALLed. It is cleared automatically if a SETUP received on the endpoint. </p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Must be run on same tile as XUD core </p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>ep</strong> – XUD_ep type. </p>
+</dd>
+</dl>
+</dd></dl>
+</div>
+<div class="section" id="xud-setstallbyaddr">
+<h3><code class="docutils literal notranslate"><span class="pre">XUD_SetStallByAddr()</span></code><a class="headerlink" href="#xud-setstallbyaddr" title="Permalink to this headline">¶</a></h3>
+<dl class="cpp function">
+<dt id="_CPPv418XUD_SetStallByAddri">
+<span id="_CPPv318XUD_SetStallByAddri"></span><span id="_CPPv218XUD_SetStallByAddri"></span><span id="XUD_SetStallByAddr__i"></span><span class="target" id="xud_8h_1af695717374dfa45c79ecd533f1d07351"></span><span class="pre">void</span> <code class="sig-name descname"><span class="pre">XUD_SetStallByAddr</span></code><span class="sig-paren">(</span><span class="pre">int</span> <em><span class="pre">epNum</span></em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv418XUD_SetStallByAddri" title="Permalink to this definition">¶</a><br/></dt>
+<dd><p>Mark an endpoint as STALL based on its EP address. Cleared automatically if a SETUP received on the endpoint. Note: the IN bit of the endpoint address is used. </p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Must be run on same tile as XUD core </p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>epNum</strong> – Endpoint number. </p>
+</dd>
+</dl>
+</dd></dl>
+</div>
+<div class="section" id="xud-clearstall">
+<h3><code class="docutils literal notranslate"><span class="pre">XUD_ClearStall()</span></code><a class="headerlink" href="#xud-clearstall" title="Permalink to this headline">¶</a></h3>
+<dl class="cpp function">
+<dt id="_CPPv414XUD_ClearStall6XUD_ep">
+<span id="_CPPv314XUD_ClearStall6XUD_ep"></span><span id="_CPPv214XUD_ClearStall6XUD_ep"></span><span id="XUD_ClearStall__XUD_ep"></span><span class="target" id="xud_8h_1a46d4b975b737181bb80630277e9b3e12"></span><span class="pre">void</span> <code class="sig-name descname"><span class="pre">XUD_ClearStall</span></code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv46XUD_ep" title="XUD_ep"><span class="pre">XUD_ep</span></a> <em><span class="pre">ep</span></em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv414XUD_ClearStall6XUD_ep" title="Permalink to this definition">¶</a><br/></dt>
+<dd><p>Mark an endpoint as NOT STALLed. </p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Must be run on same tile as XUD core </p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>ep</strong> – XUD_ep type. </p>
+</dd>
+</dl>
+</dd></dl>
+</div>
+<div class="section" id="xud-clearstallbyaddr">
+<h3><code class="docutils literal notranslate"><span class="pre">XUD_ClearStallByAddr()</span></code><a class="headerlink" href="#xud-clearstallbyaddr" title="Permalink to this headline">¶</a></h3>
+<dl class="cpp function">
+<dt id="_CPPv420XUD_ClearStallByAddri">
+<span id="_CPPv320XUD_ClearStallByAddri"></span><span id="_CPPv220XUD_ClearStallByAddri"></span><span id="XUD_ClearStallByAddr__i"></span><span class="target" id="xud_8h_1ae2afad623bdf97dce1080df4049734bd"></span><span class="pre">void</span> <code class="sig-name descname"><span class="pre">XUD_ClearStallByAddr</span></code><span class="sig-paren">(</span><span class="pre">int</span> <em><span class="pre">epNum</span></em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv420XUD_ClearStallByAddri" title="Permalink to this definition">¶</a><br/></dt>
+<dd><p>Mark an endpoint as NOT STALLed based on its EP address. Note: the IN bit of the endpoint address is used. </p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Must be run on same tile as XUD core </p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>epNum</strong> – Endpoint number. </p>
+</dd>
+</dl>
+</dd></dl>
+</div>
+<div class="section" id="status-reporting">
+<span id="xud-status-reporting"></span><h3>Status Reporting<a class="headerlink" href="#status-reporting" title="Permalink to this headline">¶</a></h3>
+<p>Status reporting on an endpoint can be enabled so that bus state is
+known. This is achieved by ORing <code class="docutils literal notranslate"><span class="pre">XUD_STATUS_ENABLE</span></code> into the relevant
+endpoint in the endpoint type table.</p>
+<p>This means that endpoints are notified of USB bus resets (and
+bus-speed changes). The XUD access functions discussed previously
+(<code class="docutils literal notranslate"><span class="pre">XUD_GetData</span></code>, <code class="docutils literal notranslate"><span class="pre">XUD_SetData</span></code>, etc.) return XUD_RES_RST if
+a USB bus reset is detected.</p>
+<p>This reset notification is important if an endpoint core is expecting
+alternating INs and OUTs. For example, consider the case where an
+endpoint is always expecting the sequence OUT, IN, OUT (such as a control
+transfer). If an unplug/reset event was received after the first OUT,
+the host would return to sending the initial OUT after a replug, while
+the endpoint would hang on the IN. The endpoint needs to know of the bus
+reset in order to reset its state machine.</p>
+<p><em>Endpoint 0 therefore requires this functionality since it deals with
+bi-directional control transfers.</em></p>
+<p>This is also important for high-speed devices, since it is not
+guaranteed that the host will detect the device as a high-speed device.
+The device therefore needs to know what bus-speed it is currently running at.</p>
+<p>After a reset notification has been received, the endpoint must call the
+<code class="docutils literal notranslate"><span class="pre">XUD_ResetEndpoint()</span></code> function. This will return the current bus
+speed.</p>
+</div>
+<div class="section" id="xud-resetendpoint">
+<h3><code class="docutils literal notranslate"><span class="pre">XUD_ResetEndpoint()</span></code><a class="headerlink" href="#xud-resetendpoint" title="Permalink to this headline">¶</a></h3>
+<dl class="cpp function">
+<dt id="_CPPv417XUD_ResetEndpoint6XUD_epF24NULLABLE_REFERENCE_PARAM6XUD_ep3twoE">
+<span id="_CPPv317XUD_ResetEndpoint6XUD_epF24NULLABLE_REFERENCE_PARAM6XUD_ep3twoE"></span><span id="_CPPv217XUD_ResetEndpoint6XUD_epF24NULLABLE_REFERENCE_PARAM6XUD_ep3twoE"></span><span class="target" id="xud_8h_1a88b44b3698941f6924e96c853c2310e4"></span><span class="pre">XUD_BusSpeed_t</span> <code class="sig-name descname"><span class="pre">XUD_ResetEndpoint</span></code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv46XUD_ep" title="XUD_ep"><span class="pre">XUD_ep</span></a> <em><span class="pre">one</span></em>, <span class="pre">NULLABLE_REFERENCE_PARAM</span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv46XUD_ep" title="XUD_ep"><span class="pre">XUD_ep</span></a>, <span class="pre">two</span><span class="sig-paren">)</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv417XUD_ResetEndpoint6XUD_epF24NULLABLE_REFERENCE_PARAM6XUD_ep3twoE" title="Permalink to this definition">¶</a><br/></dt>
+<dd><p>This function will complete a reset on an endpoint. Can take one or two <code class="docutils literal notranslate"><span class="pre">XUD_ep</span></code> as parameters (the second parameter can be set to <code class="docutils literal notranslate"><span class="pre">null</span></code>). The return value should be inspected to find the new bus-speed. In Endpoint 0 typically two endpoints are reset (IN and OUT). In other endpoints <code class="docutils literal notranslate"><span class="pre">null</span></code> can be passed as the second parameter. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>one</strong> – IN or OUT endpoint identifier to perform the reset on. </p></li>
+<li><p><strong>two</strong> – Optional second IN or OUT endpoint structure to perform a reset on. </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Either <code class="docutils literal notranslate"><span class="pre">XUD_SPEED_HS</span></code> - the host has accepted that this device can execute at high speed, or <code class="docutils literal notranslate"><span class="pre">XUD_SPEED_FS</span></code> - the device is runnig at full speed. </p>
+</dd>
+</dl>
+</dd></dl>
+</div>
+</div>
+<div class="section" id="sof-channel">
+<h2>SOF Channel<a class="headerlink" href="#sof-channel" title="Permalink to this headline">¶</a></h2>
+<p>An application can pass a channel-end to the <code class="docutils literal notranslate"><span class="pre">c_sof</span></code> parameter of
+<code class="docutils literal notranslate"><span class="pre">XUD_Main()</span></code>.  This will cause a word of data to be output every time
+the device receives a SOF from the host.  This can be used for timing
+information for audio devices etc.  If this functionality is not required
+<code class="docutils literal notranslate"><span class="pre">null</span></code> should be passed as the parameter.  Please note, if a channel-end
+is passed into <code class="docutils literal notranslate"><span class="pre">XUD_Main()</span></code> there must be a responsive task ready to
+receive SOF notifications otherwise the <code class="docutils literal notranslate"><span class="pre">XUD_Main()</span></code> task will be
+blocked attempting to send these messages.</p>
+</div>
+<div class="section" id="usb-test-modes">
+<span id="xud-usb-test-modes"></span><h2>USB Test Modes<a class="headerlink" href="#usb-test-modes" title="Permalink to this headline">¶</a></h2>
+<p>XUD supports the required test modes for USB Compliance testing.</p>
+<p>XUD accepts commands from the endpoint 0 channels (in or out) to signal which test mode
+to enter via the <code class="docutils literal notranslate"><span class="pre">XUD_SetTestMode()</span></code> function. The commands are based on the definitions
+of the Test Mode Selector Codes in the USB 2.0 Specification Table 11-24.  The supported test modes are
+summarised in <a class="reference internal" href="#table-test-modes"><span class="std std-ref">Supported Test Mode Selector Codes</span></a>.</p>
+<span id="table-test-modes"></span><div class="table-wrapper"><table class="horizontal-borders vertical-borders docutils align-default" id="id1">
+<caption><span class="caption-number">Table 5 </span><span class="caption-text">Supported Test Mode Selector Codes</span><a class="headerlink" href="#id1" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 18%"/>
+<col style="width: 82%"/>
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Value</p></th>
+<th class="head"><p>Test Mode Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>Test_J</p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>Test_K</p></td>
+</tr>
+<tr class="row-even"><td><p>3</p></td>
+<td><p>Test_SE0_NAK</p></td>
+</tr>
+<tr class="row-odd"><td><p>4</p></td>
+<td><p>Test_Packet</p></td>
+</tr>
+</tbody>
+</table></div>
+<p>The passing other codes endpoints other than 0 to <code class="docutils literal notranslate"><span class="pre">XUD_SetTestMode()</span></code> could result in undefined
+behaviour.</p>
+<p>As per the USB 2.0 Specification a power cycle or reboot is required to exit the test mode.</p>
+<div class="section" id="xud-settestmode">
+<h3><code class="docutils literal notranslate"><span class="pre">XUD_SetTestMode()</span></code><a class="headerlink" href="#xud-settestmode" title="Permalink to this headline">¶</a></h3>
+<dl class="cpp function">
+<dt id="_CPPv415XUD_SetTestMode6XUD_epj">
+<span id="_CPPv315XUD_SetTestMode6XUD_epj"></span><span id="_CPPv215XUD_SetTestMode6XUD_epj"></span><span id="XUD_SetTestMode__XUD_ep.unsigned"></span><span class="target" id="xud_8h_1a66ba9fe3158e5d58816eb86744103219"></span><span class="pre">void</span> <code class="sig-name descname"><span class="pre">XUD_SetTestMode</span></code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv46XUD_ep" title="XUD_ep"><span class="pre">XUD_ep</span></a> <em><span class="pre">ep</span></em>, <span class="pre">unsigned</span> <em><span class="pre">testMode</span></em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv415XUD_SetTestMode6XUD_epj" title="Permalink to this definition">¶</a><br/></dt>
+<dd><p>Enable a specific USB test mode in XUD. </p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Must be run on same tile as XUD core </p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ep</strong> – XUD_ep type (must be endpoint 0 in or out) </p></li>
+<li><p><strong>testMode</strong> – The desired test-mode </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+</div>
+</div>
+</div>
+
+      </article>
+      <footer>
+        
+        <div class="related-pages">
+          <a class="next-page" href="advanced_usage.html">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title">Advanced Usage</div>
+              </div>
+              <svg><use href="#svg-arrow-right"></use></svg>
+            </a>
+          <a class="prev-page" href="resource_usage.html">
+              <svg><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">Resource Usage</div>
+                
+              </div>
+            </a>
+        </div>
+
+        <div class="related-information">
+              Copyright &#169; 2021, XMOS Ltd
+            |
+            Built with <a href="https://www.sphinx-doc.org/">Sphinx</a>
+              and
+              <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+              <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
+            |
+            <a class="muted-link" href="../../../_sources/lib_xud/doc/rst/basic_usage.rst.txt"
+               rel="nofollow">
+              Show Source
+            </a>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            Contents
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Basic Usage</a><ul>
+<li><a class="reference internal" href="#xud-core-xud-main">XUD Core: <code class="docutils literal notranslate"><span class="pre">XUD_Main()</span></code></a><ul>
+<li><a class="reference internal" href="#endpoint-type-table">Endpoint Type Table</a></li>
+<li><a class="reference internal" href="#pwrconfig"><code class="docutils literal notranslate"><span class="pre">PwrConfig</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#endpoint-communication-with-xud-main">Endpoint Communication with <code class="docutils literal notranslate"><span class="pre">XUD_Main()</span></code></a><ul>
+<li><a class="reference internal" href="#xud-getbuffer"><code class="docutils literal notranslate"><span class="pre">XUD_GetBuffer()</span></code></a></li>
+<li><a class="reference internal" href="#xud-setbuffer"><code class="docutils literal notranslate"><span class="pre">XUD_SetBuffer()</span></code></a></li>
+<li><a class="reference internal" href="#xud-setbuffer-epmax"><code class="docutils literal notranslate"><span class="pre">XUD_SetBuffer_EpMax()</span></code></a></li>
+<li><a class="reference internal" href="#xud-dogetrequest"><code class="docutils literal notranslate"><span class="pre">XUD_DoGetRequest()</span></code></a></li>
+<li><a class="reference internal" href="#xud-dosetrequeststatus"><code class="docutils literal notranslate"><span class="pre">XUD_DoSetRequestStatus()</span></code></a></li>
+<li><a class="reference internal" href="#xud-setdevaddr"><code class="docutils literal notranslate"><span class="pre">XUD_SetDevAddr()</span></code></a></li>
+<li><a class="reference internal" href="#xud-setstall"><code class="docutils literal notranslate"><span class="pre">XUD_SetStall()</span></code></a></li>
+<li><a class="reference internal" href="#xud-setstallbyaddr"><code class="docutils literal notranslate"><span class="pre">XUD_SetStallByAddr()</span></code></a></li>
+<li><a class="reference internal" href="#xud-clearstall"><code class="docutils literal notranslate"><span class="pre">XUD_ClearStall()</span></code></a></li>
+<li><a class="reference internal" href="#xud-clearstallbyaddr"><code class="docutils literal notranslate"><span class="pre">XUD_ClearStallByAddr()</span></code></a></li>
+<li><a class="reference internal" href="#status-reporting">Status Reporting</a></li>
+<li><a class="reference internal" href="#xud-resetendpoint"><code class="docutils literal notranslate"><span class="pre">XUD_ResetEndpoint()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#sof-channel">SOF Channel</a></li>
+<li><a class="reference internal" href="#usb-test-modes">USB Test Modes</a><ul>
+<li><a class="reference internal" href="#xud-settestmode"><code class="docutils literal notranslate"><span class="pre">XUD_SetTestMode()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </main>
+</div>
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script src="../../../_static/tabs.js"></script>
+    <script src="../../../_static/scripts/main.js?digest=e931d09b2a40c1bb82b542effe772014573baf67"></script></body>
+</html>
