@@ -80,7 +80,7 @@ extensions = [
     "sphinx_inline_tabs",
     "breathe",
     'sphinx.ext.autosectionlabel',
-    'sphinx_multiversion'
+    'sphinx_multiversion',
 ]
 
 
@@ -89,7 +89,7 @@ breathe_projects = {"TMP": "./_build/_doxygen/xml/"}
 breathe_default_project = "TMP"
 
 # Add any paths that contain templates here, relative to this directory.
-templates_path = ['_templates']
+templates_path = ['./_templates']
 
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
