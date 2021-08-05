@@ -80,7 +80,7 @@ extensions = [
     "sphinx_inline_tabs",
     "breathe",
     'sphinx.ext.autosectionlabel',
-    'sphinx-multiversion'
+    'sphinx_multiversion'
 ]
 
 
