@@ -1,0 +1,4 @@
+XCORE architecture,Supported,Tools required
+xcore.ai,Yes,Tools 15.1 or later
+xcore200 (XS2),Yes,"Tools 14.1 or later, but < 15"
+XS1,No,NA
