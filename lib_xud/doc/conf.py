@@ -80,6 +80,7 @@ extensions = [
     "sphinx_inline_tabs",
     "breathe",
     'sphinx.ext.autosectionlabel',
+    'sphinx-multiversion'
 ]
 
 
@@ -129,3 +130,9 @@ numfig_secnum_depth = 1
 
 
 autosectionlabel_prefix_document = True
+
+html_sidebars = {
+    '**': [
+        'versioning.html',
+    ],
+}
