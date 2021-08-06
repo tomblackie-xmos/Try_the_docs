@@ -89,7 +89,7 @@ breathe_projects = {"TMP": "./_build/_doxygen/xml/"}
 breathe_default_project = "TMP"
 
 # Add any paths that contain templates here, relative to this directory.
-templates_path = ['./_templates']
+templates_path = ['_templates']
 
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
@@ -107,7 +107,7 @@ html_theme = 'furo'
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
-html_static_path = ['_static']
+html_static_path = []
 
 html_logo = "./rst/images/xmos_logo.png"
 html_theme_options = {
@@ -131,8 +131,15 @@ numfig_secnum_depth = 1
 
 autosectionlabel_prefix_document = True
 
-html_sidebars = {
-    '**': [
-        'versioning.html',
-    ],
-}
+html_sidebars = {'**':[
+    "sidebar/brand.html",
+    "sidebar/search.html",
+    "sidebar/navigation.html",
+    "sidebar/ethical-ads.html",
+    'test.html',
+    #'versioning.html',
+]}
+
+
+READTHEDOCS = 1
+
