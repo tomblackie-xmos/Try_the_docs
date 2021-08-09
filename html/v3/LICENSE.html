@@ -147,8 +147,8 @@
 </div>
 ﻿
 
-<select name="version" id="version-select" value="latest" onchange="changeVersion(this.value)" >
-    <option selected disabled>Older versions</option>
+<select name="version" id="version-select" value="Latest" onchange="changeVersion(this.value)" >
+    <option selected disabled>Other versions</option>
     <option value="html/latest/">Latest</option>
     <!-- <option value="html/v3/">3.0.0</option> -->
     <option value="html/v2/">2.0.0</option>
@@ -175,7 +175,7 @@
             if (request.readyState === 4){
                 if (request.status === 404) {  
                     alert("Oh no, it does not exist!");
-                    window.history.back();
+                    $('#version-select').val() = "Latest";
                 }
                 else {
                     window.location.assign(nl);
