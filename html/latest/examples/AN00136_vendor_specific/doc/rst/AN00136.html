@@ -175,7 +175,7 @@
             if (request.readyState === 4){
                 if (request.status === 404) {  
                     alert("Oh no, it does not exist!");
-                    $('#version-select').val() = "Latest";
+                    window.location.assign(loc);
                 }
                 else {
                     window.location.assign(nl);
