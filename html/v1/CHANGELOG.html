@@ -1,0 +1,690 @@
+<!doctype html>
+<html class="no-js">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" />
+
+    <meta name="generator" content="sphinx-3.5.4, furo 2021.04.11.beta34"/>
+        <title>lib_xud Change Log - Keith&#39;s Original Docs 1.0.0 documentation</title>
+      <link rel="stylesheet" href="_static/styles/furo.css?digest=59ab60ac09ea94ccfe6deddff6d715cce948a6fc">
+    <link rel="stylesheet" href="_static/pygments.css">
+    <link media="(prefers-color-scheme: dark)" rel="stylesheet" href="_static/pygments_dark.css">
+    
+
+
+<style>
+  :root {
+    --color-code-background: #f8f8f8;
+  --color-code-foreground: black;
+  
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+  }
+
+  /* For allowing end-user-specific overrides */
+  .override-light {
+    --color-code-background: #f8f8f8;
+  --color-code-foreground: black;
+  
+  }
+  .override-dark {
+    --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+  }
+</style><link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/tabs.css" />
+    <link rel="stylesheet" href="_static/styles/furo-extensions.css?digest=d391b54134226e4196576da3bdb6dddb7e05ba2b"></head>
+  <body dir="">
+    
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+      stroke-width="1.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+      <path stroke="none" d="M0 0h24v24H0z"/>
+      <line x1="4" y1="6" x2="20" y2="6" />
+      <line x1="10" y1="12" x2="20" y2="12" />
+      <line x1="6" y1="18" x2="20" y2="18" />
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+      class="feather feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+      class="feather feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation"></label>
+<label class="overlay toc-overlay" for="__toc"></label>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="index.html"><div class="brand">Keith's Original Docs 1.0.0 documentation</div></a>
+    </div>
+    <div class="header-right">
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand centered" href="index.html">
+  
+  <div class="sidebar-logo-container">
+    <img class="sidebar-logo" src="_static/xmos_logo.png" alt="Logo"/>
+  </div>
+  
+  <span class="sidebar-brand-text">Keith's Original Docs 1.0.0 documentation</span>
+  
+</a><form class="sidebar-search-container" method="get" action="search.html">
+  <input class="sidebar-search" placeholder=Search name="q">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form><div class="sidebar-tree">
+  <ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="doc/rst/before_you_start.html">Before you start</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label for="toctree-checkbox-1"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="doc/rst/version_info.html">Tool and Architecture Dependencies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="doc/rst/inc_changelog.html">lib_xud Change Log</a></li>
+<li class="toctree-l2"><a class="reference internal" href="doc/rst/inc_license.html">XMOS PUBLIC LICENCE: Version 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="doc/rst/inc_copyrights.html">Copyright</a></li>
+<li class="toctree-l2"><a class="reference internal" href="doc/rst/inc_contributions.html">How to contribute</a></li>
+<li class="toctree-l2"><a class="reference internal" href="doc/rst/build_the_documentation_yourself.html">How to build the documenation</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="lib_xud/doc/rst/the_xud_library.html">The XUD library</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label for="toctree-checkbox-2"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="lib_xud/doc/rst/overview.html">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lib_xud/doc/rst/file_arrangement.html">File Arrangement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lib_xud/doc/rst/resource_usage.html">Resource Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lib_xud/doc/rst/basic_usage.html">Basic Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lib_xud/doc/rst/advanced_usage.html">Advanced Usage</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="examples/doc/usb_class_examples.html">USB Class examples</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label for="toctree-checkbox-3"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="examples/AN00124_CDC_VCOM_class/doc/rst/AN00124.html">CDC VCOM class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples/AN00125_mass_storage_class/doc/rst/AN00125.html">Mass Storage class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples/AN00126_printer_class/doc/rst/AN00126.html">Printer class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples/AN00127_video_class/doc/rst/AN00127.html">Video class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples/AN00129_hid_class/doc/rst/AN00129.html">HID class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples/AN00131_CDC_EDC_class/doc/rst/AN00131.html">CDC EDC class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples/AN00132_image_class/doc/rst/AN00132.html">Image class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples/AN00135_test_and_measurement_class/doc/rst/AN00135.html">Test and Measurement class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples/AN00136_vendor_specific/doc/rst/AN00136.html">Vendor Sepcific (Custom USB device)</a></li>
+</ul>
+</li>
+</ul>
+
+</div>
+﻿
+
+<select name="version" id="version-select" value="latest" onchange="changeVersion(this.value)" >
+    <option selected disabled>Older versions</option>
+    <option value="html/latest/">Latest</option>
+    <!-- <option value="html/v3/">3.0.0</option> -->
+    <!-- <option value="html/v2/">2.0.0</option> -->
+    <!-- <option value="html/v1/">1.0.0</option> -->
+</select>
+
+
+
+
+<script>
+    function changeVersion(val) {
+        var loc = window.location.toString();
+        var i = loc.indexOf("html/");
+        if (i >= 0) {
+            var s1 = loc.substring(0, i);
+            var i2 = loc.indexOf("/", i+6)
+            var s2 = loc.substring(i2+1);
+            nl=s1.concat(val, s2);
+            window.location.assign(nl);
+        }
+    }
+</script>
+
+
+
+      </div>
+      
+    </div>
+  </aside>
+  <main class="main">
+    <div class="content">
+      <article role="main">
+        <label class="toc-overlay-icon toc-content-icon" for="__toc">
+          <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+        </label>
+        <div class="section" id="lib-xud-change-log">
+<h1>lib_xud Change Log<a class="headerlink" href="#lib-xud-change-log" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id1">
+<h2>1.2.0<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><ul class="simple">
+<li><p>CHANGED: Use XMOS Public Licence Version 1</p></li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="id2">
+<h2>1.1.2<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><ul class="simple">
+<li><p>CHANGED: Pin Python package versions</p></li>
+<li><p>REMOVED: not necessary cpanfile</p></li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="id3">
+<h2>1.1.1<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><ul class="simple">
+<li><p>RESOLVED:   Cases where disabling RxError caused firmware to crash</p></li>
+<li><p>RESOLVED:   USB Disconnect on self-powered devices intermittently causing EP
+set to not-ready indefinitely</p></li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="id4">
+<h2>1.1.0<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><ul class="simple">
+<li><p>RESOLVED:   Disabled erroneous handling of Rx Error line</p></li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="id5">
+<h2>1.0.0<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><ul class="simple">
+<li><p>CHANGE:     Version for first major release.</p></li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="id6">
+<h2>0.2.0<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><ul class="simple">
+<li><p>CHANGE:     Build files updated to support new “xcommon” behaviour in xwaf.</p></li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="id7">
+<h2>0.1.1<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><ul class="simple">
+<li><p>RESOLVED:   Transmit timing fixes for U-series devices (introduced in sc_xud
+2.3.0)</p></li>
+<li><p>RESOLVED:   Continuous suspend/resume notifications when host disconnected
+(introduced in sc_xud 2.4.2, #11813)</p></li>
+<li><p>RESOLVED:   Exception raised in GET_STATUS request when null pointer passed
+for high-speed configuration descriptor</p></li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="id8">
+<h2>0.1.0<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><ul class="simple">
+<li><p>CHANGE:     Fork from sc_xud to lib_xud</p></li>
+<li><p>CHANGE:     Documentation updates</p></li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="legacy-release-history">
+<h2>Legacy release history<a class="headerlink" href="#legacy-release-history" title="Permalink to this headline">¶</a></h2>
+<p>Note: Forked from sc_xud at this point.</p>
+</div>
+<div class="section" id="id9">
+<h2>2.6.0<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><ul class="simple">
+<li><p>RESOLVED    Issue referenced as #11813 in 2.4.2 for XS1 devices</p></li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="id10">
+<h2>2.5.0<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><ul class="simple">
+<li><dl class="simple">
+<dt>RESOLVED:   xCORE-200 USB phy parameters tuned for optimal Tx performance resulting</dt><dd><p>in much improved TX eye diagram and compliance test results</p>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="id11">
+<h2>2.4.2<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><ul class="simple">
+<li><dl class="simple">
+<dt>CHANGE:     VBUS connection to xCORE-200 no longer required when using XUD_PWR_BUS i.e.</dt><dd><p>for bus-powered devices. This removes the need to any protection circuitry and
+allows for a reduced BOM.
+Note, VBUS should still be present for self powered devices in order to pass USB
+compliance tests.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>RESOLVED:   Device might hang during resume if host follows resume signality with activity</dt><dd><p>after a time close to specified minimum of 1.33us (#11813)</p>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="id12">
+<h2>2.4.1<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><ul class="simple">
+<li><p>RESOLVED:   Initialisation failure on U-series devices</p></li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="id13">
+<h2>2.4.0<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><ul class="simple">
+<li><p>RESOLVED:   Intermittent initialisation issues with xCORE-200</p></li>
+<li><p>RESOLVED:   SETUP transaction data CRC not properly checked</p></li>
+<li><p>RESOLVED:   RxError line from phy handled</p></li>
+<li><dl class="simple">
+<dt>RESOLVED:   Isochronous IN endpoints now send an 0-length packet if not ready rather than</dt><dd><p>an (invalid) NAK.</p>
+</dd>
+</dl>
+</li>
+<li><p>RESOLVED:   Receive of short packets sometimes prematurely ended</p></li>
+<li><dl class="simple">
+<dt>RESOLVED:   Data PID not reset to DATA0 in ClearStallByAddr() (used on ClearFeature(HALT)</dt><dd><p>request from host) (#17092)</p>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="id14">
+<h2>2.3.2<a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><ul class="simple">
+<li><dl class="simple">
+<dt>CHANGE:     Interrupts disabled during any access to usb_tile. Allows greater reliability</dt><dd><p>if user suspend/resume functions enabled interrupts e.g. for role-switch</p>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="id15">
+<h2>2.3.1<a class="headerlink" href="#id15" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><ul class="simple">
+<li><dl class="simple">
+<dt>RESOLVED:   (Minor) XUD_ResetEpStateByAddr() could operate on corresponding OUT endpoint</dt><dd><p>instead of the desired IN endpoint address as passed into the function (and
+vice versa). Re-introduced into 2.3.0 due to manual merge with lib_usb.</p>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="id16">
+<h2>2.3.0<a class="headerlink" href="#id16" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><ul class="simple">
+<li><p>ADDED:      Support for XCORE-200 (libxud_x200.a)</p></li>
+<li><p>CHANGE:     Compatibility fixes for XMOS toolset version 14 (dual-issue support etc)</p></li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="id17">
+<h2>2.2.4<a class="headerlink" href="#id17" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><ul class="simple">
+<li><dl class="simple">
+<dt>RESOLVED:   (Minor) Potential for lock-up when waiting for USB clock on startup. This is is</dt><dd><p>avoided by enabling port buffering on the USB clock port. Affects L/G series only.</p>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="id18">
+<h2>2.2.3<a class="headerlink" href="#id18" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><ul class="simple">
+<li><dl class="simple">
+<dt>RESOLVED:   (Minor) XUD_ResetEpStateByAddr() could operate on corresponding OUT endpoint</dt><dd><p>instead of the desired IN endpoint address as passed into the function (and
+vice versa)</p>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="id19">
+<h2>2.2.2<a class="headerlink" href="#id19" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><blockquote>
+<div><ul class="simple">
+<li><p>CHANGE:     Header file comment clarification only</p></li>
+</ul>
+</div></blockquote>
+<ul class="simple">
+<li><p>Changes to dependencies:</p>
+<ul>
+<li><p>sc_usb: 1.0.3rc0 -&gt; 1.0.4alpha0</p>
+<ul>
+<li><p>ADDED:      Structs for Audio Class 2.0 Mixer and Extension Units</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="id20">
+<h2>2.2.1<a class="headerlink" href="#id20" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><ul class="simple">
+<li><p>RESOLVED:   Slight optimisations (long jumps replaced with short) to aid inter-packet gaps.</p></li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="id21">
+<h2>2.2.0<a class="headerlink" href="#id21" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><ul class="simple">
+<li><p>CHANGE:     Timer usage optimisation - usage reduced by one.</p></li>
+<li><dl class="simple">
+<dt>CHANGE:     OTG Flags register explicitly cleared at start up - useful if previously running</dt><dd><p>in host mode after a soft-reboot.</p>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="id22">
+<h2>2.1.1<a class="headerlink" href="#id22" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><ul class="simple">
+<li><p>ADDED:      Warning emitted when number of cores is greater than 6</p></li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="id23">
+<h2>2.1.0<a class="headerlink" href="#id23" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><ul class="simple">
+<li><dl class="simple">
+<dt>CHANGE:     XUD no longer takes a additional chanend parameter for enabling USB test-modes.</dt><dd><p>Test-modes are now enabled via a XUD_SetTestMode() function using a chanend
+relating to Endpoint 0. This change was made to reduce chanend usage only.</p>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="id24">
+<h2>2.0.1<a class="headerlink" href="#id24" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><ul class="simple">
+<li><dl class="simple">
+<dt>RESOLVED:   (Minor) Error when building module_xud in xTimeComposer due to invalid project</dt><dd><p>files.</p>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="id25">
+<h2>2.0.0<a class="headerlink" href="#id25" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><blockquote>
+<div><ul class="simple">
+<li><dl class="simple">
+<dt>CHANGE:     All XUD functions now return XUD_Result_t. Functions that previously returned</dt><dd><p>a buffer length (e.g. XUD_GetBuffer) now require a length param (passed by
+reference.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>CHANGE:     Endpoint ready flags are now reset on bus-reset (if XUD_STATUS_ENABLE used). This</dt><dd><p>means an endpoint can avoid sending/receiving stale data after a bus-reset.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>CHANGE:     Reset notifications are now longer hand-shaken back to XUD_Manager in</dt><dd><p>XUD_ResetEndpoint. This reduces the possibility of an Endpoint breaking timing
+of USB handshake signalling through bad code. XUD functions now check reseting flag
+to avoid race condition.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>CHANGE:     XUD_SetReady_In now implemented using XUD_SetReady_InPtr (previously was duplicated</dt><dd><p>code.</p>
+</dd>
+</dl>
+</li>
+<li><p>CHANGE:     XUD_ResetEndpoint now in XC. Previously was an ASM wrapper.</p></li>
+<li><dl class="simple">
+<dt>CHANGE:     Modifications to xud.h including the use of macros from xccompat.h such that it</dt><dd><p>can be included from .c files.</p>
+</dd>
+</dl>
+</li>
+<li><p>CHANGE:     XUD_BusSpeed type renamed to XUD_BusSpeed_t in line with naming conventions</p></li>
+<li><p>CHANGE:     XUD_SetData_Select now takes a reference to XUD_Result_t instead an int</p></li>
+<li><p>CHANGE:     XUD_GetData_Select now takes an additional XUD_Result_t parameter by reference</p></li>
+<li><dl class="simple">
+<dt>CHANGE:     XUD_GetData_Select now returns XUD_RES_ERR instead of a 0 length on packet error</dt><dd><p>(e.g. PID sequence error).</p>
+</dd>
+</dl>
+</li>
+<li><p>CHANGE:     XUD_SetDevAddr now returns XUD_Result_t</p></li>
+</ul>
+</div></blockquote>
+<ul class="simple">
+<li><p>Changes to dependencies:</p>
+<ul>
+<li><p>sc_usb: 1.0.2beta1 -&gt; 1.0.3rc0</p>
+<ul>
+<li><p>CHANGE:     Various descriptor structures added, particularly for Audio Class</p></li>
+<li><p>CHANGE:     Added ComposeSetupBuffer() for creating a buffer from a USB_Setup_Packet_t</p></li>
+<li><p>CHANGE:     Various function prototypes now using macros from xccompat.h such that then can be</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="id26">
+<h2>1.0.3<a class="headerlink" href="#id26" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><blockquote>
+<div><ul class="simple">
+<li><dl class="simple">
+<dt>RESOLVED:   (Minor) ULPI data-lines driven hard low and XMOS pull-up on STP line disabled</dt><dd><p>before taking the USB phy out of reset. Previously the phy could clock in
+erroneous data before the XMOS ULPI interface was initialised causing potential
+connection issues on initial startup. This affects L/G series libraries only.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>RESOLVED:   (Minor) Fixes to improve memory usage such as adding missing resource usage</dt><dd><p>symbols/elimination blocks to assembly file and inlining support functions where
+appropriate.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>RESOLVED:   (Minor) Moved to using supplied tools support for communicating with the USB tile</dt><dd><p>rather than custom implementation (affects U-series lib only).</p>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+<ul class="simple">
+<li><p>Changes to dependencies:</p>
+<ul>
+<li><p>sc_usb: 1.0.1beta1 -&gt; 1.0.2beta1</p>
+<ul>
+<li><p>ADDED:   USB_BMREQ_D2H_VENDOR_DEV and USB_BMREQ_D2H_VENDOR_DEV defines for vendor device requests</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="id27">
+<h2>1.0.2<a class="headerlink" href="#id27" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><ul class="simple">
+<li><p>ADDED:      Re-instated support for G devices (xud_g library)</p></li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="id28">
+<h2>1.0.1<a class="headerlink" href="#id28" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><ul class="simple">
+<li><p>CHANGE:     Power signalling state machines simplified in order to reduce memory usage</p></li>
+<li><dl class="simple">
+<dt>RESOLVED:   (Minor) Reduced delay before transmitting k-chirp for high-speed mode, this</dt><dd><p>improves high-speed handshake reliability on some hosts</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>RESOLVED:   (Major) Resolved a compatibility issue with Intel USB 3.0 xHCI host</dt><dd><p>controllers relating to tight inter-packet timing resulting in packet loss</p>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="id29">
+<h2>1.0.0<a class="headerlink" href="#id29" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><ul class="simple">
+<li><p>Initial stand-alone release</p></li>
+</ul>
+</div></blockquote>
+</div>
+</div>
+
+      </article>
+      <footer>
+        
+        <div class="related-pages">
+          
+          
+        </div>
+
+        <div class="related-information">
+              Copyright &#169; 2021, XMOS Ltd
+            |
+            Built with <a href="https://www.sphinx-doc.org/">Sphinx</a>
+              and
+              <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+              <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
+            |
+            <a class="muted-link" href="_sources/CHANGELOG.rst.txt"
+               rel="nofollow">
+              Show Source
+            </a>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            Contents
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">lib_xud Change Log</a><ul>
+<li><a class="reference internal" href="#id1">1.2.0</a></li>
+<li><a class="reference internal" href="#id2">1.1.2</a></li>
+<li><a class="reference internal" href="#id3">1.1.1</a></li>
+<li><a class="reference internal" href="#id4">1.1.0</a></li>
+<li><a class="reference internal" href="#id5">1.0.0</a></li>
+<li><a class="reference internal" href="#id6">0.2.0</a></li>
+<li><a class="reference internal" href="#id7">0.1.1</a></li>
+<li><a class="reference internal" href="#id8">0.1.0</a></li>
+<li><a class="reference internal" href="#legacy-release-history">Legacy release history</a></li>
+<li><a class="reference internal" href="#id9">2.6.0</a></li>
+<li><a class="reference internal" href="#id10">2.5.0</a></li>
+<li><a class="reference internal" href="#id11">2.4.2</a></li>
+<li><a class="reference internal" href="#id12">2.4.1</a></li>
+<li><a class="reference internal" href="#id13">2.4.0</a></li>
+<li><a class="reference internal" href="#id14">2.3.2</a></li>
+<li><a class="reference internal" href="#id15">2.3.1</a></li>
+<li><a class="reference internal" href="#id16">2.3.0</a></li>
+<li><a class="reference internal" href="#id17">2.2.4</a></li>
+<li><a class="reference internal" href="#id18">2.2.3</a></li>
+<li><a class="reference internal" href="#id19">2.2.2</a></li>
+<li><a class="reference internal" href="#id20">2.2.1</a></li>
+<li><a class="reference internal" href="#id21">2.2.0</a></li>
+<li><a class="reference internal" href="#id22">2.1.1</a></li>
+<li><a class="reference internal" href="#id23">2.1.0</a></li>
+<li><a class="reference internal" href="#id24">2.0.1</a></li>
+<li><a class="reference internal" href="#id25">2.0.0</a></li>
+<li><a class="reference internal" href="#id26">1.0.3</a></li>
+<li><a class="reference internal" href="#id27">1.0.2</a></li>
+<li><a class="reference internal" href="#id28">1.0.1</a></li>
+<li><a class="reference internal" href="#id29">1.0.0</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </main>
+</div>
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/tabs.js"></script>
+    <script src="_static/scripts/main.js?digest=e931d09b2a40c1bb82b542effe772014573baf67"></script></body>
+</html>
