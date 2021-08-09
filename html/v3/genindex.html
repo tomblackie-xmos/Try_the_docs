@@ -166,7 +166,21 @@
             var i2 = loc.indexOf("/", i+6)
             var s2 = loc.substring(i2+1);
             nl=s1.concat(val, s2);
-            window.location.assign(nl);
+
+
+            var request = new XMLHttpRequest();  
+            request.open('GET', nl, true);
+            request.onreadystatechange = function(){
+            if (request.readyState === 4){
+                if (request.status === 404) {  
+                    alert("Oh no, it does not exist!");
+                }
+                else {
+                    window.location.assign(nl);
+                }  
+            }
+        };
+        request.send();    
         }
     }
 </script>
