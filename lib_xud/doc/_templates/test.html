@@ -2,7 +2,8 @@
 
 <select name="version" id="version-select" value="latest" onchange="changeVersion(this.value)" >
     <option selected disabled>Older versions</option>
-    <option value="html/v3/">Latest</option>
+    <option value="html/latest/">Latest</option>
+    <!-- <option value="html/v3/">3.0.0</option> -->
     <option value="html/v2/">2.0.0</option>
     <option value="html/v1/">1.0.0</option>
 </select>
@@ -13,13 +14,12 @@
 <script>
     function changeVersion(val) {
         var loc = window.location.toString();
-        var i = loc.indexOf("html/v");
+        var i = loc.indexOf("html/");
         if (i >= 0) {
             var s1 = loc.substring(0, i);
             var i2 = loc.indexOf("/", i+6)
             var s2 = loc.substring(i2+1);
             nl=s1.concat(val, s2);
-            alert(nl)
             window.location.assign(nl);
         }
     }
