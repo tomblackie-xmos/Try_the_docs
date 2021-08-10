@@ -8,7 +8,6 @@ Before you start
     ./version_info.rst
     ./inc_changelog.rst
     ./inc_license.rst
-    ../../LICENSE.rst
     ./inc_copyrights.rst
     ./inc_contributions.rst
     ./build_the_documentation_yourself.rst
