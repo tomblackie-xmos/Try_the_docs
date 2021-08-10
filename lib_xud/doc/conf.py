@@ -60,8 +60,6 @@ release = read_mbi('../lib_xud/module_build_info', 'VERSION', '[0-9]*\.[0-9]*\.[
 # think about how to move the script and path to the mbi file outside the conf.py, so we can use a standtrad conf.py everywhere.
 
 
-
-
 StandaloneHTMLBuilder.supported_image_types = [
     "image/svg+xml",
     "image/gif",
@@ -80,7 +78,6 @@ extensions = [
     "sphinx_inline_tabs",
     "breathe",
     'sphinx.ext.autosectionlabel',
-    'sphinx_multiversion',
 ]
 
 
@@ -136,10 +133,6 @@ html_sidebars = {'**':[
     "sidebar/search.html",
     "sidebar/navigation.html",
     "sidebar/ethical-ads.html",
-    'test.html',
-    #'versioning.html',
+    'versioning.html',
 ]}
-
-
-READTHEDOCS = 1
 
