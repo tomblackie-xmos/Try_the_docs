@@ -1,0 +1,785 @@
+<!doctype html>
+<html class="no-js">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="../../../genindex.html" /><link rel="search" title="Search" href="../../../search.html" /><link rel="next" title="Basic Usage" href="basic_usage.html" /><link rel="prev" title="File Arrangement" href="file_arrangement.html" />
+
+    <meta name="generator" content="sphinx-3.5.4, furo 2021.04.11.beta34"/>
+        <title>Resource Usage - NO PROJECT DEFINED NO VERSION DEFINED documentation</title>
+      <link rel="stylesheet" href="../../../_static/styles/furo.css?digest=59ab60ac09ea94ccfe6deddff6d715cce948a6fc">
+    <link rel="stylesheet" href="../../../_static/pygments.css">
+    <link media="(prefers-color-scheme: dark)" rel="stylesheet" href="../../../_static/pygments_dark.css">
+    
+
+
+<style>
+  :root {
+    --color-code-background: #f8f8f8;
+  --color-code-foreground: black;
+  
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+  }
+
+  /* For allowing end-user-specific overrides */
+  .override-light {
+    --color-code-background: #f8f8f8;
+  --color-code-foreground: black;
+  
+  }
+  .override-dark {
+    --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+  }
+</style><link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/tabs.css" />
+    <link rel="stylesheet" href="../../../_static/styles/furo-extensions.css?digest=d391b54134226e4196576da3bdb6dddb7e05ba2b"></head>
+  <body dir="">
+    
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+      stroke-width="1.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+      <path stroke="none" d="M0 0h24v24H0z"/>
+      <line x1="4" y1="6" x2="20" y2="6" />
+      <line x1="10" y1="12" x2="20" y2="12" />
+      <line x1="6" y1="18" x2="20" y2="18" />
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+      class="feather feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+      class="feather feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation"></label>
+<label class="overlay toc-overlay" for="__toc"></label>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="../../../index.html"><div class="brand">NO PROJECT DEFINED NO VERSION DEFINED documentation</div></a>
+    </div>
+    <div class="header-right">
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand centered" href="../../../index.html">
+  
+  <div class="sidebar-logo-container">
+    <img class="sidebar-logo" src="../../../_static/xmos_logo.png" alt="Logo"/>
+  </div>
+  
+  <span class="sidebar-brand-text">NO PROJECT DEFINED NO VERSION DEFINED documentation</span>
+  
+</a><form class="sidebar-search-container" method="get" action="../../../search.html">
+  <input class="sidebar-search" placeholder=Search name="q">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form><div class="sidebar-tree">
+  <ul class="current">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../doc/rst/before_you_start.html">Before you start</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label for="toctree-checkbox-1"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../doc/rst/version_info.html">Tool and Architecture Dependencies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../doc/rst/inc_changelog.html">lib_xud Change Log</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../doc/rst/inc_license.html">XMOS PUBLIC LICENCE: Version 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../doc/rst/COPYRIGHTS.html">Copyright</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../doc/rst/build_the_documentation_yourself.html">How to build the documenation</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current has-children"><a class="reference internal" href="the_xud_library.html">The XUD library</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label for="toctree-checkbox-2"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="overview.html">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="file_arrangement.html">File Arrangement</a></li>
+<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">Resource Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="basic_usage.html">Basic Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="advanced_usage.html">Advanced Usage</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../examples/doc/usb_class_examples.html">USB Class examples</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label for="toctree-checkbox-3"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../examples/AN00124_CDC_VCOM_class/doc/rst/AN00124.html">CDC VCOM class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../examples/AN00125_mass_storage_class/doc/rst/AN00125.html">Mass Storage class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../examples/AN00126_printer_class/doc/rst/AN00126.html">Printer class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../examples/AN00127_video_class/doc/rst/AN00127.html">Video class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../examples/AN00129_hid_class/doc/rst/AN00129.html">HID class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../examples/AN00131_CDC_EDC_class/doc/rst/AN00131.html">CDC EDC class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../examples/AN00132_image_class/doc/rst/AN00132.html">Image class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../examples/AN00135_test_and_measurement_class/doc/rst/AN00135.html">Test and Measurement class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../examples/AN00136_vendor_specific/doc/rst/AN00136.html">Vendor Sepcific (Custom USB device)</a></li>
+</ul>
+</li>
+</ul>
+
+</div>
+
+    <select name="version" id="version-select" value="Latest" onchange="changeVersion(this.value)" >
+    <option selected disabled>Other versions</option>
+    <option value="html/v1/">v1</option>
+    <option value="html/v2/">v2</option>
+    <option value="html/v3/">v3</option>
+    <option value="html/v4/">v4</option>
+    <option value="html/latest/">latest</option>
+    </select>
+
+    <script>
+    function changeVersion(val) {
+        var loc = window.location.toString();
+        var i = loc.indexOf("html/");
+        if (i >= 0) {
+            var s1 = loc.substring(0, i);
+            var i2 = loc.indexOf("/", i+6)
+            var s2 = loc.substring(i2+1);
+            nl=s1.concat(val, s2);
+
+
+            var request = new XMLHttpRequest();  
+            request.open('GET', nl, true);
+            request.onreadystatechange = function(){
+            if (request.readyState === 4){
+                if (request.status === 404) {  
+                    alert("Oh no, it does not exist!");
+                    window.location.assign(loc);
+                    location.reload();
+                }
+                else {
+                    window.location.assign(nl);
+                }  
+            }
+        };
+        request.send();    
+        }
+    }
+    </script>
+      </div>
+      
+    </div>
+  </aside>
+  <main class="main">
+    <div class="content">
+      <article role="main">
+        <label class="toc-overlay-icon toc-content-icon" for="__toc">
+          <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+        </label>
+        <div class="section" id="resource-usage">
+<h1>Resource Usage<a class="headerlink" href="#resource-usage" title="Permalink to this headline">¶</a></h1>
+<p>The XUD library requires the resources described in the following
+sections.</p>
+<div class="section" id="ports-pins">
+<h2>Ports/Pins<a class="headerlink" href="#ports-pins" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="u-series">
+<h3>U-Series<a class="headerlink" href="#u-series" title="Permalink to this headline">¶</a></h3>
+<p>The U-Series of devices have an integrated USB transceiver. Some ports
+are used to communicate with the USB transceiver inside the U-Series packages.
+These ports/pins should not be used when USB functionality is enabled.
+The ports/pins are shown in <a class="reference internal" href="#table-xud-u-required-pin-port"><span class="std std-ref">U-Series required pin/port connections</span></a>.</p>
+<span id="table-xud-u-required-pin-port"></span><div class="table-wrapper"><table class="horizontal-borders vertical-borders docutils align-default" id="id1">
+<caption><span class="caption-number">Table 1 </span><span class="caption-text">U-Series required pin/port connections</span><a class="headerlink" href="#id1" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 17%"/>
+<col style="width: 17%"/>
+<col style="width: 14%"/>
+<col style="width: 17%"/>
+<col style="width: 17%"/>
+<col style="width: 19%"/>
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head" rowspan="2"><p>Pin</p></th>
+<th class="head" colspan="5"><p>Port</p></th>
+</tr>
+<tr class="row-even"><th class="head"><p>1b</p></th>
+<th class="head"><p>4b</p></th>
+<th class="head"><p>8b</p></th>
+<th class="head"><p>16b</p></th>
+<th class="head"><p>32b</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-odd"><td><p>X0D02</p></td>
+<td></td>
+<td><p>P4A0</p></td>
+<td><p>P8A0</p></td>
+<td><p>P16A0</p></td>
+<td><p>P32A20</p></td>
+</tr>
+<tr class="row-even"><td><p>X0D03</p></td>
+<td></td>
+<td><p>P4A1</p></td>
+<td><p>P8A1</p></td>
+<td><p>P16A1</p></td>
+<td><p>P32A21</p></td>
+</tr>
+<tr class="row-odd"><td><p>X0D04</p></td>
+<td></td>
+<td><p>P4B0</p></td>
+<td><p>P8A2</p></td>
+<td><p>P16A2</p></td>
+<td><p>P32A22</p></td>
+</tr>
+<tr class="row-even"><td><p>X0D05</p></td>
+<td></td>
+<td><p>P4B1</p></td>
+<td><p>P8A3</p></td>
+<td><p>P16A3</p></td>
+<td><p>P32A23</p></td>
+</tr>
+<tr class="row-odd"><td><p>X0D06</p></td>
+<td></td>
+<td><p>P4B2</p></td>
+<td><p>P8A4</p></td>
+<td><p>P16A4</p></td>
+<td><p>P32A24</p></td>
+</tr>
+<tr class="row-even"><td><p>X0D07</p></td>
+<td></td>
+<td><p>P4B3</p></td>
+<td><p>P8A5</p></td>
+<td><p>P16A5</p></td>
+<td><p>P32A25</p></td>
+</tr>
+<tr class="row-odd"><td><p>X0D08</p></td>
+<td></td>
+<td><p>P4A2</p></td>
+<td><p>P8A6</p></td>
+<td><p>P16A6</p></td>
+<td><p>P32A26</p></td>
+</tr>
+<tr class="row-even"><td><p>X0D09</p></td>
+<td></td>
+<td><p>P4A3</p></td>
+<td><p>P8A7</p></td>
+<td><p>P16A7</p></td>
+<td><p>P32A27</p></td>
+</tr>
+<tr class="row-odd"><td><p>X0D23</p></td>
+<td><p>P1H0</p></td>
+<td colspan="4"></td>
+</tr>
+<tr class="row-even"><td><p>X0D25</p></td>
+<td><p>P1J0</p></td>
+<td colspan="4"></td>
+</tr>
+<tr class="row-odd"><td><p>X0D26</p></td>
+<td></td>
+<td><p>P4E0</p></td>
+<td><p>P8C0</p></td>
+<td><p>P16B0</p></td>
+<td><p>P32A28</p></td>
+</tr>
+<tr class="row-even"><td><p>X0D27</p></td>
+<td></td>
+<td><p>P4E1</p></td>
+<td><p>P8C1</p></td>
+<td><p>P16B1</p></td>
+<td><p>P32A29</p></td>
+</tr>
+<tr class="row-odd"><td><p>X0D28</p></td>
+<td></td>
+<td><p>P4F0</p></td>
+<td><p>P8C2</p></td>
+<td><p>P16B2</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>X0D29</p></td>
+<td></td>
+<td><p>P4F1</p></td>
+<td><p>P8C3</p></td>
+<td><p>P16B3</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>X0D30</p></td>
+<td></td>
+<td><p>P4F2</p></td>
+<td><p>P8C4</p></td>
+<td><p>P16B4</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>X0D31</p></td>
+<td></td>
+<td><p>P4F3</p></td>
+<td><p>P8C5</p></td>
+<td><p>P16B5</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>X0D32</p></td>
+<td></td>
+<td><p>P4E2</p></td>
+<td><p>P8C6</p></td>
+<td><p>P16B6</p></td>
+<td><p>P32A30</p></td>
+</tr>
+<tr class="row-even"><td><p>X0D33</p></td>
+<td></td>
+<td><p>P4E3</p></td>
+<td><p>P8C7</p></td>
+<td><p>P16B7</p></td>
+<td><p>P32A31</p></td>
+</tr>
+<tr class="row-odd"><td><p>X0D34</p></td>
+<td><p>P1K0</p></td>
+<td colspan="4"></td>
+</tr>
+<tr class="row-even"><td><p>X0D36</p></td>
+<td><p>P1M0</p></td>
+<td></td>
+<td><p>P8D0</p></td>
+<td><p>P16B8</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>X0D37</p></td>
+<td><p>P1N0</p></td>
+<td></td>
+<td><p>P8C1</p></td>
+<td><p>P16B1</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>X0D38</p></td>
+<td><p>P1O0</p></td>
+<td></td>
+<td><p>P8C2</p></td>
+<td><p>P16B2</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>X0D39</p></td>
+<td><p>P1P0</p></td>
+<td></td>
+<td><p>P8C3</p></td>
+<td><p>P16B3</p></td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="section" id="xcore-200-series">
+<h3>xCORE-200 Series<a class="headerlink" href="#xcore-200-series" title="Permalink to this headline">¶</a></h3>
+<p>The xCORE 200 series of devices have an integrated USB transceiver. Some ports
+are used to communicate with the USB transceiver inside the xCORE-200
+series
+packages.
+These ports/pins should not be used when USB functionality is enabled.
+The ports/pins are shown in <a class="reference internal" href="#table-xud-x200-required-pin-port"><span class="std std-ref">xCORE-200 series required pin/port connections</span></a>.</p>
+<span id="table-xud-x200-required-pin-port"></span><div class="table-wrapper"><table class="horizontal-borders vertical-borders docutils align-default" id="id2">
+<caption><span class="caption-number">Table 2 </span><span class="caption-text">xCORE-200 series required pin/port connections</span><a class="headerlink" href="#id2" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 17%"/>
+<col style="width: 17%"/>
+<col style="width: 14%"/>
+<col style="width: 17%"/>
+<col style="width: 17%"/>
+<col style="width: 19%"/>
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head" rowspan="2"><p>Pin</p></th>
+<th class="head" colspan="5"><p>Port</p></th>
+</tr>
+<tr class="row-even"><th class="head"><p>1b</p></th>
+<th class="head"><p>4b</p></th>
+<th class="head"><p>8b</p></th>
+<th class="head"><p>16b</p></th>
+<th class="head"><p>32b</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-odd"><td><p>X0D00</p></td>
+<td><p>P1A0</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>X0D02</p></td>
+<td></td>
+<td><p>P4A0</p></td>
+<td><p>P8A0</p></td>
+<td><p>P16A0</p></td>
+<td><p>P32A20</p></td>
+</tr>
+<tr class="row-odd"><td><p>X0D03</p></td>
+<td></td>
+<td><p>P4A1</p></td>
+<td><p>P8A1</p></td>
+<td><p>P16A1</p></td>
+<td><p>P32A21</p></td>
+</tr>
+<tr class="row-even"><td><p>X0D04</p></td>
+<td></td>
+<td><p>P4B0</p></td>
+<td><p>P8A2</p></td>
+<td><p>P16A2</p></td>
+<td><p>P32A22</p></td>
+</tr>
+<tr class="row-odd"><td><p>X0D13</p></td>
+<td></td>
+<td><p>P4B1</p></td>
+<td><p>P8A3</p></td>
+<td><p>P16A3</p></td>
+<td><p>P32A23</p></td>
+</tr>
+<tr class="row-even"><td><p>X0D22</p></td>
+<td></td>
+<td><p>P4B2</p></td>
+<td><p>P8A4</p></td>
+<td><p>P16A4</p></td>
+<td><p>P32A24</p></td>
+</tr>
+<tr class="row-odd"><td><p>X0D23</p></td>
+<td></td>
+<td><p>P4B3</p></td>
+<td><p>P8A5</p></td>
+<td><p>P16A5</p></td>
+<td><p>P32A25</p></td>
+</tr>
+<tr class="row-even"><td><p>X0D34</p></td>
+<td></td>
+<td><p>P4A2</p></td>
+<td><p>P8A6</p></td>
+<td><p>P16A6</p></td>
+<td><p>P32A26</p></td>
+</tr>
+<tr class="row-odd"><td><p>X0D09</p></td>
+<td></td>
+<td><p>P4A3</p></td>
+<td><p>P8A7</p></td>
+<td><p>P16A7</p></td>
+<td><p>P32A27</p></td>
+</tr>
+<tr class="row-even"><td><p>X0D10</p></td>
+<td><p>P1C0</p></td>
+<td colspan="4"></td>
+</tr>
+<tr class="row-odd"><td><p>X0D12</p></td>
+<td><p>P1E0</p></td>
+<td colspan="4"></td>
+</tr>
+<tr class="row-even"><td><p>X0D13</p></td>
+<td><p>P1F0</p></td>
+<td colspan="4"></td>
+</tr>
+<tr class="row-odd"><td><p>X0D14</p></td>
+<td></td>
+<td><p>P4C0</p></td>
+<td><p>P8B0</p></td>
+<td><p>P16A8</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>X0D15</p></td>
+<td></td>
+<td><p>P4C1</p></td>
+<td><p>P8B1</p></td>
+<td><p>P16A9</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>X0D16</p></td>
+<td></td>
+<td><p>P4D0</p></td>
+<td><p>P8B2</p></td>
+<td><p>P16A10</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>X0D17</p></td>
+<td></td>
+<td><p>P4D1</p></td>
+<td><p>P8B3</p></td>
+<td><p>P16A11</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>X0D18</p></td>
+<td></td>
+<td><p>P4D2</p></td>
+<td><p>P8B4</p></td>
+<td><p>P16A12</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>X0D19</p></td>
+<td></td>
+<td><p>P4D3</p></td>
+<td><p>P8B5</p></td>
+<td><p>P16A13</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>X0D20</p></td>
+<td></td>
+<td><p>P4C2</p></td>
+<td><p>P8B6</p></td>
+<td><p>P16A14</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>X0D21</p></td>
+<td></td>
+<td><p>P4C3</p></td>
+<td><p>P8B7</p></td>
+<td><p>P16A15</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>X0D22</p></td>
+<td><p>P1G0</p></td>
+<td colspan="4"></td>
+</tr>
+<tr class="row-even"><td><p>X0D23</p></td>
+<td><p>P1H0</p></td>
+<td colspan="4"></td>
+</tr>
+<tr class="row-odd"><td><p>X0D24</p></td>
+<td><p>P1I0</p></td>
+<td colspan="4"></td>
+</tr>
+<tr class="row-even"><td><p>X0D34</p></td>
+<td><p>P1K0</p></td>
+<td colspan="4"></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="section" id="l-series">
+<h3>L-Series<a class="headerlink" href="#l-series" title="Permalink to this headline">¶</a></h3>
+<p>The ports used for the physical connection to the external ULPI transceiver must
+be connected as shown in <a class="reference internal" href="#table-xud-ulpi-required-pin-port"><span class="std std-ref">ULPI required pin/port connections</span></a>.</p>
+<span id="table-xud-ulpi-required-pin-port"></span><div class="table-wrapper"><table class="horizontal-borders vertical-borders docutils align-default" id="id3">
+<caption><span class="caption-number">Table 3 </span><span class="caption-text">ULPI required pin/port connections</span><a class="headerlink" href="#id3" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 15%"/>
+<col style="width: 15%"/>
+<col style="width: 13%"/>
+<col style="width: 15%"/>
+<col style="width: 44%"/>
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head" rowspan="2"><p>Pin</p></th>
+<th class="head" colspan="3"><p>Port</p></th>
+<th class="head"><p>Signal</p></th>
+</tr>
+<tr class="row-even"><th class="head"><p>1b</p></th>
+<th class="head"><p>4b</p></th>
+<th class="head"><p>8b</p></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-odd"><td><p>X0D12</p></td>
+<td><p>P1E0</p></td>
+<td colspan="2"></td>
+<td><p>ULPI_STP</p></td>
+</tr>
+<tr class="row-even"><td><p>X0D13</p></td>
+<td><p>P1F0</p></td>
+<td colspan="2"></td>
+<td><p>ULPI_NXT</p></td>
+</tr>
+<tr class="row-odd"><td><p>X0D14</p></td>
+<td rowspan="8"></td>
+<td><p>P4C0</p></td>
+<td><p>P8B0</p></td>
+<td rowspan="8"><p>ULPI_DATA[7:0]</p></td>
+</tr>
+<tr class="row-even"><td><p>X0D15</p></td>
+<td><p>P4C1</p></td>
+<td><p>P8B1</p></td>
+</tr>
+<tr class="row-odd"><td><p>X0D16</p></td>
+<td><p>P4D0</p></td>
+<td><p>P8B2</p></td>
+</tr>
+<tr class="row-even"><td><p>X0D17</p></td>
+<td><p>P4D1</p></td>
+<td><p>P8B3</p></td>
+</tr>
+<tr class="row-odd"><td><p>X0D18</p></td>
+<td><p>P4D2</p></td>
+<td><p>P8B4</p></td>
+</tr>
+<tr class="row-even"><td><p>X0D19</p></td>
+<td><p>P4D3</p></td>
+<td><p>P8B5</p></td>
+</tr>
+<tr class="row-odd"><td><p>X0D20</p></td>
+<td><p>P4C2</p></td>
+<td><p>P8B6</p></td>
+</tr>
+<tr class="row-even"><td><p>X0D21</p></td>
+<td><p>P4C3</p></td>
+<td><p>P8B7</p></td>
+</tr>
+<tr class="row-odd"><td><p>X0D22</p></td>
+<td><p>P1G0</p></td>
+<td colspan="2"></td>
+<td><p>ULPI_DIR</p></td>
+</tr>
+<tr class="row-even"><td><p>X0D23</p></td>
+<td><p>P1H0</p></td>
+<td colspan="2"></td>
+<td><p>ULPI_CLK</p></td>
+</tr>
+<tr class="row-odd"><td><p>X0D24</p></td>
+<td><p>P1I0</p></td>
+<td colspan="2"></td>
+<td><p>ULPI_RST_N</p></td>
+</tr>
+</tbody>
+</table></div>
+<p>In addition some ports are used internally when the XUD library is in
+operation. For example pins X0D2-X0D9, X0D26-X0D33 and X0D37-X0D43 on
+an XS1-L device should not be used.</p>
+<p>Please refer to the device datasheet for further information on which ports
+are available.</p>
+</div>
+</div>
+<div class="section" id="core-speed">
+<h2>Core Speed<a class="headerlink" href="#core-speed" title="Permalink to this headline">¶</a></h2>
+<p>Due to I/O requirements, the library requires a guaranteed MIPS rate to
+ensure correct operation. This means that core count restrictions must
+be observed. The XUD core must run at at least 80 MIPS.</p>
+<p>This means that for an xCORE device running at 500MHz there should be no more
+than six cores executing at any time when using the XUD. xCORE-200 devices all setting
+priority cores that are guarrenteed 20% of the processor bandwidth. If XUD is assigned
+a priority core then up to eight cores may be used with the remaining seven getting
+(500 * 0.8) / 7 = 57.1MHz each.</p>
+<p>This restriction is only a requirement on the tile on which the <code class="docutils literal notranslate"><span class="pre">XUD_Manager</span></code> is running.
+For example, the other tile on an dual-core device is unaffected by this restriction.</p>
+</div>
+<div class="section" id="clock-blocks">
+<h2>Clock Blocks<a class="headerlink" href="#clock-blocks" title="Permalink to this headline">¶</a></h2>
+<p>The XUD library uses one clock block (clock block 0) and configures this
+clock block to be clocked by the 60MHz clock from the ULPI transceiver.
+The ports it uses are in turn clocked from the clock block.</p>
+<p>Since clock block 0 is the default for all ports when enabled it is
+important that if a port is not required to be clocked from this 60MHz
+clock, then it is configured to use another clock block.</p>
+<div class="section" id="u-series-xcore-200">
+<h3>U-Series / xCORE-200<a class="headerlink" href="#u-series-xcore-200" title="Permalink to this headline">¶</a></h3>
+<p>The XUD library uses two clock blocks (clock blocks 4 and 5). These are
+clocked from the USB clock.  Unlike the L devices, clock-block 0 is not
+used or affected.</p>
+</div>
+</div>
+<div class="section" id="timers">
+<h2>Timers<a class="headerlink" href="#timers" title="Permalink to this headline">¶</a></h2>
+<p>The XUD library allocates and uses four timers.</p>
+</div>
+<div class="section" id="memory">
+<h2>Memory<a class="headerlink" href="#memory" title="Permalink to this headline">¶</a></h2>
+<p>The XUD library requires about 9 Kbytes of memory, of which around 6 Kbytes
+is code or initialized variables that must be stored in boot memory.</p>
+</div>
+</div>
+
+      </article>
+      <footer>
+        
+        <div class="related-pages">
+          <a class="next-page" href="basic_usage.html">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title">Basic Usage</div>
+              </div>
+              <svg><use href="#svg-arrow-right"></use></svg>
+            </a>
+          <a class="prev-page" href="file_arrangement.html">
+              <svg><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">File Arrangement</div>
+                
+              </div>
+            </a>
+        </div>
+
+        <div class="related-information">
+              Copyright &#169; 2019-2021, XMOS Ltd
+            |
+            Built with <a href="https://www.sphinx-doc.org/">Sphinx</a>
+              and
+              <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+              <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
+            |
+            <a class="muted-link" href="../../../_sources/lib_xud/doc/rst/resource_usage.rst.txt"
+               rel="nofollow">
+              Show Source
+            </a>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            Contents
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Resource Usage</a><ul>
+<li><a class="reference internal" href="#ports-pins">Ports/Pins</a><ul>
+<li><a class="reference internal" href="#u-series">U-Series</a></li>
+<li><a class="reference internal" href="#xcore-200-series">xCORE-200 Series</a></li>
+<li><a class="reference internal" href="#l-series">L-Series</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#core-speed">Core Speed</a></li>
+<li><a class="reference internal" href="#clock-blocks">Clock Blocks</a><ul>
+<li><a class="reference internal" href="#u-series-xcore-200">U-Series / xCORE-200</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#timers">Timers</a></li>
+<li><a class="reference internal" href="#memory">Memory</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </main>
+</div>
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script src="../../../_static/tabs.js"></script>
+    <script src="../../../_static/scripts/main.js?digest=e931d09b2a40c1bb82b542effe772014573baf67"></script></body>
+</html>

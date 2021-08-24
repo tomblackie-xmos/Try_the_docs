@@ -1,0 +1,563 @@
+<!doctype html>
+<html class="no-js">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="../../../../genindex.html" /><link rel="search" title="Search" href="../../../../search.html" /><link rel="next" title="Video class" href="../../../AN00127_video_class/doc/rst/AN00127.html" /><link rel="prev" title="Mass Storage class" href="../../../AN00125_mass_storage_class/doc/rst/AN00125.html" />
+
+    <meta name="generator" content="sphinx-3.5.4, furo 2021.04.11.beta34"/>
+        <title>Printer class - NO PROJECT DEFINED NO VERSION DEFINED documentation</title>
+      <link rel="stylesheet" href="../../../../_static/styles/furo.css?digest=59ab60ac09ea94ccfe6deddff6d715cce948a6fc">
+    <link rel="stylesheet" href="../../../../_static/pygments.css">
+    <link media="(prefers-color-scheme: dark)" rel="stylesheet" href="../../../../_static/pygments_dark.css">
+    
+
+
+<style>
+  :root {
+    --color-code-background: #f8f8f8;
+  --color-code-foreground: black;
+  
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+  }
+
+  /* For allowing end-user-specific overrides */
+  .override-light {
+    --color-code-background: #f8f8f8;
+  --color-code-foreground: black;
+  
+  }
+  .override-dark {
+    --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+  }
+</style><link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/tabs.css" />
+    <link rel="stylesheet" href="../../../../_static/styles/furo-extensions.css?digest=d391b54134226e4196576da3bdb6dddb7e05ba2b"></head>
+  <body dir="">
+    
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+      stroke-width="1.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+      <path stroke="none" d="M0 0h24v24H0z"/>
+      <line x1="4" y1="6" x2="20" y2="6" />
+      <line x1="10" y1="12" x2="20" y2="12" />
+      <line x1="6" y1="18" x2="20" y2="18" />
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+      class="feather feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+      class="feather feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation"></label>
+<label class="overlay toc-overlay" for="__toc"></label>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="../../../../index.html"><div class="brand">NO PROJECT DEFINED NO VERSION DEFINED documentation</div></a>
+    </div>
+    <div class="header-right">
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand centered" href="../../../../index.html">
+  
+  <div class="sidebar-logo-container">
+    <img class="sidebar-logo" src="../../../../_static/xmos_logo.png" alt="Logo"/>
+  </div>
+  
+  <span class="sidebar-brand-text">NO PROJECT DEFINED NO VERSION DEFINED documentation</span>
+  
+</a><form class="sidebar-search-container" method="get" action="../../../../search.html">
+  <input class="sidebar-search" placeholder=Search name="q">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form><div class="sidebar-tree">
+  <ul class="current">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../../doc/rst/before_you_start.html">Before you start</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label for="toctree-checkbox-1"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../doc/rst/version_info.html">Tool and Architecture Dependencies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../doc/rst/inc_changelog.html">lib_xud Change Log</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../doc/rst/inc_license.html">XMOS PUBLIC LICENCE: Version 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../doc/rst/COPYRIGHTS.html">Copyright</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../doc/rst/build_the_documentation_yourself.html">How to build the documenation</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../../lib_xud/doc/rst/the_xud_library.html">The XUD library</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label for="toctree-checkbox-2"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../lib_xud/doc/rst/overview.html">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../lib_xud/doc/rst/file_arrangement.html">File Arrangement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../lib_xud/doc/rst/resource_usage.html">Resource Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../lib_xud/doc/rst/basic_usage.html">Basic Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../lib_xud/doc/rst/advanced_usage.html">Advanced Usage</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current has-children"><a class="reference internal" href="../../../doc/usb_class_examples.html">USB Class examples</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label for="toctree-checkbox-3"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../../AN00124_CDC_VCOM_class/doc/rst/AN00124.html">CDC VCOM class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../AN00125_mass_storage_class/doc/rst/AN00125.html">Mass Storage class</a></li>
+<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">Printer class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../AN00127_video_class/doc/rst/AN00127.html">Video class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../AN00129_hid_class/doc/rst/AN00129.html">HID class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../AN00131_CDC_EDC_class/doc/rst/AN00131.html">CDC EDC class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../AN00132_image_class/doc/rst/AN00132.html">Image class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../AN00135_test_and_measurement_class/doc/rst/AN00135.html">Test and Measurement class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../AN00136_vendor_specific/doc/rst/AN00136.html">Vendor Sepcific (Custom USB device)</a></li>
+</ul>
+</li>
+</ul>
+
+</div>
+
+    <select name="version" id="version-select" value="Latest" onchange="changeVersion(this.value)" >
+    <option selected disabled>Other versions</option>
+    <option value="html/v1/">v1</option>
+    <option value="html/v2/">v2</option>
+    <option value="html/v3/">v3</option>
+    <option value="html/v4/">v4</option>
+    <option value="html/latest/">latest</option>
+    </select>
+
+    <script>
+    function changeVersion(val) {
+        var loc = window.location.toString();
+        var i = loc.indexOf("html/");
+        if (i >= 0) {
+            var s1 = loc.substring(0, i);
+            var i2 = loc.indexOf("/", i+6)
+            var s2 = loc.substring(i2+1);
+            nl=s1.concat(val, s2);
+
+
+            var request = new XMLHttpRequest();  
+            request.open('GET', nl, true);
+            request.onreadystatechange = function(){
+            if (request.readyState === 4){
+                if (request.status === 404) {  
+                    alert("Oh no, it does not exist!");
+                    window.location.assign(loc);
+                    location.reload();
+                }
+                else {
+                    window.location.assign(nl);
+                }  
+            }
+        };
+        request.send();    
+        }
+    }
+    </script>
+      </div>
+      
+    </div>
+  </aside>
+  <main class="main">
+    <div class="content">
+      <article role="main">
+        <label class="toc-overlay-icon toc-content-icon" for="__toc">
+          <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+        </label>
+        <div class="section" id="printer-class">
+<h1>Printer class<a class="headerlink" href="#printer-class" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="introduction">
+<h3>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h3>
+<p>The Universal Serial Bus (USB) is a communications architecture that gives a PC the ability to interconnect a
+variety of devices via a simple four-wire cable. One such device is the printer. Traditionally, printers have been
+interfaced using the following technologies:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Unidirectional parallel port</p></li>
+<li><p>Bi-directional parallel port</p></li>
+<li><p>Serial port</p></li>
+<li><p>SCSI port</p></li>
+<li><p>Ethernet/LAN</p></li>
+</ul>
+</div></blockquote>
+<p>There are other, more sophisticated printer interfaces, but the ones previously listed are the most popular. USB
+offers a much greater throughput capability than the serial port and is comparable in speed to the parallel port. This
+makes both parallel and serial printers good candidates for interfacing with USB.</p>
+<p>The USB specification provides as standard device class for the implementation of USB printers.</p>
+<p>(<a class="reference external" href="http://www.usb.org/developers/devclass_docs/usbprint11.pdf">http://www.usb.org/developers/devclass_docs/usbprint11.pdf</a>)</p>
+</div>
+<div class="section" id="block-diagram">
+<h3>Block diagram<a class="headerlink" href="#block-diagram" title="Permalink to this headline">¶</a></h3>
+<div class="figure align-center" id="id1">
+<a class="reference internal image-reference" href="../../../../_images/block_diagram2.png"><img alt="../../../../_images/block_diagram2.png" src="../../../../_images/block_diagram2.png" style="width: 100%;"/></a>
+<p class="caption"><span class="caption-number">Fig. 20 </span><span class="caption-text">Block diagram of USB printer application example</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+</div>
+<div class="section" id="usb-printer-device-class-application-note">
+<h2>USB Printer Device Class application note<a class="headerlink" href="#usb-printer-device-class-application-note" title="Permalink to this headline">¶</a></h2>
+<p>The demo in this note uses the XMOS USB device library and shows a simple program that receives data in PCL format from the host and outputs this data to
+the console in the form of a log.</p>
+<p>For the USB printer device class application example, the system comprises three tasks running on separate logical cores of a xCORE-USB multicore microcontroller.</p>
+<p>The tasks perform the following operations.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>A task containing the USB library functionality to communicate over USB</p></li>
+<li><p>A task implementing Endpoint0 responding both standard and printer class USB requests</p></li>
+<li><p>A task implementing the application code for receiving printer data into the device</p></li>
+</ul>
+</div></blockquote>
+<p>These tasks communicate via the use of xCONNECT channels which allow data to be passed between
+application code running on separate logical cores.</p>
+<p>The following diagram shows the task and communication structure for this USB printer device
+class application example.</p>
+<div class="figure align-default" id="id2">
+<img alt="../../../../_images/task_diagram.PNG" src="../../../../_images/task_diagram.PNG"/>
+<p class="caption"><span class="caption-number">Fig. 21 </span><span class="caption-text">Task diagram of USB printer application example</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</div>
+<div class="section" id="makefile-additions-for-this-application">
+<h3>Makefile additions for this application<a class="headerlink" href="#makefile-additions-for-this-application" title="Permalink to this headline">¶</a></h3>
+<p>To start using the USB library, you need to add <code class="docutils literal notranslate"><span class="pre">lib_xud</span></code> to your makefile:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">USED_MODULES</span> <span class="o">=</span> <span class="o">...</span> <span class="n">lib_xud</span> <span class="n">lib_logging</span>
+</pre></div>
+</div>
+<p>You can then access the USB functions in your source code via the usb_device.h header file:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#include &lt;usb_device.h&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="declaring-resource-and-setting-up-the-usb-components">
+<h3>Declaring resource and setting up the USB components<a class="headerlink" href="#declaring-resource-and-setting-up-the-usb-components" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">main.xc</span></code> contains the application implementation for a device based on the USB printer device class. There are some defines in it that are used to configure the XMOS USB device library. These are displayed below.</p>
+<p>These defines describe the endpoint configuration for this device. This example has bi-directional communication with the host machine via the standard endpoint0 and an endpoint for receiving the printer data from the host into our device.</p>
+<p>These defines are passed to the setup function for the USB library which is called from <code class="docutils literal notranslate"><span class="pre">main()</span></code>.</p>
+</div>
+<div class="section" id="the-application-main-function">
+<h3>The application main() function<a class="headerlink" href="#the-application-main-function" title="Permalink to this headline">¶</a></h3>
+<p>Below is the source code for the main function of this application, which is taken from
+the source file <code class="docutils literal notranslate"><span class="pre">main.xc</span></code></p>
+<p>Looking at this in a more detail you can see the following:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>The par statement starts three separate tasks in parallel</p></li>
+<li><p>There is a task to configure and execute the USB library: <code class="docutils literal notranslate"><span class="pre">XUD_Main()</span></code></p></li>
+<li><p>There is a task to startup and run the Endpoint0 code: <code class="docutils literal notranslate"><span class="pre">Endpoint0()</span></code></p></li>
+<li><p>There is a task to deal with USB printer data requests arriving from the host <code class="docutils literal notranslate"><span class="pre">printer_main()</span></code></p></li>
+<li><p>The define USB_TILE describes the tile on which the individual tasks will run</p></li>
+<li><p>In this example all tasks run on the same tile as the USB PHY this isa requirement of <code class="docutils literal notranslate"><span class="pre">XUD_Main()</span></code></p></li>
+<li><p>The xCONNECT communication channels used by the application are set up at the beginning of <code class="docutils literal notranslate"><span class="pre">main()</span></code></p></li>
+<li><p>The USB defines discussed earlier are passed into the function <code class="docutils literal notranslate"><span class="pre">XUD_Main()</span></code></p></li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="configuring-the-usb-device-id">
+<h3>Configuring the USB Device ID<a class="headerlink" href="#configuring-the-usb-device-id" title="Permalink to this headline">¶</a></h3>
+<p>The USB ID values used for vendor id, product id and device version number are defined in the file <code class="docutils literal notranslate"><span class="pre">endpoint0.xc</span></code>. These are used by the host machine to determine the vendor of the device (in this case XMOS) and the product plus the firmware version.</p>
+</div>
+<div class="section" id="usb-printer-class-specific-defines">
+<h3>USB Printer Class specific defines<a class="headerlink" href="#usb-printer-class-specific-defines" title="Permalink to this headline">¶</a></h3>
+<p>The USB Printer Class is configured in the file <code class="docutils literal notranslate"><span class="pre">endpoint0.xc</span></code>. Below there are a set of standard defines which are used to configure the USB device descriptors to setup a USB printer device running on an xCORE-USB microcontroller.</p>
+</div>
+<div class="section" id="usb-device-descriptor">
+<h3>USB Device Descriptor<a class="headerlink" href="#usb-device-descriptor" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">endpoint0.xc</span></code> is where the standard USB device descriptor is declared for the printer device. Below is the structure which contains this descriptor. This will be requested by the host when the device is enumerated on the USB bus.</p>
+<p>From this descriptor you can see that product, vendor and device firmware revision are all coded into this structure. This will allow the host machine to recognise the printer device when it is connected to the USB bus.</p>
+</div>
+<div class="section" id="usb-configuration-descriptor">
+<h3>USB Configuration Descriptor<a class="headerlink" href="#usb-configuration-descriptor" title="Permalink to this headline">¶</a></h3>
+<p>The USB configuration descriptor is used to configure the device in terms of the device class and the endpoint setup. For the USB printer device the configuration descriptor which is read by the host is as follows.</p>
+<p>From this you can see that the USB printer class defines described earlier are encoded into the configuration descriptor along with the bulk USB endpoint description for receiving printer data into the application code. This endpoint allows us to process the printer data request from the host inside the main printer application task.</p>
+</div>
+<div class="section" id="usb-string-descriptors">
+<h3>USB string descriptors<a class="headerlink" href="#usb-string-descriptors" title="Permalink to this headline">¶</a></h3>
+<p>There are two further descriptors within this file relating to the
+configuration of the USB Printer Class. These sections should also be
+modified to match the capabilities of the printer.</p>
+</div>
+<div class="section" id="usb-printer-class-requests">
+<h3>USB Printer Class requests<a class="headerlink" href="#usb-printer-class-requests" title="Permalink to this headline">¶</a></h3>
+<p>Inside <code class="docutils literal notranslate"><span class="pre">endpoint0.xc</span></code> there is some code for handling the USB printer device class specific requests. These are shown in the following code:</p>
+<p>These printer specific request are implemented by the application as they do not form part of the standard requests which have to be accepted by all device classes via endpoint0.</p>
+</div>
+<div class="section" id="usb-printer-class-endpoint0">
+<h3>USB Printer Class Endpoint0<a class="headerlink" href="#usb-printer-class-endpoint0" title="Permalink to this headline">¶</a></h3>
+<p>The function <code class="docutils literal notranslate"><span class="pre">Endpoint0()</span></code> contains the code for dealing with device requests made from the host to the standard endpoint0 which is present in all USB devices. In addition to requests required for all devices, the code handles the requests specific to the printer device class.</p>
+</div>
+<div class="section" id="receiving-printer-data-from-the-host">
+<h3>Receiving printer data from the host<a class="headerlink" href="#receiving-printer-data-from-the-host" title="Permalink to this headline">¶</a></h3>
+<p>The application endpoint for receiving printer data from the host machine is implemented in the file <code class="docutils literal notranslate"><span class="pre">main.xc</span></code>. This is contained within the function <code class="docutils literal notranslate"><span class="pre">printer_main()</span></code> which is shown below:</p>
+<p>From this you can see the following.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>A buffer is declared to receive the print data which is streamed into the application from the host</p></li>
+<li><p>This task operates inside a <code class="docutils literal notranslate"><span class="pre">while</span> <span class="pre">(1)</span></code> loop which waits for data to arrive and then processes it</p></li>
+<li><p>A blocking call is made to the XMOS USB device library to receive data into the application</p></li>
+<li><p>The data received is output to the debug console; in a real printer this data would be processed here or passed onto another task for processing</p></li>
+</ul>
+</div></blockquote>
+<p><a href="#id6"><span class="problematic" id="id7">|appendix|</span></a></p>
+</div>
+</div>
+<div class="section" id="demo-hardware-setup">
+<h2>Demo Hardware Setup<a class="headerlink" href="#demo-hardware-setup" title="Permalink to this headline">¶</a></h2>
+<p>To run the demo, connect the xCORE-USB sliceKIT USB-B and xTAG-2 USB-A
+connectors to separate USB connectors on your development PC.</p>
+<p>On the xCORE-USB sliceKIT ensure that the xCONNECT LINK switch is set to ON, as per the image,
+to allow xSCOPE to function. The use of xSCOPE is required in this application so
+that the print messages that are generated on the device as part of the demo
+do not interfere with the real-time behavior of the USB device.</p>
+<div class="figure align-default" id="id3">
+<img alt="../../../../_images/usb-slicekit2.png" src="../../../../_images/usb-slicekit2.png"/>
+<p class="caption"><span class="caption-number">Fig. 22 </span><span class="caption-text">XMOS xCORE-USB sliceKIT</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
+</div>
+<p>The hardware should be configured as displayed above for this demo:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>The XTAG debug adapter should be connected to the XSYS connector and
+the XTAG USB cable should be connected to the host machine</p></li>
+<li><p>The xCORE-USB core board should have a USB cable connecting the device
+to the host machine</p></li>
+<li><p>The xSCOPE switch on the board should be set to the on position</p></li>
+<li><p>The xCORE-USB core board should have the power cable connected</p></li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="launching-the-demo-device">
+<h2>Launching the demo device<a class="headerlink" href="#launching-the-demo-device" title="Permalink to this headline">¶</a></h2>
+<p>Once the demo example has been built either from the command line using
+xmake or via the build mechanism of xTIMEcomposer studio the application
+can be executed on the xCORE-USB sliceKIT.</p>
+<p>Once built there will be a <code class="docutils literal notranslate"><span class="pre">bin</span></code> directory within the project which
+contains the binary for the xCORE device. The xCORE binary has a XMOS standard
+.xe extension.</p>
+<div class="section" id="launching-from-the-command-line">
+<h3>Launching from the command line<a class="headerlink" href="#launching-from-the-command-line" title="Permalink to this headline">¶</a></h3>
+<p>From the command line the <code class="docutils literal notranslate"><span class="pre">xrun</span></code> tool is used to download code to both the
+xCORE devices. Changing into the bin directory of the project
+we can execute the code on the xCORE microcontroller as follows:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">xrun</span> <span class="o">--</span><span class="n">xscope</span> <span class="n">app_printer_demo</span><span class="o">.</span><span class="n">xe</span>          <span class="o">&lt;--</span> <span class="n">Download</span> <span class="ow">and</span> <span class="n">execute</span> <span class="n">the</span> <span class="n">xCORE</span> <span class="n">code</span>
+</pre></div>
+</div>
+<p>Once this command has executed the printer USB device should have
+enumerated on your machine</p>
+</div>
+<div class="section" id="launching-from-xtimecomposer-studio">
+<h3>Launching from xTIMEcomposer Studio<a class="headerlink" href="#launching-from-xtimecomposer-studio" title="Permalink to this headline">¶</a></h3>
+<p>From xTIMEcomposer Studio the run mechanism is used to download code to
+xCORE device. Select the xCORE binary from the bin directory, right click
+and then follow the instructions below.</p>
+<ul>
+<li><p>Select <strong>Run As</strong>.</p></li>
+<li><p>Select <strong>Run Configurations</strong>.</p></li>
+<li><p>Double click on xCORE application**.</p></li>
+<li><p>Enable xSCOPE in Target I/O options:</p>
+<div class="figure align-default" id="id4">
+<img alt="../../../../_images/xtime-run-xscope1.png" src="../../../../_images/xtime-run-xscope1.png"/>
+<p class="caption"><span class="caption-number">Fig. 23 </span><span class="caption-text">xTIMEcomposer xSCOPE configuration</span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
+</div>
+</li>
+<li><p>Click <strong>Apply</strong> and then <strong>Run</strong>.</p></li>
+</ul>
+<p>Once this command has executed the printer USB device should have
+enumerated on your machine</p>
+</div>
+</div>
+<div class="section" id="running-the-printer-demo">
+<h2>Running the printer demo<a class="headerlink" href="#running-the-printer-demo" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="windows-host">
+<h3>Windows Host<a class="headerlink" href="#windows-host" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>To add the printer to Windows Control Panel :</p></li>
+<li><p>Open the Control Panel, select <strong>Devices and Printers</strong> and then <strong>Add Printer</strong>.</p></li>
+<li><p>Click <em>The printer that I want isn’t listed</em>.</p></li>
+<li><p>Select <em>Add a local printer or network printer with manual settings</em>, then click <strong>Next</strong>.</p></li>
+<li><p>Select <em>Use an existing port</em> and <em>USB001 (Virtual printer port for USB)</em>, then click <strong>Next</strong>.</p></li>
+<li><p>Select <em>Generic</em> and <em>Generic / Text Only</em>, then click <strong>Next</strong>.</p></li>
+<li><p>Select <em>Use the driver that is currently installed (recommended)</em>, then click <strong>Next</strong>.</p></li>
+<li><p>Change the name to <em>XMOS Generic / Text Only</em>, then click <strong>Next</strong>.</p></li>
+<li><p>Select <em>Do not share this printer</em>, then click <strong>Next</strong>.</p></li>
+<li><p>Click <strong>Finish</strong>.</p></li>
+</ul>
+<p>The printer will now appear in your Control Panel:</p>
+<div class="figure align-default" id="id5">
+<img alt="../../../../_images/printer.png" src="../../../../_images/printer.png"/>
+<p class="caption"><span class="caption-number">Fig. 24 </span><span class="caption-text">XMOS printer in control panel</span><a class="headerlink" href="#id5" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+<div class="section" id="osx-host">
+<h3>OSX Host<a class="headerlink" href="#osx-host" title="Permalink to this headline">¶</a></h3>
+<p>When connecting the printer to an Apple Mac computer it will be automatically
+detected as a Printomatic 2000 and you will be able to print directly to the device.</p>
+</div>
+<div class="section" id="testing-the-printer">
+<h3>Testing the printer<a class="headerlink" href="#testing-the-printer" title="Permalink to this headline">¶</a></h3>
+<p>To test the printer, create a text file containing the following:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Hello World !
+</pre></div>
+</div>
+<p>Print the file to the printer and you will see the following output in the xTIMEcomposer console window (note some of the print decode has been deleted to aid clarity):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>**** Received 512 byte print buffer ****
+Hello World !
+</pre></div>
+</div>
+<p>Note that on OSX the default printer output will be in PCL format, this mean that there are extra characters printed to the console other than just the hello world text.</p>
+</div>
+</div>
+<div class="section" id="references">
+<h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="full-source-code-listing">
+<h2>Full source code listing<a class="headerlink" href="#full-source-code-listing" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="source-code-for-endpoint0-xc">
+<h3>Source code for endpoint0.xc<a class="headerlink" href="#source-code-for-endpoint0-xc" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="source-code-for-main-xc">
+<h3>Source code for main.xc<a class="headerlink" href="#source-code-for-main-xc" title="Permalink to this headline">¶</a></h3>
+</div>
+</div>
+</div>
+
+      </article>
+      <footer>
+        
+        <div class="related-pages">
+          <a class="next-page" href="../../../AN00127_video_class/doc/rst/AN00127.html">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title">Video class</div>
+              </div>
+              <svg><use href="#svg-arrow-right"></use></svg>
+            </a>
+          <a class="prev-page" href="../../../AN00125_mass_storage_class/doc/rst/AN00125.html">
+              <svg><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">Mass Storage class</div>
+                
+              </div>
+            </a>
+        </div>
+
+        <div class="related-information">
+              Copyright &#169; 2019-2021, XMOS Ltd
+            |
+            Built with <a href="https://www.sphinx-doc.org/">Sphinx</a>
+              and
+              <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+              <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
+            |
+            <a class="muted-link" href="../../../../_sources/examples/AN00126_printer_class/doc/rst/AN00126.rst.txt"
+               rel="nofollow">
+              Show Source
+            </a>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            Contents
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Printer class</a><ul>
+<li><a class="reference internal" href="#overview">Overview</a><ul>
+<li><a class="reference internal" href="#introduction">Introduction</a></li>
+<li><a class="reference internal" href="#block-diagram">Block diagram</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#usb-printer-device-class-application-note">USB Printer Device Class application note</a><ul>
+<li><a class="reference internal" href="#makefile-additions-for-this-application">Makefile additions for this application</a></li>
+<li><a class="reference internal" href="#declaring-resource-and-setting-up-the-usb-components">Declaring resource and setting up the USB components</a></li>
+<li><a class="reference internal" href="#the-application-main-function">The application main() function</a></li>
+<li><a class="reference internal" href="#configuring-the-usb-device-id">Configuring the USB Device ID</a></li>
+<li><a class="reference internal" href="#usb-printer-class-specific-defines">USB Printer Class specific defines</a></li>
+<li><a class="reference internal" href="#usb-device-descriptor">USB Device Descriptor</a></li>
+<li><a class="reference internal" href="#usb-configuration-descriptor">USB Configuration Descriptor</a></li>
+<li><a class="reference internal" href="#usb-string-descriptors">USB string descriptors</a></li>
+<li><a class="reference internal" href="#usb-printer-class-requests">USB Printer Class requests</a></li>
+<li><a class="reference internal" href="#usb-printer-class-endpoint0">USB Printer Class Endpoint0</a></li>
+<li><a class="reference internal" href="#receiving-printer-data-from-the-host">Receiving printer data from the host</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#demo-hardware-setup">Demo Hardware Setup</a></li>
+<li><a class="reference internal" href="#launching-the-demo-device">Launching the demo device</a><ul>
+<li><a class="reference internal" href="#launching-from-the-command-line">Launching from the command line</a></li>
+<li><a class="reference internal" href="#launching-from-xtimecomposer-studio">Launching from xTIMEcomposer Studio</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#running-the-printer-demo">Running the printer demo</a><ul>
+<li><a class="reference internal" href="#windows-host">Windows Host</a></li>
+<li><a class="reference internal" href="#osx-host">OSX Host</a></li>
+<li><a class="reference internal" href="#testing-the-printer">Testing the printer</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#references">References</a></li>
+<li><a class="reference internal" href="#full-source-code-listing">Full source code listing</a><ul>
+<li><a class="reference internal" href="#source-code-for-endpoint0-xc">Source code for endpoint0.xc</a></li>
+<li><a class="reference internal" href="#source-code-for-main-xc">Source code for main.xc</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </main>
+</div>
+    <script id="documentation_options" data-url_root="../../../../" src="../../../../_static/documentation_options.js"></script>
+    <script src="../../../../_static/jquery.js"></script>
+    <script src="../../../../_static/underscore.js"></script>
+    <script src="../../../../_static/doctools.js"></script>
+    <script src="../../../../_static/clipboard.min.js"></script>
+    <script src="../../../../_static/copybutton.js"></script>
+    <script src="../../../../_static/tabs.js"></script>
+    <script src="../../../../_static/scripts/main.js?digest=e931d09b2a40c1bb82b542effe772014573baf67"></script></body>
+</html>

@@ -8,10 +8,9 @@ Before you start
     ./version_info.rst
     ./inc_changelog.rst
     ./inc_license.rst
-    ./inc_copyrights.rst
-    ./inc_contributions.rst
+    ./COPYRIGHTS.rst
+    ./CONTRIBUTIONS.rst
     ./build_the_documentation_yourself.rst
-
 
 Some things to beware of:
 -------------------------
@@ -25,13 +24,13 @@ Some things to beware of:
 * Read the License agreement: :doc:`inc_license`
 
 
-* Be aware of the copyrights: :doc:`inc_copyrights`
+* Be aware of the copyrights: :doc:`COPYRIGHTS`
 
 
 We'd love you to contribute
 ---------------------------
 
-Make sure you check out: :doc:`inc_contributions`
+Make sure you check out how: :doc:`CONTRIBUTIONS`
 
 And you can build the documentation yourself, following these simple instructions: :doc:`build_the_documentation_yourself`
     

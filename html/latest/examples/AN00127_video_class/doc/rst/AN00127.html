@@ -1,0 +1,755 @@
+<!doctype html>
+<html class="no-js">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="../../../../genindex.html" /><link rel="search" title="Search" href="../../../../search.html" /><link rel="next" title="HID class" href="../../../AN00129_hid_class/doc/rst/AN00129.html" /><link rel="prev" title="Printer class" href="../../../AN00126_printer_class/doc/rst/AN00126.html" />
+
+    <meta name="generator" content="sphinx-3.5.4, furo 2021.04.11.beta34"/>
+        <title>Video class - Keith&#39;s Latest Docs 3.0.0 documentation</title>
+      <link rel="stylesheet" href="../../../../_static/styles/furo.css?digest=59ab60ac09ea94ccfe6deddff6d715cce948a6fc">
+    <link rel="stylesheet" href="../../../../_static/pygments.css">
+    <link media="(prefers-color-scheme: dark)" rel="stylesheet" href="../../../../_static/pygments_dark.css">
+    
+
+
+<style>
+  :root {
+    --color-code-background: #f8f8f8;
+  --color-code-foreground: black;
+  
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+  }
+
+  /* For allowing end-user-specific overrides */
+  .override-light {
+    --color-code-background: #f8f8f8;
+  --color-code-foreground: black;
+  
+  }
+  .override-dark {
+    --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+  }
+</style><link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/tabs.css" />
+    <link rel="stylesheet" href="../../../../_static/styles/furo-extensions.css?digest=d391b54134226e4196576da3bdb6dddb7e05ba2b"></head>
+  <body dir="">
+    
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+      stroke-width="1.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+      <path stroke="none" d="M0 0h24v24H0z"/>
+      <line x1="4" y1="6" x2="20" y2="6" />
+      <line x1="10" y1="12" x2="20" y2="12" />
+      <line x1="6" y1="18" x2="20" y2="18" />
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+      class="feather feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+      class="feather feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation"></label>
+<label class="overlay toc-overlay" for="__toc"></label>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="../../../../index.html"><div class="brand">Keith's Latest Docs 3.0.0 documentation</div></a>
+    </div>
+    <div class="header-right">
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand centered" href="../../../../index.html">
+  
+  <div class="sidebar-logo-container">
+    <img class="sidebar-logo" src="../../../../_static/xmos_logo.png" alt="Logo"/>
+  </div>
+  
+  <span class="sidebar-brand-text">Keith's Latest Docs 3.0.0 documentation</span>
+  
+</a><form class="sidebar-search-container" method="get" action="../../../../search.html">
+  <input class="sidebar-search" placeholder=Search name="q">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form><div class="sidebar-tree">
+  <ul class="current">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../../doc/rst/before_you_start.html">Before you start</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label for="toctree-checkbox-1"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../doc/rst/version_info.html">Tool and Architecture Dependencies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../doc/rst/inc_changelog.html">lib_xud Change Log</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../doc/rst/inc_license.html">XMOS PUBLIC LICENCE: Version 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../doc/rst/build_the_documentation_yourself.html">How to build the documenation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../doc/rst/COPYRIGHTS.html">Copyrights</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../../lib_xud/doc/rst/the_xud_library.html">The XUD library</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label for="toctree-checkbox-2"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../lib_xud/doc/rst/overview.html">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../lib_xud/doc/rst/file_arrangement.html">File Arrangement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../lib_xud/doc/rst/resource_usage.html">Resource Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../lib_xud/doc/rst/basic_usage.html">Basic Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../lib_xud/doc/rst/advanced_usage.html">Advanced Usage</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current has-children"><a class="reference internal" href="../../../doc/usb_class_examples.html">USB Class examples</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label for="toctree-checkbox-3"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../../AN00124_CDC_VCOM_class/doc/rst/AN00124.html">CDC VCOM class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../AN00125_mass_storage_class/doc/rst/AN00125.html">Mass Storage class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../AN00126_printer_class/doc/rst/AN00126.html">Printer class</a></li>
+<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">Video class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../AN00129_hid_class/doc/rst/AN00129.html">HID class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../AN00131_CDC_EDC_class/doc/rst/AN00131.html">CDC EDC class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../AN00132_image_class/doc/rst/AN00132.html">Image class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../AN00135_test_and_measurement_class/doc/rst/AN00135.html">Test and Measurement class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../AN00136_vendor_specific/doc/rst/AN00136.html">Vendor Sepcific (Custom USB device)</a></li>
+</ul>
+</li>
+</ul>
+
+</div>
+
+    <select name="version" id="version-select" value="Latest" onchange="changeVersion(this.value)" >
+    <option selected disabled>Other versions</option>
+    <option value="html/v1/">v1</option>
+    <option value="html/v2/">v2</option>
+    <option value="html/v3/">v3</option>
+    <option value="html/v4/">v4</option>
+    <option value="html/latest/">latest</option>
+    </select>
+
+    <script>
+    function changeVersion(val) {
+        var loc = window.location.toString();
+        var i = loc.indexOf("html/");
+        if (i >= 0) {
+            var s1 = loc.substring(0, i);
+            var i2 = loc.indexOf("/", i+6)
+            var s2 = loc.substring(i2+1);
+            nl=s1.concat(val, s2);
+
+
+            var request = new XMLHttpRequest();  
+            request.open('GET', nl, true);
+            request.onreadystatechange = function(){
+            if (request.readyState === 4){
+                if (request.status === 404) {  
+                    alert("Oh no, it does not exist!");
+                    window.location.assign(loc);
+                    location.reload();
+                }
+                else {
+                    window.location.assign(nl);
+                }  
+            }
+        };
+        request.send();    
+        }
+    }
+    </script>
+      </div>
+      
+    </div>
+  </aside>
+  <main class="main">
+    <div class="content">
+      <article role="main">
+        <label class="toc-overlay-icon toc-content-icon" for="__toc">
+          <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+        </label>
+        <div class="section" id="video-class">
+<h1>Video class<a class="headerlink" href="#video-class" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="introduction">
+<h3>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h3>
+<p>USB Video Class (UVC) is a standard class specification that standardizes video streaming
+functionality on the USB. It enables devices like webcams, digital camcorders, analog video
+converters, analog and digital television tuners etc to connect seamlessly with host machines.</p>
+<p>UVC supports streaming multiple video formats including YUV, MJPEG, MPEG-2 TS, H.264, DV etc.
+It provides structures for describing the functionalities of the video device to the host and defines USB requests to control different parameters of the device and characteristics of the video stream. It also provides flexibility for a video device to support multiple video resolutions, formats and frame rates, which highly influences the bandwidth negotiation between the device and the host.</p>
+<p>Many OS platforms have native support for UVC drivers which greatly reduces the time required for developers to create USB video devices.</p>
+<p>In this application note, the UVC implementation for xCORE-USB device is explained in detail which will help you to build your own USB video device. The demo example doesn’t interface a camera sensor but you can easily extend it to add a camera.</p>
+<p>The standard USB Video Class specification can be found in the USB-IF website.</p>
+<p>(<a class="reference external" href="http://www.usb.org/developers/docs/devclass_docs/USB_Video_Class_1_1_090711.zip">http://www.usb.org/developers/docs/devclass_docs/USB_Video_Class_1_1_090711.zip</a>)</p>
+</div>
+<div class="section" id="block-diagram">
+<h3>Block diagram<a class="headerlink" href="#block-diagram" title="Permalink to this headline">¶</a></h3>
+<div class="figure align-center" id="id1">
+<a class="reference internal image-reference" href="../../../../_images/block_diagram3.png"><img alt="../../../../_images/block_diagram3.png" src="../../../../_images/block_diagram3.png" style="width: 90%;"/></a>
+<p class="caption"><span class="caption-number">Fig. 25 </span><span class="caption-text">Block diagram of USB video class application</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</div>
+<p>The ‘Camera Sensor’ shown in the above figure is not interfaced in the demo example but it is emulated by creating color video frames inside the device.</p>
+</div>
+</div>
+<div class="section" id="usb-video-class-application-note">
+<h2>USB Video Class application note<a class="headerlink" href="#usb-video-class-application-note" title="Permalink to this headline">¶</a></h2>
+<p>The example in this application note uses the XMOS USB device library and shows a simple program that enumerates a USB Video Class device in a host machine and streams uncompressed video frames in YUV format with thirty frames per second to a video capture host software.</p>
+<p>For this USB Video device application example, the system comprises three tasks running on separate logical cores of an xCORE-USB multicore microcontroller.</p>
+<p>The tasks perform the following operations.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>A task containing the USB library functionality to communicate over USB.</p></li>
+<li><p>A task implementing Endpoint0 responding to both standard and video class-specific USB requests.</p></li>
+<li><p>A task implementing the application code to send video data over streaming endpoints.</p></li>
+</ul>
+</div></blockquote>
+<p>These tasks communicate via the use of xCONNECT channels which allow data to be passed between
+application code running on separate logical cores.</p>
+<p>The following diagram shows the task and communication structure for this USB video
+class application example.</p>
+<div class="figure align-center" id="id2">
+<a class="reference internal image-reference" href="../../../../_images/task_diagram2.png"><img alt="../../../../_images/task_diagram2.png" src="../../../../_images/task_diagram2.png" style="width: 100%;"/></a>
+<p class="caption"><span class="caption-number">Fig. 26 </span><span class="caption-text">Task diagram of the USB video device example</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</div>
+<div class="section" id="makefile-additions-for-this-example">
+<h3>Makefile additions for this example<a class="headerlink" href="#makefile-additions-for-this-example" title="Permalink to this headline">¶</a></h3>
+<p>To start using the USB library, you need to add <strong>lib_usb</strong> to your makefile:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">USED_MODULES</span> <span class="o">=</span> <span class="o">...</span> <span class="n">lib_xud</span> <span class="o">...</span>
+</pre></div>
+</div>
+<p>You can then access the USB functions in your source code via the <em>usb_device.h</em> header file:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#include &lt;usb_device.h&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="source-code-files">
+<h3>Source code files<a class="headerlink" href="#source-code-files" title="Permalink to this headline">¶</a></h3>
+<p>The example application consists of multiple source code files and the following list provides an overview of how the source code is organized.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">usb_video.xc</span></code>, <code class="docutils literal notranslate"><span class="pre">usb_video.h</span></code> - Contains the USB video class descriptors and endpoint
+handler tasks (functions).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">uvc_req.c</span></code>, <code class="docutils literal notranslate"><span class="pre">uvc_req.h</span></code> - Contains functions and data structures to handle
+class-specific USB requests.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">uvc_defs.h</span></code> - This header file has defines that are used for USB descriptors,
+class-specific requests and video details like resolution, payload size and frame rate etc.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">main.xc</span></code> - Contains main() function and some USB related defines.</p></li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="declaring-resource-and-setting-up-the-usb-components">
+<h3>Declaring resource and setting up the USB components<a class="headerlink" href="#declaring-resource-and-setting-up-the-usb-components" title="Permalink to this headline">¶</a></h3>
+<p><em>main.xc</em> has some defines in it that are used to configure the XMOS USB device library. These are displayed below.</p>
+<p>The above set of defines describe the endpoint configurations for this device.. This example
+has bi-directional communication with the host machine via the standard endpoint0 and two other endpoints for implementing the part of our video class.</p>
+<p>All these defines are passed to the setup function for the USB library which is called from <strong>main()</strong>.</p>
+</div>
+<div class="section" id="the-application-main-function">
+<h3>The application main() function<a class="headerlink" href="#the-application-main-function" title="Permalink to this headline">¶</a></h3>
+<p>Below is the source code for the main function of this application, which is taken from
+the source file <code class="docutils literal notranslate"><span class="pre">main.xc</span></code></p>
+<p>Looking at this in a more detail you can see the following:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>The par statement starts three separate tasks in parallel.</p></li>
+<li><p>There is a task to configure and execute the USB library: <code class="docutils literal notranslate"><span class="pre">XUD_Main()</span></code>. This library
+call runs in an infinite loop and handles all the underlying USB communications and provides abstraction at the endpoints level.</p></li>
+<li><p>There is a task to startup and run the Endpoint0 code: <code class="docutils literal notranslate"><span class="pre">Endpoint0()</span></code>. It handles the
+control endpoint zero and must be run in a separate logical core inorder to provide timely response to control requests from the host.</p></li>
+<li><p>There is a task to handle two other endpoints required for the Video class:
+<code class="docutils literal notranslate"><span class="pre">VideoEndpointsHandler()</span></code>. This function handles one Isochronous IN
+endpoint for video streaming and one interrupt IN endpoint for sending notifications to host.</p></li>
+<li><p>The define USB_TILE describes the tile on which the individual tasks will run.</p></li>
+<li><p>In this example all tasks run on the same tile as the USB PHY although this is only a
+requirement of <code class="docutils literal notranslate"><span class="pre">XUD_Main()</span></code>.</p></li>
+<li><p>The xCONNECT communication channels used for inter-task communication are setup at the
+beginning of <code class="docutils literal notranslate"><span class="pre">main()</span></code> and passed on to respective tasks.</p></li>
+<li><p>The USB defines discussed earlier are passed into the function <code class="docutils literal notranslate"><span class="pre">XUD_Main()</span></code>.</p></li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="configuring-the-usb-device-id">
+<h3>Configuring the USB device ID<a class="headerlink" href="#configuring-the-usb-device-id" title="Permalink to this headline">¶</a></h3>
+<p>The USB ID values used for vendor ID, product ID and device version number are defined in the file <code class="docutils literal notranslate"><span class="pre">uvc_defs.h</span></code>. These are used by the host machine to determine the vendor of the device (in this case XMOS) and the product plus the firmware version.</p>
+</div>
+<div class="section" id="video-device-topology">
+<h3>Video device topology<a class="headerlink" href="#video-device-topology" title="Permalink to this headline">¶</a></h3>
+<p>This section provides a brief overview of the representation of video device in a topology.
+It introduces you to the terms used in the video class specification, which helps you to
+understand the further sections of this application note.</p>
+<p>A video device is represented as an interconnection of multiple addressable entities. Each entity represents a functionality and has properties which are controlled by the USB host. The following are the different entities:</p>
+<blockquote>
+<div><ul>
+<li><p><strong>Units</strong></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Selector Unit</p></li>
+<li><p>Processing Unit</p></li>
+<li><p>Extension Unit</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p><strong>Terminals</strong></p>
+<blockquote>
+<div><ul>
+<li><p>Input Terminal</p></li>
+<li><p>Output Terminal</p></li>
+<li><p>Special Terminals (extends the I/O terminal)</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Media Transport Terminal</p></li>
+<li><p>Camera Terminal</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+<p>These entities are interconnected by means of <em>Input Pins</em> and <em>Output Pins</em>.
+A Unit has one or more Input Pins and a single Output Pin, where each Pin represents logical data streams inside the video device. A Terminal has either a single Input Pin or a single Output Pin. An <em>Input Terminal(IT)</em> represents a starting point for data streams of the video device. An <em>Output Terminal(OT)</em> represents an ending point for data streams.</p>
+<p>The functionality of a Unit or Terminal is further described through Video Controls. A Control typically provides access to a specific video property. Video properties include brightness, contrast, sharpness, digital zoom etc. Each Control has a set of attributes that can be manipulated or that provide additional information, they are:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Current setting</p></li>
+<li><p>Minimum setting</p></li>
+<li><p>Maximum setting</p></li>
+<li><p>Resolution</p></li>
+<li><p>Size</p></li>
+<li><p>Default</p></li>
+</ul>
+</div></blockquote>
+<p>For example, the brightness of the video stream can be controlled by the USB host by changing the current setting of the Brightness Control inside a Processing unit.</p>
+<p>The following diagram shows the topology of the demo application</p>
+<div class="figure align-center" id="id3">
+<a class="reference internal image-reference" href="../../../../_images/video_device_topology.png"><img alt="../../../../_images/video_device_topology.png" src="../../../../_images/video_device_topology.png" style="width: 80%;"/></a>
+<p class="caption"><span class="caption-number">Fig. 27 </span><span class="caption-text">Topology of the UVC example</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
+</div>
+<p>No Units are involved in the demo application example. More information on Units can be found from the USB video class specification documents.</p>
+<p>This video device topology is communicated to the host through USB descriptors which is discussed in the following section.</p>
+</div>
+<div class="section" id="usb-descriptors">
+<h3>USB Descriptors<a class="headerlink" href="#usb-descriptors" title="Permalink to this headline">¶</a></h3>
+<p>USB Video class device has to support class-specific descriptors apart from the
+standard descriptors defined in the USB specifications. The class specific
+descriptors are customized according to the need of the USB Video device.</p>
+<p>The following figure shows the descriptors used in the example code.</p>
+<div class="figure align-default" id="id4">
+<a class="reference internal image-reference" href="../../../../_images/usb_descriptors1.png"><img alt="../../../../_images/usb_descriptors1.png" src="../../../../_images/usb_descriptors1.png" style="width: 85%;"/></a>
+<p class="caption"><span class="caption-number">Fig. 28 </span><span class="caption-text">Hierarchical structure of USB descriptors of UVC example</span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
+</div>
+<p>The above figure is discussed in detail in the following sections.</p>
+<div class="section" id="usb-device-descriptor">
+<h4>USB Device Descriptor<a class="headerlink" href="#usb-device-descriptor" title="Permalink to this headline">¶</a></h4>
+<p><code class="docutils literal notranslate"><span class="pre">usb_video.xc</span></code> is where the standard USB device descriptor is declared for the Video class device. Below is the structure which contains this descriptor. This will be requested by the host when the device is enumerated on the USB bus.</p>
+<p>From this descriptor you can see that product, vendor and device firmware revision are all coded into this structure. This will allow the host machine to recognise the video device when it is connected to the USB bus.</p>
+<p>For Video class device, it is mandatory to set the ‘bDeviceClass’, ‘bDeviceSubClass’ and ‘bDeviceProtocol’ fields to 0xEF, 0x02 and 0x01 respectively.</p>
+</div>
+<div class="section" id="usb-configuration-descriptor">
+<h4>USB Configuration Descriptor<a class="headerlink" href="#usb-configuration-descriptor" title="Permalink to this headline">¶</a></h4>
+<p>The USB configuration descriptor is used to configure the device in terms of the device class and the endpoints setup. The hierarchy of descriptors under a configuration includes interface association descriptor, interfaces descriptors, class-specific descriptors and endpoints descriptors.</p>
+<p>When a host requests a configuration descriptor, the entire configuration hierarchy including all the related descriptors are returned to the host. The following
+code shows the configuration hierarchy of the demo application.</p>
+<p>The <em>configuration descriptor</em> tells host about the power requirements of the device and the number of interfaces it supports.</p>
+<p>Multiple interfaces together provides the video functionality. This group of interfaces is
+called Video Interface Collection. The Video Interface Collection is described by an
+<em>interface association descriptor</em> (IAD). In the example application, the IAD defines
+that the interface zero and one groups to form the USB Video device. These two interfaces are:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Video Control Interface (VC Interface)</p></li>
+<li><p>Video Streaming Interface (VS Interface)</p></li>
+</ul>
+</div></blockquote>
+<p>Note: A video function must have one VideoControl interface and zero or more VideoStreaming interfaces.</p>
+</div>
+<div class="section" id="videocontrol-interface">
+<h4>VideoControl Interface<a class="headerlink" href="#videocontrol-interface" title="Permalink to this headline">¶</a></h4>
+<p>This interface controls the functional behavior of the video device. It is described by both standard and class-specific descriptors.</p>
+<p>The <em>Standard VC interface descriptor</em> identifies the interface number and class and provides
+the number of endpoints that belongs to this interface. The default <em>Endpoint 0</em> is used by
+this interface for control purpose through class-specific requests. Another optional endpoint
+called <em>Status Interrupt Endpoint</em> is used to send asynchronous status notifications to the
+host. This interrupt endpoint is described by both standard and class-specific endpoint descriptors.</p>
+<p>The <em>Class-Specific VC interface descriptor</em> describes the whole topology of the video device.
+It includes <em>Unit descriptors</em> and <em>Terminal descriptors</em>. The example application doesn’t
+include any Units and hence only Terminal descriptors can be found in the
+descriptors hierarchy structure.</p>
+<p>The Class-Specific descriptors starts with a header called VC Interface Header descriptor.
+This descriptor mentions the version of UVC specification followed and the collection of
+streaming interfaces to which this VideoControl interface belongs.</p>
+<p>The <em>Input Terminal descriptor</em> provides information on the functional aspects of the input source of the video device. Following code shows the fields of this descriptor:</p>
+<p>In the above code, the ‘bTerminalID’ is an unique identifier of this terminal and ‘bTerminalType’ declares camera as the input type.</p>
+<p>The <em>Output Terminal descriptor</em> is shown in the following code.</p>
+<p>The above descriptor shows that the ‘bSourceID’ is defined as 0x01 which is the ‘bTerminalID’ of the input terminal. This information shows the interconnection between the entities, which the host uses to identify the topology of the video device.</p>
+</div>
+<div class="section" id="videostreaming-interface">
+<h4>VideoStreaming Interface<a class="headerlink" href="#videostreaming-interface" title="Permalink to this headline">¶</a></h4>
+<p>VideoStreaming interfaces are used to interchange video data streams between the Host and the Video device. Each interface can have one isochronous or bulk data endpoint. Interfaces supporting isochronous video transfer must have alternate settings which enables host to change the bandwidth requirements imposed by an active isochronous pipe. It is also mandatory to provide a zero-bandwidth alternate setting as the default alternate setting(alternate setting zero) that provides the host software the option to temporarily relinquish USB bandwidth by switching to this alternate setting.</p>
+<p>In the UVC example, the zero-bandwidth alternate setting of the VideoStreaming interface is described by standard interface descriptor and class-specific VS interface descriptors.</p>
+<p>The <em>Standard VS interface descriptor</em> provides the interface number, the number of endpoints that belongs to this interface etc. In case of zero-bandwidth alternate setting the number of endpoints is set to zero.</p>
+<p>The <em>Class-Specific VS interface descriptors</em> are used to describe the supported video stream formats, video frame details, still image frame details, color profile of video data etc. The following is the list of these class-specific descriptors:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Input Header descriptor</p></li>
+<li><p>Output Header descriptor</p></li>
+<li><p>Payload Format descriptor</p></li>
+<li><p>Video Frame descriptor</p></li>
+<li><p>Still Image frame descriptor</p></li>
+<li><p>Color Matching descriptor</p></li>
+</ul>
+</div></blockquote>
+<p>The <em>Input Header descriptor</em> is meant for interfaces that contain IN endpoint and <em>Output Header</em> is for interfaces that contain OUT endpoint.</p>
+<p>The following code shows the fields of Input Header descriptor:</p>
+<p>The above code shows the number of formats supported, the address of endpoint which streams video data and the output terminal ID which links to this streaming interface.</p>
+<p>The <em>Payload Format descriptor</em> describes the video format. The fields of this descriptor is shown below:</p>
+<p>The above code shows that the video stream is of uncompressed YUY2 format and uses 16-bits per pixel.</p>
+<p>The <em>Video Frame descriptor</em> mentions the frame resolution, frame rate, video buffer size etc. The following code shows the fields of this descriptor:</p>
+<p>The defines used in the above code are present in the <em>uvc_defs.h</em> file and they are shown below:</p>
+<p>The other alternate setting of this interface has the data streaming isochronous endpoint and it is the operational alternate setting. The class-specific descriptors are not repeated in this alternate setting.</p>
+<p>The <em>Standard VS Isochronous Endpoint descriptor</em> of the alternate setting 1 of the UVC example is shown below:</p>
+<p>The above code shows that the maximum packet size of the endpoint is 1024 bytes and the ‘bInterval’ of 0x01 requests host to poll the endpoint every microframe(125us).</p>
+<p>In general, USB video devices supports a set of video parameter combinations(including video format, frame size and frame rate) and multiple alternate settings with different maximum packet size endpoints. This enables the host to select the appropriate alternate setting that provides only the required bandwidth for a given video parameter combination.</p>
+</div>
+<div class="section" id="usb-string-descriptors">
+<h4>USB String Descriptors<a class="headerlink" href="#usb-string-descriptors" title="Permalink to this headline">¶</a></h4>
+<p>String descriptors provide human readable information for your device and you can configure them with your USB product information. The descriptors are placed in an array as shown in the below code.</p>
+<p>The XMOS USB library will take care of encoding the strings into Unicode and structures the content into USB string descriptor format.</p>
+</div>
+</div>
+<div class="section" id="usb-standard-and-class-specific-requests">
+<h3>USB Standard and Class-Specific requests<a class="headerlink" href="#usb-standard-and-class-specific-requests" title="Permalink to this headline">¶</a></h3>
+<p>In <em>usb_video.xc</em> there is a function <em>Endpoint0()</em> which handles all the USB control requests sent by host to the control endpoint 0. USB control requests includes both standard USB requests and the UVC class-specific requests.</p>
+<p>In <em>Endpoint0()</em> function, a USB request is received as a setup packet by calling <em>USB_GetSetupPacket()</em> library function. The setup packet structure is then examined to distinguish between standard and class-specific requests.</p>
+<p>The XMOS USB library provides a function <em>USB_StandardRequests()</em> to handle the standard USB requests. This function is called with setup packet and descriptors structures as shown below</p>
+<p>The video class interfaces use endpoint 0 as the control element and receives all class-specific requests on it. The class-specific requests are used to set and get video related controls. These request are divided into:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>VideoControl requests</p></li>
+<li><p>VideoStreaming requests</p></li>
+</ul>
+</div></blockquote>
+<p>The function <em>UVC_InterfaceClassRequests()</em> present in <em>uvc_req.c</em> handles the class-specific
+requests. The defines corresponding to the class-specific request codes are present in
+<em>uvc_defs.h</em> as shown below.</p>
+<p>In the UVC example, the SET and GET requests for Video Probe and Commit Controls are handled.
+The Video Probe and Commit Controls are involved in the negotiation of streaming parameters between the host and the device. The following code shows the structure of the streaming parameters that are negotiated with those Controls.</p>
+<p>The demo application doesn’t have multiple set of streaming parameters and therefore the GET_DEF, GET_MIN, GET_MAX and GET_CUR requests are handled similarly and return same values to the host.</p>
+<p>This source code can be easily extended to support more class-specific requests.</p>
+</div>
+<div class="section" id="video-data-streaming">
+<h3>Video data streaming<a class="headerlink" href="#video-data-streaming" title="Permalink to this headline">¶</a></h3>
+<p>Streaming video data between device and host takes place through the streaming endpoint of the VideoStreaming interface. The video is streamed by continuously transmitting the video samples at a particular rate. A video sample refers to an encoded block of video data that the format-specific decoder is able to accept and interpret in a single transmission.</p>
+<p>In the UVC example, the video data is in packed 4:2:2 YUV format (YUY2) and a video sample corresponds to a single video frame of 480x320 pixels. Each video sample is split into multiple class-defined Payload Transfers. A Payload Transfer is composed of the class-defined payload header followed by the video payload data. The payload format is as shown below:</p>
+<div class="figure align-center" id="id5">
+<a class="reference internal image-reference" href="../../../../_images/payload_format.png"><img alt="../../../../_images/payload_format.png" src="../../../../_images/payload_format.png" style="width: 100%;"/></a>
+<p class="caption"><span class="caption-number">Fig. 29 </span><span class="caption-text">Payload format for uncompressed streams</span><a class="headerlink" href="#id5" title="Permalink to this image">¶</a></p>
+</div>
+<p>For an isochronous endpoint, each (micro)frame will contain a single payload transfer.
+The maximum packet size of the isochronous endpoint in the example code is 1024 bytes,
+therefore excluding the payload header length 1012 bytes are available for the video
+data in a single payload transfer.</p>
+<p>The function <em>VideoEndpointsHandler()</em> present in <em>usb_video.xc</em> handles the isochronous video data endpoint. Each payload transfer is carried out by using the <em>XUD_SetBuffer()</em> API of the USB library.</p>
+<p>For demonstartion, video data is generated in the device by filling up the buffers with red, green and blue color values (YUV format) as shown in the following code.</p>
+<p>These buffers are used together to create a video frame. The following code from <em>VideoEndpointsHandler()</em> shows the transmission of a single frame.</p>
+<p>The above code shows that ‘gVideoBuffer[]’ holds the payload data and is sent continuously to the host till the expected number of pixels per frame is over. These payload buffers are populated with payload header as shown in the following code.</p>
+<p>In the above code, the ‘pts’ is Presentation timestamp and it is obtained from a timer running in the xCORE device at 100MHz. The ‘pts’ and start of frame counter (count of USB SOF) are used to arrive at the Source Clock reference field.</p>
+<p><a href="#id11"><span class="problematic" id="id12">|appendix|</span></a></p>
+</div>
+</div>
+<div class="section" id="demo-hardware-setup">
+<h2>Demo Hardware Setup<a class="headerlink" href="#demo-hardware-setup" title="Permalink to this headline">¶</a></h2>
+<p>To setup the demo hardware the following boards are required.</p>
+<blockquote>
+<div><ul>
+<li><p>xCORE-USB slicekKIT (XK-SK-U16-ST)</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>xCORE-USB Core board.</p></li>
+<li><p>USB A/B sliceCARD.</p></li>
+<li><p>xTAG-2 debug adaptor</p></li>
+<li><p>Power supply</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+<div class="figure align-center" id="id6">
+<a class="reference internal image-reference" href="../../../../_images/usb-slicekit3.png"><img alt="../../../../_images/usb-slicekit3.png" src="../../../../_images/usb-slicekit3.png" style="width: 110%;"/></a>
+<p class="caption"><span class="caption-number">Fig. 30 </span><span class="caption-text">XMOS xCORE-USB sliceKIT</span><a class="headerlink" href="#id6" title="Permalink to this image">¶</a></p>
+</div>
+<p>The hardware should be configured as displayed above for this demo:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>The XTAG debug adapter should be connected to the XSYS connector and
+the XTAG USB should be connected to the host machine.</p></li>
+<li><p>The USB sliceCARD should be connected to the U slot (J4 header) of the xCORE-USB Core
+board and the other end of USB sliceCARD should be connected to host machine using a USB
+cable.</p></li>
+<li><p>The XLINK switch on the core board should be set to the ON position.</p></li>
+<li><p>The xCORE-USB core board should have the power cable connected.</p></li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="launching-the-demo-application">
+<h2>Launching the demo application<a class="headerlink" href="#launching-the-demo-application" title="Permalink to this headline">¶</a></h2>
+<p>Once the demo example has been built either from the command line using
+xmake or via the build mechanism of xTIMEcomposer studio we can execute
+the application on the xCORE-USB sliceKIT.</p>
+<p>Once built there will be a <code class="docutils literal notranslate"><span class="pre">bin</span></code> directory within the project which
+contains the binary for the xCORE device. The xCORE binary has a XMOS standard
+.xe extension.</p>
+<div class="section" id="launching-from-the-command-line">
+<h3>Launching from the command line<a class="headerlink" href="#launching-from-the-command-line" title="Permalink to this headline">¶</a></h3>
+<p>From the command line the <code class="docutils literal notranslate"><span class="pre">xrun</span></code> tool is used to download code to the
+xCORE device. Changing into the bin directory of the project
+we can execute the code on the xCORE microcontroller as follows:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">xrun</span> <span class="o">--</span><span class="n">xscope</span> <span class="n">app_usb_video</span><span class="o">.</span><span class="n">xe</span>          <span class="o">&lt;--</span> <span class="n">Download</span> <span class="ow">and</span> <span class="n">execute</span> <span class="n">the</span> <span class="n">xCORE</span> <span class="n">code</span>
+</pre></div>
+</div>
+<p>Once this command has executed the USB video device should have
+enumerated on your machine.</p>
+</div>
+<div class="section" id="launching-from-xtimecomposer-studio">
+<h3>Launching from xTIMEcomposer Studio<a class="headerlink" href="#launching-from-xtimecomposer-studio" title="Permalink to this headline">¶</a></h3>
+<p>From xTIMEcomposer Studio the run mechanism is used to download code to
+xCORE device. Select the xCORE binary from the bin directory, right click
+and then ‘Run As’-&gt; ‘xCORE application’ to execute the code on the xCORE device.</p>
+<p>Once this command has executed the USB video device should have
+enumerated on your machine.</p>
+</div>
+<div class="section" id="running-the-demo">
+<h3>Running the demo<a class="headerlink" href="#running-the-demo" title="Permalink to this headline">¶</a></h3>
+<p>The demo can be run on any OS that has support for USB Video class driver. Windows, Linux and Mac OS have native support for UVC driver. The following sections describe in detail on how to run the demo on those OS platforms.</p>
+<div class="section" id="running-on-windows">
+<h4>Running on Windows<a class="headerlink" href="#running-on-windows" title="Permalink to this headline">¶</a></h4>
+<blockquote>
+<div><ul class="simple">
+<li><p>In Microsoft Windows, When the USB Video device enumerates the host driver will be
+installed to get the device ready for operation. The following figure shows the dialog
+that completes installation of driver for the <em>XMOS USB Video Device</em>.</p></li>
+</ul>
+<div class="figure align-default" id="id7">
+<a class="reference internal image-reference" href="../../../../_images/windows_driver_install.png"><img alt="../../../../_images/windows_driver_install.png" src="../../../../_images/windows_driver_install.png" style="width: 80%;"/></a>
+<p class="caption"><span class="caption-number">Fig. 31 </span><span class="caption-text">Driver installation for the Video device</span><a class="headerlink" href="#id7" title="Permalink to this image">¶</a></p>
+</div>
+<ul class="simple">
+<li><p>After the driver is installed properly, you can use any video capture softwares like VLC
+Media player, AmCap etc to open the <em>XMOS USB Video Device</em>.</p></li>
+<li><p>Open VLC Media player, select <em>Media</em> menu and click <em>Open Capture Device…</em>. This will
+open a dialog window on which you can select the Video device as shown in the following
+picture.</p></li>
+</ul>
+<div class="figure align-default" id="id8">
+<a class="reference internal image-reference" href="../../../../_images/windows_vlc_select.png"><img alt="../../../../_images/windows_vlc_select.png" src="../../../../_images/windows_vlc_select.png" style="width: 80%;"/></a>
+<p class="caption"><span class="caption-number">Fig. 32 </span><span class="caption-text">Open Video device in VLC Media player</span><a class="headerlink" href="#id8" title="Permalink to this image">¶</a></p>
+</div>
+<ul class="simple">
+<li><p>Click <em>Play</em> to see the demo video streamed out of the Video device. The video is a
+sequence of colored rows that scroll upwards. The following figure shows a snapshot of the video.</p></li>
+</ul>
+<div class="figure align-default" id="id9">
+<a class="reference internal image-reference" href="../../../../_images/windows_vlc_demo.png"><img alt="../../../../_images/windows_vlc_demo.png" src="../../../../_images/windows_vlc_demo.png" style="width: 80%;"/></a>
+<p class="caption"><span class="caption-number">Fig. 33 </span><span class="caption-text">Video streamed from the XMOS USB Video device</span><a class="headerlink" href="#id9" title="Permalink to this image">¶</a></p>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="running-on-mac-osx">
+<h4>Running on Mac OSX<a class="headerlink" href="#running-on-mac-osx" title="Permalink to this headline">¶</a></h4>
+<blockquote>
+<div><ul class="simple">
+<li><p>In Mac OSX, once the USB Video device is enumerated the UVC driver will be loaded by the
+host to get the device ready for operation. The device will have enumerated as
+<em>XMOS USB Video Device</em>.</p></li>
+<li><p>Now you can open this Video device using any video capture software. <em>Photo Booth</em> is one
+such application that comes by default with Mac. Open Photo Booth application, click on
+‘Camera’ menu and then select <em>XMOS USB Video Device</em>. The application will then show
+the video streamed out of the USB device. The video is a sequence of colored rows that
+scroll upwards.</p></li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="running-on-linux">
+<h4>Running on Linux<a class="headerlink" href="#running-on-linux" title="Permalink to this headline">¶</a></h4>
+<blockquote>
+<div><ul class="simple">
+<li><p>Under linux, when the device enumerates the native UVC driver will be loaded and the
+device will be mounted as <em>/dev/videoX</em> where ‘X’ is a number.</p></li>
+<li><p>Now you can use any video capture software like VLC Media player, Cheese, luvcview etc
+to open the Video device.</p></li>
+<li><p>Open VLC Media player, select <em>Media</em> menu and click <em>Open Capture Device…</em>. This will
+open a dialog window on which you can select the Video device as shown in the following
+picture.</p></li>
+</ul>
+<div class="figure align-default" id="id10">
+<a class="reference internal image-reference" href="../../../../_images/linux_vlc_select.png"><img alt="../../../../_images/linux_vlc_select.png" src="../../../../_images/linux_vlc_select.png" style="width: 60%;"/></a>
+<p class="caption"><span class="caption-number">Fig. 34 </span><span class="caption-text">Open Video device in VLC Media player</span><a class="headerlink" href="#id10" title="Permalink to this image">¶</a></p>
+</div>
+<ul class="simple">
+<li><p>Click <em>Play</em> to see the demo video streamed out of the <em>XMOS USB Video Device</em>.
+The demo video looks like sequence of colored rows scrolling up.</p></li>
+</ul>
+</div></blockquote>
+</div>
+</div>
+</div>
+<div class="section" id="references">
+<h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="full-source-code-listing">
+<h2>Full source code listing<a class="headerlink" href="#full-source-code-listing" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="source-code-for-main-xc">
+<h3>Source code for main.xc<a class="headerlink" href="#source-code-for-main-xc" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="source-code-for-usb-video-xc">
+<h3>Source code for usb_video.xc<a class="headerlink" href="#source-code-for-usb-video-xc" title="Permalink to this headline">¶</a></h3>
+</div>
+</div>
+</div>
+
+      </article>
+      <footer>
+        
+        <div class="related-pages">
+          <a class="next-page" href="../../../AN00129_hid_class/doc/rst/AN00129.html">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title">HID class</div>
+              </div>
+              <svg><use href="#svg-arrow-right"></use></svg>
+            </a>
+          <a class="prev-page" href="../../../AN00126_printer_class/doc/rst/AN00126.html">
+              <svg><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">Printer class</div>
+                
+              </div>
+            </a>
+        </div>
+
+        <div class="related-information">
+              Copyright &#169; 2019-2021, XMOS Ltd
+            |
+            Built with <a href="https://www.sphinx-doc.org/">Sphinx</a>
+              and
+              <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+              <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
+            |
+            <a class="muted-link" href="../../../../_sources/examples/AN00127_video_class/doc/rst/AN00127.rst.txt"
+               rel="nofollow">
+              Show Source
+            </a>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            Contents
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Video class</a><ul>
+<li><a class="reference internal" href="#overview">Overview</a><ul>
+<li><a class="reference internal" href="#introduction">Introduction</a></li>
+<li><a class="reference internal" href="#block-diagram">Block diagram</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#usb-video-class-application-note">USB Video Class application note</a><ul>
+<li><a class="reference internal" href="#makefile-additions-for-this-example">Makefile additions for this example</a></li>
+<li><a class="reference internal" href="#source-code-files">Source code files</a></li>
+<li><a class="reference internal" href="#declaring-resource-and-setting-up-the-usb-components">Declaring resource and setting up the USB components</a></li>
+<li><a class="reference internal" href="#the-application-main-function">The application main() function</a></li>
+<li><a class="reference internal" href="#configuring-the-usb-device-id">Configuring the USB device ID</a></li>
+<li><a class="reference internal" href="#video-device-topology">Video device topology</a></li>
+<li><a class="reference internal" href="#usb-descriptors">USB Descriptors</a><ul>
+<li><a class="reference internal" href="#usb-device-descriptor">USB Device Descriptor</a></li>
+<li><a class="reference internal" href="#usb-configuration-descriptor">USB Configuration Descriptor</a></li>
+<li><a class="reference internal" href="#videocontrol-interface">VideoControl Interface</a></li>
+<li><a class="reference internal" href="#videostreaming-interface">VideoStreaming Interface</a></li>
+<li><a class="reference internal" href="#usb-string-descriptors">USB String Descriptors</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#usb-standard-and-class-specific-requests">USB Standard and Class-Specific requests</a></li>
+<li><a class="reference internal" href="#video-data-streaming">Video data streaming</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#demo-hardware-setup">Demo Hardware Setup</a></li>
+<li><a class="reference internal" href="#launching-the-demo-application">Launching the demo application</a><ul>
+<li><a class="reference internal" href="#launching-from-the-command-line">Launching from the command line</a></li>
+<li><a class="reference internal" href="#launching-from-xtimecomposer-studio">Launching from xTIMEcomposer Studio</a></li>
+<li><a class="reference internal" href="#running-the-demo">Running the demo</a><ul>
+<li><a class="reference internal" href="#running-on-windows">Running on Windows</a></li>
+<li><a class="reference internal" href="#running-on-mac-osx">Running on Mac OSX</a></li>
+<li><a class="reference internal" href="#running-on-linux">Running on Linux</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#references">References</a></li>
+<li><a class="reference internal" href="#full-source-code-listing">Full source code listing</a><ul>
+<li><a class="reference internal" href="#source-code-for-main-xc">Source code for main.xc</a></li>
+<li><a class="reference internal" href="#source-code-for-usb-video-xc">Source code for usb_video.xc</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </main>
+</div>
+    <script id="documentation_options" data-url_root="../../../../" src="../../../../_static/documentation_options.js"></script>
+    <script src="../../../../_static/jquery.js"></script>
+    <script src="../../../../_static/underscore.js"></script>
+    <script src="../../../../_static/doctools.js"></script>
+    <script src="../../../../_static/clipboard.min.js"></script>
+    <script src="../../../../_static/copybutton.js"></script>
+    <script src="../../../../_static/tabs.js"></script>
+    <script src="../../../../_static/scripts/main.js?digest=e931d09b2a40c1bb82b542effe772014573baf67"></script></body>
+</html>

@@ -1,0 +1,54 @@
+The process to build the first version and then subsequent versions of the docs:
+
+
+1. We still need to work out where to get the version and title from
+(currentlly I parse these from module-build-info using a script in conf.py.  
+If we fix this we can keep a common config.py for all projects)
+
+2. There is a script (versioning.py) which creates the version drop-down in the sidebar.
+This is another common file - but it needs parameters...
+(At the moment it can take a directory path - this is the parent of where the new html will be stored.
+which it extracts a list of versions for, or you can just provide a list of strings)
+
+e.g. the parent path:   some/path/html
+Then a few releases would look like:
+
+some/path/html/v1/all-the-files-here-including-index.html
+some/path/html/v2/all-the-files-here-including-index.html
+some/path/html/v3/all-the-files-here-including-index.html
+
+So, you could provide the path some/path/html and it will find the versions, or you can simply supply
+a list, eg -v "v1", "v2", "v3"
+
+So - we need to run this first.  It creates an output file (default versioning.html) which is included
+by the conf.py file.
+
+3. To allow a permanent enrty point into the web pages, we have an index.html at the hosting folder:
+i.e. some/path/html/index.html
+
+This file is simply a redirect.  It ALWAYS points to a subfolder of pages which is the latest version.
+To do this, whenever we create a new release (eg v3 was the last one in the example above) then 
+we must copy (replacing previous directory) the whole of "v3" to "latest"/
+
+e.g. we end up with this:
+
+some/path/html/v1/all-the-files-here-including-index.html
+some/path/html/v2/all-the-files-here-including-index.html
+some/path/html/v3/all-the-files-here-including-index.html
+some/path/html/latest/all-the-files-here-including-index.html  (which is a copy of v3)
+
+So - we need to script creating the redirect index.html if it is missing and to copy the new version to "latest"
+
+-------------------------------------------
+IMPROVEMENTS
+-------------------------------------------
+At the moment the path to the versioning.html file is required in both the conf.py and versioning.py
+We should move this into the make file.
+
+The sphinx-build command needs the output path, which is where the versioning script needs to look for
+previous folders - so again could be mage a common argument - BUT, depending where we store the 
+html output we may not have the previous versions in the folder (i.e. we don't commit them to the project)
+
+
+
+

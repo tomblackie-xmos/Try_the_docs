@@ -1,0 +1,292 @@
+<!doctype html>
+<html class="no-js">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="../../../genindex.html" /><link rel="search" title="Search" href="../../../search.html" /><link rel="next" title="File Arrangement" href="file_arrangement.html" /><link rel="prev" title="The XUD library" href="the_xud_library.html" />
+
+    <meta name="generator" content="sphinx-3.5.4, furo 2021.04.11.beta34"/>
+        <title>Overview - Keith&#39;s Latest Docs 3.0.0 documentation</title>
+      <link rel="stylesheet" href="../../../_static/styles/furo.css?digest=59ab60ac09ea94ccfe6deddff6d715cce948a6fc">
+    <link rel="stylesheet" href="../../../_static/pygments.css">
+    <link media="(prefers-color-scheme: dark)" rel="stylesheet" href="../../../_static/pygments_dark.css">
+    
+
+
+<style>
+  :root {
+    --color-code-background: #f8f8f8;
+  --color-code-foreground: black;
+  
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+  }
+
+  /* For allowing end-user-specific overrides */
+  .override-light {
+    --color-code-background: #f8f8f8;
+  --color-code-foreground: black;
+  
+  }
+  .override-dark {
+    --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+  }
+</style><link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/tabs.css" />
+    <link rel="stylesheet" href="../../../_static/styles/furo-extensions.css?digest=d391b54134226e4196576da3bdb6dddb7e05ba2b"></head>
+  <body dir="">
+    
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+      stroke-width="1.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+      <path stroke="none" d="M0 0h24v24H0z"/>
+      <line x1="4" y1="6" x2="20" y2="6" />
+      <line x1="10" y1="12" x2="20" y2="12" />
+      <line x1="6" y1="18" x2="20" y2="18" />
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+      class="feather feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+      class="feather feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation"></label>
+<label class="overlay toc-overlay" for="__toc"></label>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="../../../index.html"><div class="brand">Keith's Latest Docs 3.0.0 documentation</div></a>
+    </div>
+    <div class="header-right">
+      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand centered" href="../../../index.html">
+  
+  <div class="sidebar-logo-container">
+    <img class="sidebar-logo" src="../../../_static/xmos_logo.png" alt="Logo"/>
+  </div>
+  
+  <span class="sidebar-brand-text">Keith's Latest Docs 3.0.0 documentation</span>
+  
+</a><form class="sidebar-search-container" method="get" action="../../../search.html">
+  <input class="sidebar-search" placeholder=Search name="q">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form><div class="sidebar-tree">
+  <ul class="current">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../doc/rst/before_you_start.html">Before you start</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label for="toctree-checkbox-1"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../doc/rst/version_info.html">Tool and Architecture Dependencies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../doc/rst/inc_changelog.html">lib_xud Change Log</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../doc/rst/inc_license.html">XMOS PUBLIC LICENCE: Version 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../doc/rst/COPYRIGHTS.html">Copyrights</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../doc/rst/build_the_documentation_yourself.html">How to build the documenation</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current has-children"><a class="reference internal" href="the_xud_library.html">The XUD library</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label for="toctree-checkbox-2"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="file_arrangement.html">File Arrangement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="resource_usage.html">Resource Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="basic_usage.html">Basic Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="advanced_usage.html">Advanced Usage</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../examples/doc/usb_class_examples.html">USB Class examples</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label for="toctree-checkbox-3"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../examples/AN00124_CDC_VCOM_class/doc/rst/AN00124.html">CDC VCOM class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../examples/AN00125_mass_storage_class/doc/rst/AN00125.html">Mass Storage class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../examples/AN00126_printer_class/doc/rst/AN00126.html">Printer class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../examples/AN00127_video_class/doc/rst/AN00127.html">Video class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../examples/AN00129_hid_class/doc/rst/AN00129.html">HID class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../examples/AN00131_CDC_EDC_class/doc/rst/AN00131.html">CDC EDC class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../examples/AN00132_image_class/doc/rst/AN00132.html">Image class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../examples/AN00135_test_and_measurement_class/doc/rst/AN00135.html">Test and Measurement class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../examples/AN00136_vendor_specific/doc/rst/AN00136.html">Vendor Sepcific (Custom USB device)</a></li>
+</ul>
+</li>
+</ul>
+
+</div>
+
+    <select name="version" id="version-select" value="Latest" onchange="changeVersion(this.value)" >
+    <option selected disabled>Other versions</option>
+    <option value="html/v1/">v1</option>
+    <option value="html/v2/">v2</option>
+    <option value="html/v3/">v3</option>
+    <option value="html/v4/">v4</option>
+    <option value="html/latest/">latest</option>
+    </select>
+
+    <script>
+    function changeVersion(val) {
+        var loc = window.location.toString();
+        var i = loc.indexOf("html/");
+        if (i >= 0) {
+            var s1 = loc.substring(0, i);
+            var i2 = loc.indexOf("/", i+6)
+            var s2 = loc.substring(i2+1);
+            nl=s1.concat(val, s2);
+
+
+            var request = new XMLHttpRequest();  
+            request.open('GET', nl, true);
+            request.onreadystatechange = function(){
+            if (request.readyState === 4){
+                if (request.status === 404) {  
+                    alert("Oh no, it does not exist!");
+                    window.location.assign(loc);
+                    location.reload();
+                }
+                else {
+                    window.location.assign(nl);
+                }  
+            }
+        };
+        request.send();    
+        }
+    }
+    </script>
+      </div>
+      
+    </div>
+  </aside>
+  <main class="main">
+    <div class="content">
+      <article role="main">
+        <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+          <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+        </label>
+        <div class="section" id="overview">
+<h1>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h1>
+<p>The XUD library allows the implementation of both full-speed and
+high-speed USB 2.0 devices on xCORE-200 series, XS1 U-Series and L-Series devices.</p>
+<p>For the L series devices the implementation requires the use of an
+external ULPI transceiver such as the SMSC USB33XX range. Selected xCORE-200 and all U-Series
+devices include an integrated USB transceiver. Three libraries, with
+identical API, are provided - one each for xCORE-200 series, XS1 U-Series and L-Series devices.
+Please note, G-series is not recommended for new designs.</p>
+<p>The library performs all of the low-level I/O operations required to meet
+the USB 2.0 specification. This processing goes up to and includes the
+transaction level. It removes all low-level timing requirements from the
+application, allowing quick development of all manner of USB devices.</p>
+<p>The XUD library runs in a single core with endpoint and application
+cores communicating with it via a combination of channel communication
+and shared memory variables.</p>
+<p>One channel is required per IN or OUT endpoint. Endpoint 0 (the control
+endpoint) requires two channels, one for each direction. Please note that
+throughout this document the USB nomenclature is used: an OUT endpoint
+is used to transfer data from the host to the device, an IN endpoint is
+used when the host requests data from the device.</p>
+<p>An example task diagram is shown in <a class="reference internal" href="#figure-xud-overview"><span class="std std-ref">XUD Overview</span></a>.  Circles
+represent cores running with arrows depicting communication
+channels between these cores. In this configuration there is one
+core that deals with endpoint 0, which has both the input and output
+channel for endpoint 0. IN endpoint 1 is dealt with by a second core,
+and OUT endpoint 2 and IN endpoint 5 are dealt with by a third core.
+Cores must be ready to communicate with the XUD library whenever the
+host demands its attention. If not, the XUD library will NAK.</p>
+<p>It is important to note that, for performance reasons, cores
+communicate with the XUD library using both XC channels and shared
+memory communication. Therefore, <em>all cores using the XUD library must
+be on the same tile as the library itself</em>.</p>
+<div class="figure align-center" id="id1">
+<span id="figure-xud-overview"></span><a class="reference internal image-reference" href="../../../_images/xud_overview.png"><img alt="../../../_images/xud_overview.png" src="../../../_images/xud_overview.png" style="width: 120mm;"/></a>
+<p class="caption"><span class="caption-number">Fig. 1 </span><span class="caption-text">XUD Overview</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+
+      </article>
+      <footer>
+        
+        <div class="related-pages">
+          <a class="next-page" href="file_arrangement.html">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title">File Arrangement</div>
+              </div>
+              <svg><use href="#svg-arrow-right"></use></svg>
+            </a>
+          <a class="prev-page" href="the_xud_library.html">
+              <svg><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">The XUD library</div>
+                
+              </div>
+            </a>
+        </div>
+
+        <div class="related-information">
+              Copyright &#169; 2019-2021, XMOS Ltd
+            |
+            Built with <a href="https://www.sphinx-doc.org/">Sphinx</a>
+              and
+              <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+              <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
+            |
+            <a class="muted-link" href="../../../_sources/lib_xud/doc/rst/overview.rst.txt"
+               rel="nofollow">
+              Show Source
+            </a>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer no-toc">
+      
+      
+      
+    </aside>
+  </main>
+</div>
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script src="../../../_static/tabs.js"></script>
+    <script src="../../../_static/scripts/main.js?digest=e931d09b2a40c1bb82b542effe772014573baf67"></script></body>
+</html>

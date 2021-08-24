@@ -45,8 +45,8 @@ def read_mbi(mbi_file, key_str, val_str):
     return n
 
 try:
-    project = read_mbi('../module_build_info', 'TITLE', '.*')
-    release = read_mbi('../module_build_info', 'VERSION', '[0-9]*\.[0-9]*\.[0-9]*')
+    project = read_mbi('../lib_xud/module_build_info', 'TITLE', '.*')
+    release = read_mbi('../lib_xud/module_build_info', 'VERSION', '[0-9]*\.[0-9]*\.[0-9]*')
 except:
     project = 'NO PROJECT DEFINED'
     release = 'NO VERSION DEFINED'

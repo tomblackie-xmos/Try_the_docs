@@ -1,0 +1,1297 @@
+<!doctype html>
+<html class="no-js">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="../../../../genindex.html" /><link rel="search" title="Search" href="../../../../search.html" /><link rel="next" title="Printer class" href="../../../AN00126_printer_class/doc/rst/AN00126.html" /><link rel="prev" title="CDC VCOM class" href="../../../AN00124_CDC_VCOM_class/doc/rst/AN00124.html" />
+
+    <meta name="generator" content="sphinx-3.5.4, furo 2021.04.11.beta34"/>
+        <title>Mass Storage class - Keith&#39;s Latest Docs 3.0.0 documentation</title>
+      <link rel="stylesheet" href="../../../../_static/styles/furo.css?digest=59ab60ac09ea94ccfe6deddff6d715cce948a6fc">
+    <link rel="stylesheet" href="../../../../_static/pygments.css">
+    <link media="(prefers-color-scheme: dark)" rel="stylesheet" href="../../../../_static/pygments_dark.css">
+    
+
+
+<style>
+  :root {
+    --color-code-background: #f8f8f8;
+  --color-code-foreground: black;
+  
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+  }
+
+  /* For allowing end-user-specific overrides */
+  .override-light {
+    --color-code-background: #f8f8f8;
+  --color-code-foreground: black;
+  
+  }
+  .override-dark {
+    --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+  }
+</style><link rel="stylesheet" type="text/css" href="../../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/tabs.css" />
+    <link rel="stylesheet" href="../../../../_static/styles/furo-extensions.css?digest=d391b54134226e4196576da3bdb6dddb7e05ba2b"></head>
+  <body dir="">
+    
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+      stroke-width="1.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+      <path stroke="none" d="M0 0h24v24H0z"/>
+      <line x1="4" y1="6" x2="20" y2="6" />
+      <line x1="10" y1="12" x2="20" y2="12" />
+      <line x1="6" y1="18" x2="20" y2="18" />
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+      class="feather feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+      class="feather feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation"></label>
+<label class="overlay toc-overlay" for="__toc"></label>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="../../../../index.html"><div class="brand">Keith's Latest Docs 3.0.0 documentation</div></a>
+    </div>
+    <div class="header-right">
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand centered" href="../../../../index.html">
+  
+  <div class="sidebar-logo-container">
+    <img class="sidebar-logo" src="../../../../_static/xmos_logo.png" alt="Logo"/>
+  </div>
+  
+  <span class="sidebar-brand-text">Keith's Latest Docs 3.0.0 documentation</span>
+  
+</a><form class="sidebar-search-container" method="get" action="../../../../search.html">
+  <input class="sidebar-search" placeholder=Search name="q">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form><div class="sidebar-tree">
+  <ul class="current">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../../doc/rst/before_you_start.html">Before you start</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label for="toctree-checkbox-1"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../doc/rst/version_info.html">Tool and Architecture Dependencies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../doc/rst/inc_changelog.html">lib_xud Change Log</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../doc/rst/inc_license.html">XMOS PUBLIC LICENCE: Version 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../doc/rst/COPYRIGHTS.html">Copyrights</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../doc/rst/build_the_documentation_yourself.html">How to build the documenation</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../../lib_xud/doc/rst/the_xud_library.html">The XUD library</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label for="toctree-checkbox-2"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../lib_xud/doc/rst/overview.html">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../lib_xud/doc/rst/file_arrangement.html">File Arrangement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../lib_xud/doc/rst/resource_usage.html">Resource Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../lib_xud/doc/rst/basic_usage.html">Basic Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../lib_xud/doc/rst/advanced_usage.html">Advanced Usage</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current has-children"><a class="reference internal" href="../../../doc/usb_class_examples.html">USB Class examples</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label for="toctree-checkbox-3"><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../../AN00124_CDC_VCOM_class/doc/rst/AN00124.html">CDC VCOM class</a></li>
+<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">Mass Storage class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../AN00126_printer_class/doc/rst/AN00126.html">Printer class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../AN00127_video_class/doc/rst/AN00127.html">Video class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../AN00129_hid_class/doc/rst/AN00129.html">HID class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../AN00131_CDC_EDC_class/doc/rst/AN00131.html">CDC EDC class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../AN00132_image_class/doc/rst/AN00132.html">Image class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../AN00135_test_and_measurement_class/doc/rst/AN00135.html">Test and Measurement class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../AN00136_vendor_specific/doc/rst/AN00136.html">Vendor Sepcific (Custom USB device)</a></li>
+</ul>
+</li>
+</ul>
+
+</div>
+
+    <select name="version" id="version-select" value="Latest" onchange="changeVersion(this.value)" >
+    <option selected disabled>Other versions</option>
+    <option value="html/v1/">v1</option>
+    <option value="html/v2/">v2</option>
+    <option value="html/v3/">v3</option>
+    <option value="html/v4/">v4</option>
+    <option value="html/latest/">latest</option>
+    </select>
+
+    <script>
+    function changeVersion(val) {
+        var loc = window.location.toString();
+        var i = loc.indexOf("html/");
+        if (i >= 0) {
+            var s1 = loc.substring(0, i);
+            var i2 = loc.indexOf("/", i+6)
+            var s2 = loc.substring(i2+1);
+            nl=s1.concat(val, s2);
+
+
+            var request = new XMLHttpRequest();  
+            request.open('GET', nl, true);
+            request.onreadystatechange = function(){
+            if (request.readyState === 4){
+                if (request.status === 404) {  
+                    alert("Oh no, it does not exist!");
+                    window.location.assign(loc);
+                    location.reload();
+                }
+                else {
+                    window.location.assign(nl);
+                }  
+            }
+        };
+        request.send();    
+        }
+    }
+    </script>
+      </div>
+      
+    </div>
+  </aside>
+  <main class="main">
+    <div class="content">
+      <article role="main">
+        <label class="toc-overlay-icon toc-content-icon" for="__toc">
+          <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+        </label>
+        <div class="section" id="mass-storage-class">
+<h1>Mass Storage class<a class="headerlink" href="#mass-storage-class" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="introduction">
+<h3>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h3>
+<p>The Universal Serial Bus (USB) is a communication architecture that gives a PC the ability to interconnect a variety of devices via a simple four-wire cable. One such device is the mass storage. Traditionally, mass storage device class provides adaptability for devices like</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>USB flash drive</p></li>
+<li><p>memory card reader</p></li>
+<li><p>digital audio player</p></li>
+<li><p>digital camera</p></li>
+<li><p>external hard drive</p></li>
+</ul>
+</div></blockquote>
+<p>The USB specification provides as standard device class for the implementation of USB mass storage.</p>
+<p>(<a class="reference external" href="http://www.usb.org/developers/docs/devclass_docs/usbmassbulk_10.pdf">http://www.usb.org/developers/docs/devclass_docs/usbmassbulk_10.pdf</a>)</p>
+</div>
+<div class="section" id="block-diagram">
+<h3>Block diagram<a class="headerlink" href="#block-diagram" title="Permalink to this headline">¶</a></h3>
+<div class="figure align-default" id="id4">
+<img alt="../../../../_images/block_diagram1.png" src="../../../../_images/block_diagram1.png"/>
+<p class="caption"><span class="caption-number">Fig. 9 </span><span class="caption-text">Block diagram of USB Mass storage application example</span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+<div class="section" id="features">
+<h3>Features<a class="headerlink" href="#features" title="Permalink to this headline">¶</a></h3>
+<p>This section describes the features that are supported by the demo application. The application uses an on-board flash with a user memory partition of 2 MB. The application does the following</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Enumerates as Mass Storage device</p></li>
+<li><p>On Windows host, the display appears as `` drive labelled as unformatted <strong>Removable Disk</strong> ``</p></li>
+<li><p>On Mac, it displays as `` <strong>XMOSLTD Flash Disk Media</strong> ``</p></li>
+</ul>
+</div></blockquote>
+<p>As there is no file system supported by the application, formatting the drive, read and write operations on the drive is not featured.</p>
+</div>
+</div>
+<div class="section" id="usb-mass-storage-device-class-application-note">
+<h2>USB Mass Storage Device Class application note<a class="headerlink" href="#usb-mass-storage-device-class-application-note" title="Permalink to this headline">¶</a></h2>
+<p>The demo in this note uses the XMOS USB device library and shows a simple program that receives data from and sends data to the host.</p>
+<p>For the USB Mass storage device class application example, the system comprises three tasks running in separate logical cores of a xCORE-USB multicore microcontroller.</p>
+<p>The tasks perform the following operations.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>A task containing the USB library functionality to communicate over USB</p></li>
+<li><p>A task implementing Endpoint0 responding both standard and mass storage class USB requests</p></li>
+<li><p>A task implementing the application code for receiving and sending mass storage data into the device</p></li>
+</ul>
+</div></blockquote>
+<p>These tasks communicate via the use of xCONNECT channels which allow data to be passed between application code running on separate logical cores.</p>
+<p>The following diagram shows the task and communication structure for this USB mass storage device class application example.</p>
+<div class="figure align-center" id="id5">
+<img alt="../../../../_images/task_diagram1.png" src="../../../../_images/task_diagram1.png"/>
+<p class="caption"><span class="caption-number">Fig. 10 </span><span class="caption-text">Task diagram of USB mass storage application example</span><a class="headerlink" href="#id5" title="Permalink to this image">¶</a></p>
+</div>
+<div class="section" id="makefile-additions-for-this-application">
+<h3>Makefile additions for this application<a class="headerlink" href="#makefile-additions-for-this-application" title="Permalink to this headline">¶</a></h3>
+<p>To start using the USB library, you need to add <strong>lib_xud</strong> to your makefile:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">USED_MODULES</span> <span class="o">=</span> <span class="n">lib_xud</span>
+</pre></div>
+</div>
+<p>You can then access the USB functions on your source code via the <strong>usb.h</strong> header file:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#include &lt;usb_device.h&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="declaring-resource-and-setting-up-the-usb-components">
+<h3>Declaring resource and setting up the USB components<a class="headerlink" href="#declaring-resource-and-setting-up-the-usb-components" title="Permalink to this headline">¶</a></h3>
+<p><strong>main.xc</strong> contains the application implementation for a device based on the USB mass storage device class. There are some defines in it that are used to configure the XMOS USB device library. These are displayed below.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#define XUD_EP_COUNT_OUT   2    //Includes EP0 (1 out EP0 + Mass Storage data output EP)</span>
+<span class="c1">#define XUD_EP_COUNT_IN    2    //Includes EP0 (1 in EP0 + Mass Storage data input EP)</span>
+
+<span class="n">XUD_EpType</span> <span class="n">epTypeTableOut</span><span class="p">[</span><span class="n">XUD_EP_COUNT_OUT</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="n">XUD_EPTYPE_CTL</span> <span class="o">|</span> <span class="n">XUD_STATUS_ENABLE</span><span class="p">,</span> <span class="n">XUD_EPTYPE_BUL</span><span class="p">};</span>
+<span class="n">XUD_EpType</span> <span class="n">epTypeTableIn</span><span class="p">[</span><span class="n">XUD_EP_COUNT_IN</span><span class="p">]</span> <span class="o">=</span>   <span class="p">{</span><span class="n">XUD_EPTYPE_CTL</span> <span class="o">|</span> <span class="n">XUD_STATUS_ENABLE</span><span class="p">,</span> <span class="n">XUD_EPTYPE_BUL</span><span class="p">};</span>
+
+
+</pre></div>
+</div>
+<p>These describe the endpoint configuration for this device. This example has bi-directional communication with the host machine via the standard endpoint0, an endpoint for receiving the bulk data from the host into our device and an endpoint for sending the bulk data to host from our device.</p>
+</div>
+<div class="section" id="the-application-main-function">
+<h3>The application main() function<a class="headerlink" href="#the-application-main-function" title="Permalink to this headline">¶</a></h3>
+<p>Below is the source code for the main function of this application, which is taken from the source file <strong>main.xc</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="n">chan</span> <span class="n">c_ep_out</span><span class="p">[</span><span class="n">XUD_EP_COUNT_OUT</span><span class="p">],</span> <span class="n">c_ep_in</span><span class="p">[</span><span class="n">XUD_EP_COUNT_IN</span><span class="p">];</span>
+
+    <span class="n">par</span>
+    <span class="p">{</span>
+        <span class="n">on</span> <span class="n">USB_TILE</span><span class="p">:</span> <span class="n">XUD_Main</span><span class="p">(</span><span class="n">c_ep_out</span><span class="p">,</span> <span class="n">XUD_EP_COUNT_OUT</span><span class="p">,</span> <span class="n">c_ep_in</span><span class="p">,</span> <span class="n">XUD_EP_COUNT_IN</span><span class="p">,</span>
+                      <span class="n">null</span><span class="p">,</span> <span class="n">epTypeTableOut</span><span class="p">,</span> <span class="n">epTypeTableIn</span><span class="p">,</span> 
+                      <span class="n">null</span><span class="p">,</span> <span class="n">null</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span> <span class="p">,</span> <span class="n">XUD_SPEED_HS</span><span class="p">,</span> <span class="n">XUD_PWR_BUS</span><span class="p">);</span>
+
+        <span class="n">on</span> <span class="n">USB_TILE</span><span class="p">:</span> <span class="n">Endpoint0</span><span class="p">(</span><span class="n">c_ep_out</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">c_ep_in</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
+
+        <span class="n">on</span> <span class="n">USB_TILE</span><span class="p">:</span> <span class="n">massStorageClass</span><span class="p">(</span><span class="n">c_ep_out</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="n">c_ep_in</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="mi">0</span><span class="p">);</span>
+
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Looking at this in a more detail you can see the following:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>The <cite>par</cite> statement starts three separate tasks in parallel</p></li>
+<li><p>There is a task to configure and execute the USB library: <cite>XUD_Main()</cite></p></li>
+<li><p>There is a task to startup and run the Endpoint0 code: <cite>Endpoint0()</cite></p></li>
+<li><p>There is a task to deal with USB mass storage requests arriving from the host: <cite>massStorageClass()</cite></p></li>
+<li><p>The define <cite>USB_TILE</cite> describes the tile on which the individual tasks will run</p></li>
+<li><p>In this example all tasks run on the same tile as the USB PHY although this is only a requirement of XUD_Main()</p></li>
+<li><p>The xCONNECT communication channels used by the application are set up at the beginning of main()</p></li>
+<li><p>The USB defines discussed earlier are passed into the function XUD_Main()</p></li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="configuring-the-usb-device-id">
+<h3>Configuring the USB Device ID<a class="headerlink" href="#configuring-the-usb-device-id" title="Permalink to this headline">¶</a></h3>
+<p>The USB ID values used for vendor id, product id and device version number are defined in the file <strong>endpoint0.xc</strong>. These are used by the host machine to determine the vendor of the device (in this case XMOS) and the product plus the firmware version.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#define BCD_DEVICE   0x0010</span>
+<span class="c1">#define VENDOR_ID    0x20B1</span>
+<span class="c1">#define PRODUCT_ID   0x10BA</span>
+
+</pre></div>
+</div>
+</div>
+<div class="section" id="usb-mass-storage-class-specific-defines">
+<h3>USB Mass storage Class specific defines<a class="headerlink" href="#usb-mass-storage-class-specific-defines" title="Permalink to this headline">¶</a></h3>
+<p>The USB Mass storage Class is configured in the file <strong>endpoint0.xc</strong>. Below there are a set of standard defines which are used to configure the USB device descriptors to setup a USB mass storage device running on an xCORE-USB microcontroller.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#define USB_MASS_STORAGE_SUBCLASS   0x06    /* SCSI transparent command set */</span>
+
+<span class="o">/*</span> <span class="n">USB</span> <span class="n">Mass</span> <span class="n">Storage</span> <span class="n">interface</span> <span class="n">protocol</span> <span class="o">*/</span>
+<span class="c1">#define USB_MASS_STORAGE_PROTOCOL   0x50    /* USB Mass Storage Class Bulk-Only (BBB) Transport */</span>
+
+<span class="o">/*</span> <span class="n">USB</span> <span class="n">Mass</span> <span class="n">Storage</span> <span class="n">Request</span> <span class="n">Code</span> <span class="o">*/</span>
+<span class="c1">#define USB_MASS_STORAGE_RESET      0xFF    /* Bulk-Only Mass Storage Reset */</span>
+<span class="c1">#define USB_MASS_STORAGE_GML        0xFE    /* Get Max LUN (GML) */</span>
+
+</pre></div>
+</div>
+</div>
+<div class="section" id="usb-device-descriptor">
+<h3>USB Device Descriptor<a class="headerlink" href="#usb-device-descriptor" title="Permalink to this headline">¶</a></h3>
+<p><strong>endpoint0.xc</strong> is where the standard USB device descriptor is declared for the mass storage device. Below is the structure which contains this descriptor. This will be requested by the host when the device is enumerated on the USB bus.</p>
+<p>From this descriptor you can see that product, vendor and device firmware revision are all coded into this structure. This will allow the host machine to recognise the mass storage device when it is connected to the USB bus.</p>
+</div>
+<div class="section" id="usb-configuration-descriptor">
+<h3>USB Configuration Descriptor<a class="headerlink" href="#usb-configuration-descriptor" title="Permalink to this headline">¶</a></h3>
+<p>The USB configuration descriptor is used to configure the device in terms of the device class and the endpoint setup. For the USB mass storage device the configuration descriptor which is read by the host is as follows.</p>
+<p>From this you can see that the USB mass storage class defines described earlier are encoded into the configuration descriptor along with the bulk USB endpoint description for receiving storage data into the application code. These endpoint allows us to process the storage data request from the host and to the host inside the main mass storage application task.</p>
+</div>
+<div class="section" id="usb-string-descriptor">
+<h3>USB string descriptor<a class="headerlink" href="#usb-string-descriptor" title="Permalink to this headline">¶</a></h3>
+<p>There is one more descriptor within this file relating to the configuration of the USB Mass storage Class. This section should also be modified to match the capabilities of the mass storage device.</p>
+</div>
+<div class="section" id="usb-mass-storage-class-requests">
+<h3>USB Mass storage Class requests<a class="headerlink" href="#usb-mass-storage-class-requests" title="Permalink to this headline">¶</a></h3>
+<p>Inside <strong>endpoint0.xc</strong> there is some code for handling the USB Mass storage device class specific requests. These are shown in the following code:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">int</span> <span class="n">MassStorageEndpoint0Requests</span><span class="p">(</span><span class="n">XUD_ep</span> <span class="n">ep0_out</span><span class="p">,</span> <span class="n">XUD_ep</span> <span class="n">ep0_in</span><span class="p">,</span> <span class="n">USB_SetupPacket_t</span> <span class="n">sp</span><span class="p">)</span>
+<span class="p">{</span>
+   <span class="n">unsigned</span> <span class="n">char</span> <span class="n">buffer</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">};</span>
+
+   <span class="n">switch</span><span class="p">(</span><span class="n">sp</span><span class="o">.</span><span class="n">bRequest</span><span class="p">)</span> <span class="p">{</span>
+
+      <span class="n">case</span> <span class="n">USB_MASS_STORAGE_RESET</span><span class="p">:</span>
+          <span class="n">XUD_ResetEpStateByAddr</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+          <span class="k">return</span> <span class="n">XUD_RES_RST</span><span class="p">;</span> <span class="o">//</span> <span class="n">This</span> <span class="n">request</span> <span class="ow">is</span> <span class="n">used</span> <span class="n">to</span> <span class="n">reset</span> <span class="n">the</span> <span class="n">mass</span> <span class="n">storage</span> <span class="n">device</span>
+          <span class="k">break</span><span class="p">;</span>
+
+      <span class="n">case</span> <span class="n">USB_MASS_STORAGE_GML</span><span class="p">:</span>
+         <span class="k">return</span> <span class="n">XUD_DoGetRequest</span><span class="p">(</span><span class="n">ep0_out</span><span class="p">,</span> <span class="n">ep0_in</span><span class="p">,</span> <span class="n">buffer</span><span class="p">,</span>  <span class="mi">1</span><span class="p">,</span> <span class="n">sp</span><span class="o">.</span><span class="n">wLength</span><span class="p">);</span>
+         <span class="k">break</span><span class="p">;</span>
+
+      <span class="n">default</span><span class="p">:</span>
+          <span class="n">debug_printf</span><span class="p">(</span><span class="s2">"MassStorageEndpoint0Requests @ default : 0x</span><span class="si">%x</span><span class="se">\n</span><span class="s2">"</span><span class="p">,</span><span class="n">sp</span><span class="o">.</span><span class="n">bRequest</span><span class="p">);</span>
+          <span class="k">break</span><span class="p">;</span>
+   <span class="p">}</span>
+
+   <span class="k">return</span> <span class="n">XUD_RES_ERR</span><span class="p">;</span>
+<span class="p">}</span>
+
+</pre></div>
+</div>
+<p>These mass storage specific request are implemented by the application as they do not form part of the standard requests which have to be accepted by all device classes via endpoint0.</p>
+</div>
+<div class="section" id="usb-mass-storage-class-endpoint0">
+<h3>USB Mass storage Class Endpoint0<a class="headerlink" href="#usb-mass-storage-class-endpoint0" title="Permalink to this headline">¶</a></h3>
+<p>The function <cite>Endpoint0()</cite> contains the code for dealing with device requests made from the host to the standard endpoint0 which is present in all USB devices. In addition to requests required for all devices, the code handles the requests specific to the mass storage device class.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>     <span class="p">{</span>
+       <span class="o">/*</span> <span class="n">Set</span> <span class="n">result</span> <span class="n">to</span> <span class="n">ERR</span><span class="p">,</span> <span class="n">we</span> <span class="n">expect</span> <span class="n">it</span> <span class="n">to</span> <span class="n">get</span> <span class="nb">set</span> <span class="n">to</span> <span class="n">OKAY</span> <span class="k">if</span> <span class="n">a</span> <span class="n">request</span> <span class="ow">is</span> <span class="n">handled</span> <span class="o">*/</span>
+       <span class="n">result</span> <span class="o">=</span> <span class="n">XUD_RES_ERR</span><span class="p">;</span>
+
+       <span class="o">/*</span> <span class="n">Stick</span> <span class="n">bmRequest</span> <span class="nb">type</span> <span class="n">back</span> <span class="n">together</span> <span class="k">for</span> <span class="n">an</span> <span class="n">easier</span> <span class="n">parse</span><span class="o">...</span> <span class="o">*/</span>
+       <span class="n">bmRequestType</span> <span class="o">=</span> <span class="p">(</span><span class="n">sp</span><span class="o">.</span><span class="n">bmRequestType</span><span class="o">.</span><span class="n">Direction</span><span class="o">&lt;&lt;</span><span class="mi">7</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">sp</span><span class="o">.</span><span class="n">bmRequestType</span><span class="o">.</span><span class="n">Type</span><span class="o">&lt;&lt;</span><span class="mi">5</span><span class="p">)</span> <span class="o">|</span>
+                       <span class="p">(</span><span class="n">sp</span><span class="o">.</span><span class="n">bmRequestType</span><span class="o">.</span><span class="n">Recipient</span><span class="p">);</span>
+
+       <span class="k">if</span> <span class="p">((</span><span class="n">bmRequestType</span> <span class="o">==</span> <span class="n">USB_BMREQ_H2D_STANDARD_DEV</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="n">sp</span><span class="o">.</span><span class="n">bRequest</span> <span class="o">==</span> <span class="n">USB_CLEAR_FEATURE</span><span class="p">))</span> <span class="p">{</span>
+         <span class="o">//</span> <span class="n">Host</span> <span class="n">has</span> <span class="nb">set</span> <span class="n">device</span> <span class="n">address</span><span class="p">,</span> <span class="n">value</span> <span class="n">contained</span> <span class="ow">in</span> <span class="n">sp</span><span class="o">.</span><span class="n">wValue</span>
+       <span class="p">}</span>
+
+       <span class="o">/*</span> <span class="n">Handle</span> <span class="n">specific</span> <span class="n">requests</span> <span class="n">first</span> <span class="o">*/</span>
+       <span class="n">switch</span><span class="p">(</span><span class="n">bmRequestType</span><span class="p">)</span> <span class="p">{</span>
+          <span class="o">/*</span> <span class="n">Direction</span><span class="p">:</span> <span class="n">Device</span><span class="o">-</span><span class="n">to</span><span class="o">-</span><span class="n">host</span> <span class="ow">and</span> <span class="n">Host</span><span class="o">-</span><span class="n">to</span><span class="o">-</span><span class="n">device</span>
+           <span class="o">*</span> <span class="n">Type</span><span class="p">:</span> <span class="n">Class</span>
+           <span class="o">*</span> <span class="n">Recipient</span><span class="p">:</span> <span class="n">Interface</span>
+           <span class="o">*/</span>
+          <span class="n">case</span> <span class="n">USB_BMREQ_H2D_CLASS_INT</span><span class="p">:</span>
+          <span class="n">case</span> <span class="n">USB_BMREQ_D2H_CLASS_INT</span><span class="p">:</span>
+
+            <span class="o">/*</span> <span class="n">Inspect</span> <span class="k">for</span> <span class="n">mass</span> <span class="n">storage</span> <span class="n">interface</span> <span class="n">num</span> <span class="o">*/</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">sp</span><span class="o">.</span><span class="n">wIndex</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+               <span class="o">/*</span> <span class="n">Returns</span>  <span class="n">XUD_RES_OKAY</span> <span class="k">if</span> <span class="n">handled</span><span class="p">,</span>
+                <span class="o">*</span>          <span class="n">XUD_RES_ERR</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">handled</span><span class="p">,</span>
+                <span class="o">*</span>          <span class="n">XUD_RES_RST</span> <span class="k">for</span> <span class="n">bus</span> <span class="n">reset</span> <span class="o">*/</span>
+               <span class="n">result</span> <span class="o">=</span> <span class="n">MassStorageEndpoint0Requests</span><span class="p">(</span><span class="n">ep0_out</span><span class="p">,</span><span class="n">ep0_in</span><span class="p">,</span><span class="n">sp</span><span class="p">);</span>
+            <span class="p">}</span>
+            <span class="k">break</span><span class="p">;</span>
+        <span class="p">}</span>
+     <span class="p">}</span>
+
+</pre></div>
+</div>
+</div>
+<div class="section" id="receiving-storage-data-from-the-host">
+<h3>Receiving storage data from the host<a class="headerlink" href="#receiving-storage-data-from-the-host" title="Permalink to this headline">¶</a></h3>
+<p>The application endpoint for Command Transport, Data-In, Data-Out and Status Transport are implemented in the file <strong>mass_storage.xc</strong> as per the flow shown in below figure. This is contained within the function <cite>massStorageClass()</cite> which is shown in next page.</p>
+<div class="figure align-center" id="id6">
+<a class="reference internal image-reference" href="../../../../_images/command_data_status_flow.png"><img alt="../../../../_images/command_data_status_flow.png" src="../../../../_images/command_data_status_flow.png" style="width: 51%;"/></a>
+<p class="caption"><span class="caption-number">Fig. 11 </span><span class="caption-text">Command/Data/Status Flow</span><a class="headerlink" href="#id6" title="Permalink to this image">¶</a></p>
+</div>
+<p>From this you can see the following.</p>
+<ul class="simple">
+<li><p>Two buffers are declared, one to receive the Command transport CBW (Command Block Wrapper) data which is streamed into the application from the host and the other to send Status transport CSW (Command Status Wrapper) to the host.</p></li>
+<li><p>This task operates inside a while (1) loop which waits for data to arrive and then processes it.</p></li>
+<li><p>It checks for the CBW Signature and packet size that get received from the host.</p></li>
+<li><p>Based on the Operation code available on the CBWCB (CBW Command Block) field, SCSI commands corresponding to flash drive are executed.</p>
+<ul>
+<li><p>Operation code received may correspond to SCSI commands like <cite>Inquiry, Test Unit Ready, Request Sense, Read Capacity, Mode Sense, Read/Write,</cite> etc.</p></li>
+</ul>
+</li>
+<li><p>Once the execution (Command transport, Data-In or Data-Out) is completed, the device shall echo the contents of CBWTag field sent by the host back along with the CSWStatus and CSW Signature as Status transport.
+This ensures that the <cite>Status</cite> send to host is associated with the <cite>Command</cite> received from host.</p></li>
+</ul>
+</div>
+<div class="section" id="scsi-command-implementation">
+<h3>SCSI Command Implementation<a class="headerlink" href="#scsi-command-implementation" title="Permalink to this headline">¶</a></h3>
+<p>Some of the SCSI command definitions and the reponse from the device are mentioned below.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><strong>INQUIRY:</strong> command requests that information regarding parameters of the Device be sent to the Host.</p>
+<ul>
+<li><p>The response to this command provides standard INQUIRY data of (36 bytes) PDT, RMB (Removable Medium Bit), Vendor Identification, Product Identification and Product Revison Level, etc.</p></li>
+</ul>
+</li>
+<li><p><strong>TEST UNIT READY:</strong> command provides a means to check if the Device is ready. This command is useful in that it allows a Host to poll a Device until it is ready without the need to allocate space for returned data.</p>
+<ul>
+<li><p>The response to this command returns GOOD, if the device accepts an appropriate medium access command or CHECK CONDITION status with a sense key of NOT READY.</p></li>
+</ul>
+</li>
+<li><p><strong>REQUEST SENSE:</strong> command requests the device to transfer sense data to the host whenever an error is reported. The sense data  describes what caused the error condition.</p>
+<ul>
+<li><p>The response to this command is a sense key, Additional Sense Code (ASC) or ASC Qualifier (ASCQ) depending on which error occured <a class="footnote-reference brackets" href="#id2" id="id1">1</a>.</p></li>
+</ul>
+</li>
+<li><p><strong>READ CAPACITY:</strong> command requests the device to transfer 8 bytes of parameter data describing the capacity of the installed medium of the device.</p>
+<ul>
+<li><p>The response to this command returns Logical Block Address (LBA) and block length in bytes of the memory device.</p></li>
+</ul>
+</li>
+<li><p><strong>MODE SENSE:</strong> command requests the device to transfer parameter data describing the medium type, block descriptor length, read/write error recovery mode.</p>
+<ul>
+<li><p>The response to this command returns PDT type as medium type, error recovery mode, descriptor length.</p></li>
+</ul>
+</li>
+<li><p><strong>READ/WRITE:</strong> command requests the device to read/write data onto the medium.</p>
+<ul>
+<li><p>The response to <cite>READ</cite> transfers the most recent data value written in the addressed logical block of the medium to host.</p></li>
+<li><p>The response to <cite>WRITE</cite> writes the data transferred by the host to the medium.</p></li>
+</ul>
+</li>
+</ul>
+</div></blockquote>
+<dl class="footnote brackets">
+<dt class="label" id="id2"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
+<dd><p><a class="reference external" href="http://www.t10.org/lists/asc-num.htm">http://www.t10.org/lists/asc-num.htm</a></p>
+</dd>
+</dl>
+</div>
+<div class="section" id="serial-flash-functions">
+<h3>Serial Flash Functions<a class="headerlink" href="#serial-flash-functions" title="Permalink to this headline">¶</a></h3>
+<p>For accessing the on-board serial flash, you need to add the flash library <strong>lflash</strong> in <cite>Makefile</cite> as one of the <cite>XCC_FLAGS</cite> and use <strong>flashlib.h</strong> to access the flash library functions.
+<cite>Note: No separate core is required to handle the SPI read/write</cite></p>
+<p>The below implementation does write/read operation onto the on-board serial flash M25P16.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#include "flashlib.h"</span>
+
+<span class="n">on</span> <span class="n">tile</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span> <span class="n">fl_SPIPorts</span> <span class="n">spiPort</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="n">XS1_PORT_1A</span><span class="p">,</span>
+        <span class="n">XS1_PORT_1B</span><span class="p">,</span>
+        <span class="n">XS1_PORT_1C</span><span class="p">,</span>
+        <span class="n">XS1_PORT_1D</span><span class="p">,</span>
+        <span class="n">XS1_CLKBLK_1</span>
+<span class="p">};</span>
+
+<span class="n">fl_DeviceSpec</span> <span class="n">flashSpec</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="n">FL_DEVICE_NUMONYX_M25P16</span><span class="p">};</span> <span class="o">//</span> <span class="n">Equivalent</span> <span class="n">of</span> <span class="n">Micron</span> <span class="n">M25P16</span>
+
+<span class="nb">int</span> <span class="n">pagesPerBlock_g</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="nb">int</span> <span class="n">bytesPerPage_g</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="n">unsigned</span> <span class="n">char</span> <span class="n">pageBuffer_g</span><span class="p">[</span><span class="n">MASS_STORAGE_BLOCKLENGTH</span><span class="p">];</span>
+
+<span class="n">void</span> <span class="n">massStorageInit</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">fl_connectToDevice</span><span class="p">(</span><span class="n">spiPort</span><span class="p">,</span> <span class="n">flashSpec</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+        <span class="n">fl_setBootPartitionSize</span><span class="p">(</span><span class="n">FLASH_PARTITION_SIZE</span><span class="p">);</span>
+        <span class="n">bytesPerPage_g</span> <span class="o">=</span> <span class="n">fl_getPageSize</span><span class="p">();</span>
+        <span class="n">pagesPerBlock_g</span> <span class="o">=</span> <span class="p">(</span><span class="n">MASS_STORAGE_BLOCKLENGTH</span> <span class="o">/</span> <span class="n">bytesPerPage_g</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="nb">int</span> <span class="n">massStorageWrite</span><span class="p">(</span><span class="n">unsigned</span> <span class="nb">int</span> <span class="n">blockNr</span><span class="p">,</span> <span class="n">unsigned</span> <span class="n">char</span> <span class="n">buffer</span><span class="p">[])</span> <span class="p">{</span>
+    <span class="k">for</span><span class="p">(</span><span class="nb">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">pagesPerBlock_g</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">for</span><span class="p">(</span><span class="nb">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">bytesPerPage_g</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">pageBuffer_g</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">buffer</span><span class="p">[</span><span class="n">i</span> <span class="o">*</span> <span class="n">bytesPerPage_g</span> <span class="o">+</span> <span class="n">j</span><span class="p">];</span>
+        <span class="p">}</span>
+        <span class="n">fl_writeDataPage</span><span class="p">(</span><span class="n">blockNr</span> <span class="o">*</span> <span class="n">pagesPerBlock_g</span> <span class="o">+</span> <span class="n">i</span><span class="p">,</span> <span class="n">buffer</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nb">int</span> <span class="n">massStorageRead</span><span class="p">(</span><span class="n">unsigned</span> <span class="nb">int</span> <span class="n">blockNr</span><span class="p">,</span> <span class="n">unsigned</span> <span class="n">char</span> <span class="n">buffer</span><span class="p">[])</span> <span class="p">{</span>
+    <span class="k">for</span><span class="p">(</span><span class="nb">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">pagesPerBlock_g</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">fl_readDataPage</span><span class="p">(</span><span class="n">blockNr</span> <span class="o">*</span> <span class="n">pagesPerBlock_g</span> <span class="o">+</span> <span class="n">i</span><span class="p">,</span> <span class="n">pageBuffer_g</span><span class="p">);</span>
+            <span class="k">for</span><span class="p">(</span><span class="nb">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">bytesPerPage_g</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+                <span class="n">buffer</span><span class="p">[</span><span class="n">i</span> <span class="o">*</span> <span class="n">bytesPerPage_g</span> <span class="o">+</span> <span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">pageBuffer_g</span><span class="p">[</span><span class="n">j</span><span class="p">];</span>
+            <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nb">int</span> <span class="n">massStorageSize</span><span class="p">()</span> <span class="p">{</span>
+<span class="c1">#if DETECT_AS_FLOPPY</span>
+    <span class="k">return</span> <span class="n">FLOPPY_DISK_SIZE</span><span class="p">;</span>
+<span class="c1">#else</span>
+        <span class="nb">int</span> <span class="n">x</span> <span class="o">=</span> <span class="n">fl_getNumDataPages</span><span class="p">();</span>
+        <span class="k">return</span> <span class="n">x</span> <span class="o">/</span> <span class="n">pagesPerBlock_g</span><span class="p">;</span>
+<span class="c1">#endif</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><a href="#id15"><span class="problematic" id="id16">|appendix|</span></a></p>
+</div>
+</div>
+<div class="section" id="demo-hardware-setup">
+<h2>Demo Hardware Setup<a class="headerlink" href="#demo-hardware-setup" title="Permalink to this headline">¶</a></h2>
+<p>To run the demo, connect the xCORE-USB sliceKIT USB-B and xTAG-2 USB-A connectors to separate USB connectors on your development PC.</p>
+<p>On the xCORE-USB sliceKIT ensure that the xCONNECT LINK switch is set to ON, as per the image, to allow xSCOPE to function. The use of xSCOPE is required in this application so that the print message that are generated on the device as part of the demo do not interfere with the real-time behavior of the USB device.</p>
+<div class="figure align-default" id="id7">
+<img alt="../../../../_images/usb-slicekit1.png" src="../../../../_images/usb-slicekit1.png"/>
+<p class="caption"><span class="caption-number">Fig. 12 </span><span class="caption-text">XMOS xCORE-USB sliceKIT</span><a class="headerlink" href="#id7" title="Permalink to this image">¶</a></p>
+</div>
+<p>The hardware should be configured as displayed above for this demo:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>The XTAG debug adapter should be connected to the XSYS connector and the XTAG USB cable should be connected to the host machine</p></li>
+<li><p>The xCORE-USB core board should have a USB cable connecting the device to the host machine</p></li>
+<li><p>The xSCOPE switch on the board should be set to the ON position</p></li>
+<li><p>The xCORE-USB core board should have the power cable connected</p></li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="launching-the-demo-device">
+<h2>Launching the demo device<a class="headerlink" href="#launching-the-demo-device" title="Permalink to this headline">¶</a></h2>
+<p>Once the demo example has been built either from the command line using xmake or via the build mechanism of xTIMEcomposer studio the application can be executed on the xCORE-USB sliceKIT.</p>
+<p>Once built there will be a bin directory within the project which contains the binary for the xCORE device. The xCORE binary has a XMOS standard .xe extension.</p>
+<div class="section" id="launching-from-the-command-line">
+<h3>Launching from the command line<a class="headerlink" href="#launching-from-the-command-line" title="Permalink to this headline">¶</a></h3>
+<p>From the command line the xrun tool is used to download code to both the xCORE devices. Changing into the bin directory of the project we can execute the code on the xCORE microcontroller as follows:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">xrun</span> <span class="o">--</span><span class="n">xscope</span> <span class="n">AN00125</span><span class="o">.</span><span class="n">xe</span>                           <span class="o">&lt;--</span> <span class="n">Download</span> <span class="ow">and</span> <span class="n">execute</span> <span class="n">the</span> <span class="n">xCORE</span> <span class="n">code</span>
+</pre></div>
+</div>
+<p>Once this command has executed the mass storage USB device should have enumerated on your machine</p>
+</div>
+<div class="section" id="launching-from-xtimecomposer-studio">
+<h3>Launching from xTIMEcomposer Studio<a class="headerlink" href="#launching-from-xtimecomposer-studio" title="Permalink to this headline">¶</a></h3>
+<p>From xTIMEcomposer Studio the run mechanism is used to download code to xCORE device. Select the xCORE binary from the bin directory, right click and then follow the instructions below.</p>
+<ul>
+<li><p>Select <strong>Run As</strong>.</p></li>
+<li><p>Select <strong>Run Configurations</strong>.</p></li>
+<li><p>Double click on xCORE application**.</p></li>
+<li><p>Enable xSCOPE in Target I/O options:</p>
+<div class="figure align-default" id="id8">
+<img alt="../../../../_images/xtime-run-xscope.png" src="../../../../_images/xtime-run-xscope.png"/>
+<p class="caption"><span class="caption-number">Fig. 13 </span><span class="caption-text">xTIMEcomposer xSCOPE configuration</span><a class="headerlink" href="#id8" title="Permalink to this image">¶</a></p>
+</div>
+</li>
+<li><p>Click <strong>Apply</strong> and then <strong>Run</strong>.</p></li>
+</ul>
+<p>Once this command has executed the mass storage USB device should have enumerated on your machine and the below message should get displayed on your xTIMEcomposer console window</p>
+<div class="figure align-default" id="id9">
+<img alt="../../../../_images/demo_start.png" src="../../../../_images/demo_start.png"/>
+<p class="caption"><span class="caption-number">Fig. 14 </span><span class="caption-text">xTIMEcomposer Console Window</span><a class="headerlink" href="#id9" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+</div>
+<div class="section" id="detecting-the-mass-storage">
+<h2>Detecting the Mass Storage<a class="headerlink" href="#detecting-the-mass-storage" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="windows-host">
+<h3>Windows Host<a class="headerlink" href="#windows-host" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><ul>
+<li><p>There is no specific driver installtion is required. Windows will automatically install a driver for the mass storage class. You should be able to get the below message screen once enumeration is complete.</p>
+<div class="figure align-default" id="id10">
+<a class="reference internal image-reference" href="../../../../_images/DriverSw_Installation.png"><img alt="../../../../_images/DriverSw_Installation.png" src="../../../../_images/DriverSw_Installation.png" style="width: 80%;"/></a>
+<p class="caption"><span class="caption-number">Fig. 15 </span><span class="caption-text">Driver Software Installation Screen (On Windows 7)</span><a class="headerlink" href="#id10" title="Permalink to this image">¶</a></p>
+</div>
+</li>
+<li><p>You can also verify the device using <strong>Device Manager</strong> Menu</p>
+<ul class="simple">
+<li><p><cite>Click</cite> on <strong>Start Menu</strong> goto <strong>My Computer</strong> - <cite>Right click</cite> and navigate to <strong>Manage</strong> option.</p></li>
+<li><p>On <strong>Computer Management</strong> screen <cite>double click</cite> <strong>Device Manager</strong> on left and navigate to <strong>Universal Serial Bus controllers</strong> option on right.</p></li>
+<li><p><cite>Double click</cite> on <strong>Universal Serial Bus controllers</strong> and you should be able to see <strong>USB Mass Storage Device</strong></p></li>
+</ul>
+<div class="figure align-default" id="id11">
+<a class="reference internal image-reference" href="../../../../_images/device_detection.png"><img alt="../../../../_images/device_detection.png" src="../../../../_images/device_detection.png" style="width: 80%;"/></a>
+<p class="caption"><span class="caption-number">Fig. 16 </span><span class="caption-text">USB Mass Storage Device detection on Device Manager (On Windows 7)</span><a class="headerlink" href="#id11" title="Permalink to this image">¶</a></p>
+</div>
+</li>
+</ul>
+<blockquote>
+<div><ul>
+<li><p>The Mass Storage Device should be seen as an <strong>Removable Disk</strong> (Drive ID may vary depending upon the number of drives available on your machine).</p>
+<div class="figure align-default" id="id12">
+<a class="reference internal image-reference" href="../../../../_images/removable_disk.png"><img alt="../../../../_images/removable_disk.png" src="../../../../_images/removable_disk.png" style="width: 78%;"/></a>
+<p class="caption"><span class="caption-number">Fig. 17 </span><span class="caption-text">USB Mass Storage Device detecting as Removable Disk(I:) (On Windows 7)</span><a class="headerlink" href="#id12" title="Permalink to this image">¶</a></p>
+</div>
+</li>
+</ul>
+</div></blockquote>
+<ul>
+<li><p>You could see the successful installation of driver after enumeration is done.</p>
+<div class="figure align-default" id="id13">
+<a class="reference internal image-reference" href="../../../../_images/installation.png"><img alt="../../../../_images/installation.png" src="../../../../_images/installation.png" style="width: 80%;"/></a>
+<p class="caption"><span class="caption-number">Fig. 18 </span><span class="caption-text">XMOS LTD Flash Disk - Device Driver software installated successfully</span><a class="headerlink" href="#id13" title="Permalink to this image">¶</a></p>
+</div>
+</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="osx-host">
+<h3>OSX Host<a class="headerlink" href="#osx-host" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><ul>
+<li><p>There is no specific driver installtion is required. Mac will automatically detect and you should be able to get the below message screen once enumeration is complete.</p>
+<div class="figure align-default" id="id14">
+<a class="reference internal image-reference" href="../../../../_images/device_detection_mac.png"><img alt="../../../../_images/device_detection_mac.png" src="../../../../_images/device_detection_mac.png" style="width: 80%;"/></a>
+<p class="caption"><span class="caption-number">Fig. 19 </span><span class="caption-text">USB Mass Storage Device detection (On Mac)</span><a class="headerlink" href="#id14" title="Permalink to this image">¶</a></p>
+</div>
+</li>
+</ul>
+</div></blockquote>
+</div>
+</div>
+<div class="section" id="references">
+<h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
+<dl class="footnote brackets">
+<dt class="label" id="id3"><span class="brackets">2</span></dt>
+<dd><p><a class="reference external" href="http://www.usb.org/developers/docs/devclass_docs/Mass_Storage_Specification_Overview_v1.4_2-19-2010.pdf">http://www.usb.org/developers/docs/devclass_docs/Mass_Storage_Specification_Overview_v1.4_2-19-2010.pdf</a></p>
+</dd>
+</dl>
+</div>
+<div class="section" id="full-source-code-listing">
+<h2>Full Source Code listing<a class="headerlink" href="#full-source-code-listing" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="source-code-for-main-xc">
+<h3>Source Code for main.xc<a class="headerlink" href="#source-code-for-main-xc" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">//</span> <span class="n">Copyright</span> <span class="mi">2015</span><span class="o">-</span><span class="mi">2021</span> <span class="n">XMOS</span> <span class="n">LIMITED</span><span class="o">.</span>
+<span class="o">//</span> <span class="n">This</span> <span class="n">Software</span> <span class="ow">is</span> <span class="n">subject</span> <span class="n">to</span> <span class="n">the</span> <span class="n">terms</span> <span class="n">of</span> <span class="n">the</span> <span class="n">XMOS</span> <span class="n">Public</span> <span class="n">Licence</span><span class="p">:</span> <span class="n">Version</span> <span class="mf">1.</span>
+
+<span class="c1">#include &lt;xscope.h&gt;</span>
+<span class="c1">#include "xud_device.h"</span>
+<span class="c1">#include "debug_print.h"</span>
+<span class="c1">#include "mass_storage.h"</span>
+<span class="c1">#include "print.h"</span>
+
+<span class="o">/*</span> <span class="n">USB</span> <span class="n">Endpoint</span> <span class="n">Defines</span> <span class="o">*/</span>
+<span class="c1">#define XUD_EP_COUNT_OUT   2    //Includes EP0 (1 out EP0 + Mass Storage data output EP)</span>
+<span class="c1">#define XUD_EP_COUNT_IN    2    //Includes EP0 (1 in EP0 + Mass Storage data input EP)</span>
+
+<span class="n">XUD_EpType</span> <span class="n">epTypeTableOut</span><span class="p">[</span><span class="n">XUD_EP_COUNT_OUT</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="n">XUD_EPTYPE_CTL</span> <span class="o">|</span> <span class="n">XUD_STATUS_ENABLE</span><span class="p">,</span> <span class="n">XUD_EPTYPE_BUL</span><span class="p">};</span>
+<span class="n">XUD_EpType</span> <span class="n">epTypeTableIn</span><span class="p">[</span><span class="n">XUD_EP_COUNT_IN</span><span class="p">]</span> <span class="o">=</span>   <span class="p">{</span><span class="n">XUD_EPTYPE_CTL</span> <span class="o">|</span> <span class="n">XUD_STATUS_ENABLE</span><span class="p">,</span> <span class="n">XUD_EPTYPE_BUL</span><span class="p">};</span>
+
+
+<span class="o">/*</span> <span class="n">xSCOPE</span> <span class="n">Setup</span> <span class="n">Function</span> <span class="o">*/</span>
+<span class="c1">#if (USE_XSCOPE == 1)</span>
+<span class="n">void</span> <span class="n">xscope_user_init</span><span class="p">(</span><span class="n">void</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">xscope_register</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">""</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">""</span><span class="p">);</span>
+    <span class="n">xscope_config_io</span><span class="p">(</span><span class="n">XSCOPE_IO_BASIC</span><span class="p">);</span> <span class="o">/*</span> <span class="n">Enable</span> <span class="n">fast</span> <span class="n">printing</span> <span class="n">over</span> <span class="n">links</span> <span class="o">*/</span>
+<span class="p">}</span>
+<span class="c1">#endif</span>
+
+<span class="o">/*</span> <span class="n">Prototype</span> <span class="k">for</span> <span class="n">Endpoint0</span> <span class="n">function</span> <span class="ow">in</span> <span class="n">endpoint0</span><span class="o">.</span><span class="n">xc</span> <span class="o">*/</span>
+<span class="n">void</span> <span class="n">Endpoint0</span><span class="p">(</span><span class="n">chanend</span> <span class="n">c_ep0_out</span><span class="p">,</span> <span class="n">chanend</span> <span class="n">c_ep0_in</span><span class="p">);</span>
+
+<span class="o">/*</span> <span class="n">The</span> <span class="n">main</span> <span class="n">function</span> <span class="n">runs</span> <span class="n">three</span> <span class="n">cores</span><span class="p">:</span> <span class="n">the</span> <span class="n">XUD</span> <span class="n">manager</span><span class="p">,</span> <span class="n">Endpoint</span> <span class="mi">0</span><span class="p">,</span> <span class="ow">and</span> <span class="n">a</span> <span class="n">mass</span> <span class="n">storage</span> <span class="n">endpoint</span><span class="o">.</span> <span class="n">An</span> <span class="n">array</span> <span class="n">of</span>
+   <span class="n">channels</span> <span class="ow">is</span> <span class="n">used</span> <span class="k">for</span> <span class="n">both</span> <span class="n">IN</span> <span class="ow">and</span> <span class="n">OUT</span> <span class="n">endpoints</span> <span class="o">*/</span>
+<span class="nb">int</span> <span class="n">main</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">chan</span> <span class="n">c_ep_out</span><span class="p">[</span><span class="n">XUD_EP_COUNT_OUT</span><span class="p">],</span> <span class="n">c_ep_in</span><span class="p">[</span><span class="n">XUD_EP_COUNT_IN</span><span class="p">];</span>
+
+    <span class="n">par</span>
+    <span class="p">{</span>
+        <span class="n">on</span> <span class="n">USB_TILE</span><span class="p">:</span> <span class="n">XUD_Main</span><span class="p">(</span><span class="n">c_ep_out</span><span class="p">,</span> <span class="n">XUD_EP_COUNT_OUT</span><span class="p">,</span> <span class="n">c_ep_in</span><span class="p">,</span> <span class="n">XUD_EP_COUNT_IN</span><span class="p">,</span>
+                      <span class="n">null</span><span class="p">,</span> <span class="n">epTypeTableOut</span><span class="p">,</span> <span class="n">epTypeTableIn</span><span class="p">,</span> 
+                      <span class="n">null</span><span class="p">,</span> <span class="n">null</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span> <span class="p">,</span> <span class="n">XUD_SPEED_HS</span><span class="p">,</span> <span class="n">XUD_PWR_BUS</span><span class="p">);</span>
+
+        <span class="n">on</span> <span class="n">USB_TILE</span><span class="p">:</span> <span class="n">Endpoint0</span><span class="p">(</span><span class="n">c_ep_out</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">c_ep_in</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
+
+        <span class="n">on</span> <span class="n">USB_TILE</span><span class="p">:</span> <span class="n">massStorageClass</span><span class="p">(</span><span class="n">c_ep_out</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="n">c_ep_in</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="mi">0</span><span class="p">);</span>
+
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="source-code-for-endpoint0-xc">
+<h3>Source Code for endpoint0.xc<a class="headerlink" href="#source-code-for-endpoint0-xc" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">//</span> <span class="n">Copyright</span> <span class="mi">2015</span><span class="o">-</span><span class="mi">2021</span> <span class="n">XMOS</span> <span class="n">LIMITED</span><span class="o">.</span>
+<span class="o">//</span> <span class="n">This</span> <span class="n">Software</span> <span class="ow">is</span> <span class="n">subject</span> <span class="n">to</span> <span class="n">the</span> <span class="n">terms</span> <span class="n">of</span> <span class="n">the</span> <span class="n">XMOS</span> <span class="n">Public</span> <span class="n">Licence</span><span class="p">:</span> <span class="n">Version</span> <span class="mf">1.</span>
+
+<span class="o">/*</span>
+ <span class="o">*</span> <span class="nd">@brief</span> <span class="n">Implements</span> <span class="n">endpoint</span> <span class="n">zero</span> <span class="k">for</span> <span class="n">an</span> <span class="n">example</span> <span class="n">Mass</span> <span class="n">Storage</span> <span class="k">class</span> <span class="nc">device</span><span class="o">.</span>
+ <span class="o">*/</span>
+
+<span class="c1">#include &lt;xs1.h&gt;</span>
+<span class="c1">#include &lt;string.h&gt;</span>
+<span class="c1">#include &lt;xscope.h&gt;</span>
+
+<span class="c1">#include "xud_device.h"</span>
+<span class="c1">#include "debug_print.h"</span>
+<span class="c1">#include "print.h"</span>
+
+<span class="o">/*</span> <span class="n">USB</span> <span class="n">Device</span> <span class="n">ID</span> <span class="n">Defines</span> <span class="o">*/</span>
+<span class="c1">#define BCD_DEVICE   0x0010</span>
+<span class="c1">#define VENDOR_ID    0x20B1</span>
+<span class="c1">#define PRODUCT_ID   0x10BA</span>
+
+<span class="o">/*</span> <span class="n">USB</span> <span class="n">Mass</span> <span class="n">Storage</span> <span class="n">Interface</span> <span class="n">Subclass</span> <span class="n">Definition</span> <span class="o">*/</span>
+<span class="c1">#define USB_MASS_STORAGE_SUBCLASS   0x06    /* SCSI transparent command set */</span>
+
+<span class="o">/*</span> <span class="n">USB</span> <span class="n">Mass</span> <span class="n">Storage</span> <span class="n">interface</span> <span class="n">protocol</span> <span class="o">*/</span>
+<span class="c1">#define USB_MASS_STORAGE_PROTOCOL   0x50    /* USB Mass Storage Class Bulk-Only (BBB) Transport */</span>
+
+<span class="o">/*</span> <span class="n">USB</span> <span class="n">Mass</span> <span class="n">Storage</span> <span class="n">Request</span> <span class="n">Code</span> <span class="o">*/</span>
+<span class="c1">#define USB_MASS_STORAGE_RESET      0xFF    /* Bulk-Only Mass Storage Reset */</span>
+<span class="c1">#define USB_MASS_STORAGE_GML        0xFE    /* Get Max LUN (GML) */</span>
+
+<span class="o">/*</span> <span class="n">USB</span> <span class="n">Device</span> <span class="n">Descriptor</span> <span class="o">*/</span>
+<span class="n">static</span> <span class="n">unsigned</span> <span class="n">char</span> <span class="n">devDesc</span><span class="p">[]</span> <span class="o">=</span>
+<span class="p">{</span>
+  <span class="mh">0x12</span><span class="p">,</span>                       <span class="o">/*</span> <span class="mi">0</span>  <span class="n">bLength</span> <span class="o">*/</span>
+  <span class="n">USB_DESCTYPE_DEVICE</span><span class="p">,</span>        <span class="o">/*</span> <span class="mi">1</span>  <span class="n">bdescriptorType</span> <span class="o">*/</span>
+  <span class="mh">0x00</span><span class="p">,</span>                       <span class="o">/*</span> <span class="mi">2</span>  <span class="n">bcdUSB</span> <span class="n">version</span> <span class="o">*/</span>
+  <span class="mh">0x02</span><span class="p">,</span>                       <span class="o">/*</span> <span class="mi">3</span>  <span class="n">bcdUSB</span> <span class="n">version</span> <span class="o">*/</span>
+  <span class="mh">0x00</span><span class="p">,</span>                       <span class="o">/*</span> <span class="mi">4</span>  <span class="n">bDeviceClass</span> <span class="o">-</span> <span class="n">Specified</span> <span class="n">by</span> <span class="n">interface</span> <span class="o">*/</span>
+  <span class="mh">0x00</span><span class="p">,</span>                       <span class="o">/*</span> <span class="mi">5</span>  <span class="n">bDeviceSubClass</span>  <span class="o">-</span> <span class="n">Specified</span> <span class="n">by</span> <span class="n">interface</span> <span class="o">*/</span>
+  <span class="mh">0x00</span><span class="p">,</span>                       <span class="o">/*</span> <span class="mi">6</span>  <span class="n">bDeviceProtocol</span>  <span class="o">-</span> <span class="n">Specified</span> <span class="n">by</span> <span class="n">interface</span> <span class="o">*/</span>
+  <span class="mh">0x40</span><span class="p">,</span>                       <span class="o">/*</span> <span class="mi">7</span>  <span class="n">bMaxPacketSize</span> <span class="k">for</span> <span class="n">EP0</span> <span class="o">-</span> <span class="nb">max</span> <span class="o">=</span> <span class="mi">64</span><span class="o">*/</span>
+  <span class="p">(</span><span class="n">VENDOR_ID</span> <span class="o">&amp;</span> <span class="mh">0xFF</span><span class="p">),</span>         <span class="o">/*</span> <span class="mi">8</span>  <span class="n">idVendor</span> <span class="o">*/</span>
+  <span class="p">(</span><span class="n">VENDOR_ID</span> <span class="o">&gt;&gt;</span> <span class="mi">8</span><span class="p">),</span>           <span class="o">/*</span> <span class="mi">9</span>  <span class="n">idVendor</span> <span class="o">*/</span>
+  <span class="p">(</span><span class="n">PRODUCT_ID</span> <span class="o">&amp;</span> <span class="mh">0xFF</span><span class="p">),</span>        <span class="o">/*</span> <span class="mi">10</span> <span class="n">idProduct</span> <span class="o">*/</span>
+  <span class="p">(</span><span class="n">PRODUCT_ID</span> <span class="o">&gt;&gt;</span> <span class="mi">8</span><span class="p">),</span>          <span class="o">/*</span> <span class="mi">11</span> <span class="n">idProduct</span> <span class="o">*/</span>
+  <span class="p">(</span><span class="n">BCD_DEVICE</span> <span class="o">&amp;</span> <span class="mh">0xFF</span><span class="p">),</span>        <span class="o">/*</span> <span class="mi">12</span> <span class="n">bcdDevice</span> <span class="o">*/</span>
+  <span class="p">(</span><span class="n">BCD_DEVICE</span> <span class="o">&gt;&gt;</span> <span class="mi">8</span><span class="p">),</span>          <span class="o">/*</span> <span class="mi">13</span> <span class="n">bcdDevice</span> <span class="o">*/</span>
+  <span class="mh">0x01</span><span class="p">,</span>                       <span class="o">/*</span> <span class="mi">14</span> <span class="n">iManufacturer</span> <span class="o">-</span> <span class="n">index</span> <span class="n">of</span> <span class="n">string</span> <span class="o">*/</span>
+  <span class="mh">0x02</span><span class="p">,</span>                       <span class="o">/*</span> <span class="mi">15</span> <span class="n">iProduct</span>  <span class="o">-</span> <span class="n">index</span> <span class="n">of</span> <span class="n">string</span> <span class="o">*/</span>
+  <span class="mh">0x03</span><span class="p">,</span>                       <span class="o">/*</span> <span class="mi">16</span> <span class="n">iSerialNumber</span>  <span class="o">-</span> <span class="n">index</span> <span class="n">of</span> <span class="n">string</span> <span class="o">*/</span>
+  <span class="mh">0x01</span>                        <span class="o">/*</span> <span class="mi">17</span> <span class="n">bNumConfigurations</span> <span class="o">*/</span>
+<span class="p">};</span>
+
+<span class="o">/*</span> <span class="n">USB</span> <span class="n">Configuration</span> <span class="n">Descriptor</span> <span class="o">*/</span>
+<span class="n">static</span> <span class="n">unsigned</span> <span class="n">char</span> <span class="n">cfgDesc</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="mh">0x09</span><span class="p">,</span>                       <span class="o">/*</span> <span class="mi">0</span>  <span class="n">bLength</span> <span class="o">*/</span>
+  <span class="n">USB_DESCTYPE_CONFIGURATION</span><span class="p">,</span> <span class="o">/*</span> <span class="mi">1</span>  <span class="n">bDescriptortype</span> <span class="o">=</span> <span class="n">configuration</span> <span class="o">*/</span>
+  <span class="mh">0x20</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span>                 <span class="o">/*</span> <span class="mi">2</span>  <span class="n">wTotalLength</span> <span class="n">of</span> <span class="nb">all</span> <span class="n">descriptors</span> <span class="o">*/</span>
+  <span class="mh">0x01</span><span class="p">,</span>                       <span class="o">/*</span> <span class="mi">4</span>  <span class="n">bNumInterfaces</span> <span class="o">*/</span>
+  <span class="mh">0x01</span><span class="p">,</span>                       <span class="o">/*</span> <span class="mi">5</span>  <span class="n">bConfigurationValue</span> <span class="o">*/</span>
+  <span class="mh">0x00</span><span class="p">,</span>                       <span class="o">/*</span> <span class="mi">6</span>  <span class="n">iConfiguration</span> <span class="o">-</span> <span class="n">index</span> <span class="n">of</span> <span class="n">string</span> <span class="o">*/</span>
+  <span class="mh">0x80</span><span class="p">,</span>                       <span class="o">/*</span> <span class="mi">7</span>  <span class="n">bmAttributes</span> <span class="o">-</span> <span class="n">Self</span> <span class="n">powered</span> <span class="o">*/</span>
+  <span class="mh">0x50</span><span class="p">,</span>                       <span class="o">/*</span> <span class="mi">8</span>  <span class="n">bMaxPower</span> <span class="o">-</span> <span class="mi">160</span><span class="n">mA</span> <span class="o">*/</span>
+
+  <span class="o">/*</span> <span class="n">USB</span> <span class="n">Bulk</span><span class="o">-</span><span class="n">Only</span> <span class="n">Data</span> <span class="n">Interface</span> <span class="n">Descriptor</span> <span class="o">*/</span>
+  <span class="mh">0x09</span><span class="p">,</span>                       <span class="o">/*</span> <span class="mi">0</span>  <span class="n">bLength</span> <span class="o">*/</span>
+  <span class="n">USB_DESCTYPE_INTERFACE</span><span class="p">,</span>     <span class="o">/*</span> <span class="mi">1</span>  <span class="n">bDescriptorType</span> <span class="o">*/</span>
+  <span class="mh">0x00</span><span class="p">,</span>                       <span class="o">/*</span> <span class="mi">2</span>  <span class="n">bInterfacecNumber</span> <span class="o">*/</span>
+  <span class="mh">0x00</span><span class="p">,</span>                       <span class="o">/*</span> <span class="mi">3</span>  <span class="n">bAlternateSetting</span> <span class="o">*/</span>
+  <span class="mh">0x02</span><span class="p">,</span>                       <span class="o">/*</span> <span class="mi">4</span><span class="p">:</span> <span class="n">bNumEndpoints</span> <span class="o">*/</span>
+  <span class="n">USB_CLASS_MASS_STORAGE</span><span class="p">,</span>     <span class="o">/*</span> <span class="mi">5</span><span class="p">:</span> <span class="n">bInterfaceClass</span> <span class="o">*/</span>
+  <span class="n">USB_MASS_STORAGE_SUBCLASS</span><span class="p">,</span>  <span class="o">/*</span> <span class="mi">6</span><span class="p">:</span> <span class="n">bInterfaceSubClass</span> <span class="o">*/</span>
+  <span class="n">USB_MASS_STORAGE_PROTOCOL</span><span class="p">,</span>  <span class="o">/*</span> <span class="mi">7</span><span class="p">:</span> <span class="n">bInterfaceProtocol</span> <span class="o">*/</span>
+  <span class="mh">0x00</span><span class="p">,</span>                       <span class="o">/*</span> <span class="mi">8</span>  <span class="n">iInterface</span> <span class="o">*/</span>
+
+  <span class="o">/*</span> <span class="n">Bulk</span><span class="o">-</span><span class="n">In</span> <span class="n">Endpoint</span> <span class="n">Descriptor</span> <span class="o">*/</span>
+  <span class="mh">0x07</span><span class="p">,</span>                       <span class="o">/*</span> <span class="mi">0</span>  <span class="n">bLength</span> <span class="o">*/</span>
+  <span class="n">USB_DESCTYPE_ENDPOINT</span><span class="p">,</span>      <span class="o">/*</span> <span class="mi">1</span>  <span class="n">bDescriptorType</span> <span class="o">*/</span>
+  <span class="mh">0x81</span><span class="p">,</span>                       <span class="o">/*</span> <span class="mi">2</span>  <span class="n">bEndpointAddress</span> <span class="o">-</span> <span class="n">EP1</span><span class="p">,</span> <span class="n">IN</span> <span class="o">*/</span>
+  <span class="n">XUD_EPTYPE_BUL</span><span class="p">,</span>             <span class="o">/*</span> <span class="mi">3</span>  <span class="n">bmAttributes</span> <span class="o">*/</span>
+  <span class="mh">0x00</span><span class="p">,</span>                       <span class="o">/*</span> <span class="mi">4</span>  <span class="n">wMaxPacketSize</span> <span class="o">-</span> <span class="n">Low</span> <span class="o">*/</span>
+  <span class="mh">0x02</span><span class="p">,</span>                       <span class="o">/*</span> <span class="mi">5</span>  <span class="n">wMaxPacketSize</span> <span class="o">-</span> <span class="n">High</span> <span class="o">*/</span>
+  <span class="mh">0x00</span><span class="p">,</span>                       <span class="o">/*</span> <span class="mi">6</span>  <span class="n">bInterval</span> <span class="o">*/</span>
+
+  <span class="o">/*</span> <span class="n">Bulk</span><span class="o">-</span><span class="n">Out</span> <span class="n">Endpoint</span> <span class="n">Descriptor</span> <span class="o">*/</span>
+  <span class="mh">0x07</span><span class="p">,</span>                       <span class="o">/*</span> <span class="mi">0</span>  <span class="n">bLength</span> <span class="o">*/</span>
+  <span class="n">USB_DESCTYPE_ENDPOINT</span><span class="p">,</span>      <span class="o">/*</span> <span class="mi">1</span>  <span class="n">bDescriptorType</span> <span class="o">*/</span>
+  <span class="mh">0x01</span><span class="p">,</span>                       <span class="o">/*</span> <span class="mi">2</span>  <span class="n">bEndpointAddress</span> <span class="o">-</span> <span class="n">EP1</span><span class="p">,</span> <span class="n">OUT</span> <span class="o">*/</span>
+  <span class="n">XUD_EPTYPE_BUL</span><span class="p">,</span>             <span class="o">/*</span> <span class="mi">3</span>  <span class="n">bmAttributes</span> <span class="o">*/</span>
+  <span class="mh">0x00</span><span class="p">,</span>                       <span class="o">/*</span> <span class="mi">4</span>  <span class="n">wMaxPacketSize</span> <span class="o">-</span> <span class="n">Low</span> <span class="o">*/</span>
+  <span class="mh">0x02</span><span class="p">,</span>                       <span class="o">/*</span> <span class="mi">5</span>  <span class="n">wMaxPacketSize</span> <span class="o">-</span> <span class="n">High</span> <span class="o">*/</span>
+  <span class="mh">0x00</span><span class="p">,</span>                       <span class="o">/*</span> <span class="mi">6</span>  <span class="n">bInterval</span> <span class="o">*/</span>
+<span class="p">};</span>
+
+<span class="n">unsafe</span><span class="p">{</span>
+  <span class="o">/*</span> <span class="n">String</span> <span class="n">table</span> <span class="o">-</span> <span class="n">unsafe</span> <span class="k">as</span> <span class="n">accessed</span> <span class="n">via</span> <span class="n">shared</span> <span class="n">memory</span> <span class="o">*/</span>
+  <span class="n">static</span> <span class="n">char</span> <span class="o">*</span> <span class="n">unsafe</span> <span class="n">stringDescriptors</span><span class="p">[]</span><span class="o">=</span>
+  <span class="p">{</span>
+    <span class="s2">"</span><span class="se">\x09\x04</span><span class="s2">"</span><span class="p">,</span>             <span class="o">//</span> <span class="n">Language</span> <span class="n">ID</span> <span class="n">string</span> <span class="p">(</span><span class="n">US</span> <span class="n">English</span><span class="p">)</span>
+    <span class="s2">"XMOS"</span><span class="p">,</span>                 <span class="o">//</span> <span class="n">iManufacturer</span>
+    <span class="s2">"xMASSstorage"</span><span class="p">,</span>         <span class="o">//</span> <span class="n">iProduct</span>
+    <span class="s2">"XD070101ho4I4KwM"</span><span class="p">,</span>     <span class="o">//</span> <span class="n">iSerial</span> <span class="n">Number</span>
+  <span class="p">};</span>
+<span class="p">}</span>
+
+<span class="o">/*</span> <span class="n">Mass</span> <span class="n">Storage</span> <span class="n">Class</span> <span class="n">Requests</span> <span class="o">*/</span>
+<span class="nb">int</span> <span class="n">MassStorageEndpoint0Requests</span><span class="p">(</span><span class="n">XUD_ep</span> <span class="n">ep0_out</span><span class="p">,</span> <span class="n">XUD_ep</span> <span class="n">ep0_in</span><span class="p">,</span> <span class="n">USB_SetupPacket_t</span> <span class="n">sp</span><span class="p">)</span>
+<span class="p">{</span>
+   <span class="n">unsigned</span> <span class="n">char</span> <span class="n">buffer</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">};</span>
+
+   <span class="n">switch</span><span class="p">(</span><span class="n">sp</span><span class="o">.</span><span class="n">bRequest</span><span class="p">)</span> <span class="p">{</span>
+
+      <span class="n">case</span> <span class="n">USB_MASS_STORAGE_RESET</span><span class="p">:</span>
+          <span class="n">XUD_ResetEpStateByAddr</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+          <span class="k">return</span> <span class="n">XUD_RES_RST</span><span class="p">;</span> <span class="o">//</span> <span class="n">This</span> <span class="n">request</span> <span class="ow">is</span> <span class="n">used</span> <span class="n">to</span> <span class="n">reset</span> <span class="n">the</span> <span class="n">mass</span> <span class="n">storage</span> <span class="n">device</span>
+          <span class="k">break</span><span class="p">;</span>
+
+      <span class="n">case</span> <span class="n">USB_MASS_STORAGE_GML</span><span class="p">:</span>
+         <span class="k">return</span> <span class="n">XUD_DoGetRequest</span><span class="p">(</span><span class="n">ep0_out</span><span class="p">,</span> <span class="n">ep0_in</span><span class="p">,</span> <span class="n">buffer</span><span class="p">,</span>  <span class="mi">1</span><span class="p">,</span> <span class="n">sp</span><span class="o">.</span><span class="n">wLength</span><span class="p">);</span>
+         <span class="k">break</span><span class="p">;</span>
+
+      <span class="n">default</span><span class="p">:</span>
+          <span class="n">debug_printf</span><span class="p">(</span><span class="s2">"MassStorageEndpoint0Requests @ default : 0x</span><span class="si">%x</span><span class="se">\n</span><span class="s2">"</span><span class="p">,</span><span class="n">sp</span><span class="o">.</span><span class="n">bRequest</span><span class="p">);</span>
+          <span class="k">break</span><span class="p">;</span>
+   <span class="p">}</span>
+
+   <span class="k">return</span> <span class="n">XUD_RES_ERR</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="o">/*</span> <span class="n">Endpoint</span> <span class="mi">0</span> <span class="n">Task</span> <span class="o">*/</span>
+<span class="n">void</span> <span class="n">Endpoint0</span><span class="p">(</span><span class="n">chanend</span> <span class="n">chan_ep0_out</span><span class="p">,</span> <span class="n">chanend</span> <span class="n">chan_ep0_in</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="n">USB_SetupPacket_t</span> <span class="n">sp</span><span class="p">;</span>
+  <span class="n">unsigned</span> <span class="n">bmRequestType</span><span class="p">;</span>
+  <span class="n">XUD_BusSpeed_t</span> <span class="n">usbBusSpeed</span><span class="p">;</span>
+
+  <span class="n">XUD_ep</span> <span class="n">ep0_out</span> <span class="o">=</span> <span class="n">XUD_InitEp</span><span class="p">(</span><span class="n">chan_ep0_out</span><span class="p">);</span>
+  <span class="n">XUD_ep</span> <span class="n">ep0_in</span>  <span class="o">=</span> <span class="n">XUD_InitEp</span><span class="p">(</span><span class="n">chan_ep0_in</span><span class="p">);</span>
+
+  <span class="k">while</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+  <span class="p">{</span>
+     <span class="o">/*</span> <span class="n">Returns</span> <span class="n">XUD_RES_OKAY</span> <span class="n">on</span> <span class="n">success</span> <span class="o">*/</span>
+     <span class="n">XUD_Result_t</span> <span class="n">result</span> <span class="o">=</span> <span class="n">USB_GetSetupPacket</span><span class="p">(</span><span class="n">ep0_out</span><span class="p">,</span> <span class="n">ep0_in</span><span class="p">,</span> <span class="n">sp</span><span class="p">);</span>
+
+     <span class="k">if</span><span class="p">(</span><span class="n">result</span> <span class="o">==</span> <span class="n">XUD_RES_OKAY</span><span class="p">)</span>
+     <span class="p">{</span>
+       <span class="o">/*</span> <span class="n">Set</span> <span class="n">result</span> <span class="n">to</span> <span class="n">ERR</span><span class="p">,</span> <span class="n">we</span> <span class="n">expect</span> <span class="n">it</span> <span class="n">to</span> <span class="n">get</span> <span class="nb">set</span> <span class="n">to</span> <span class="n">OKAY</span> <span class="k">if</span> <span class="n">a</span> <span class="n">request</span> <span class="ow">is</span> <span class="n">handled</span> <span class="o">*/</span>
+       <span class="n">result</span> <span class="o">=</span> <span class="n">XUD_RES_ERR</span><span class="p">;</span>
+
+       <span class="o">/*</span> <span class="n">Stick</span> <span class="n">bmRequest</span> <span class="nb">type</span> <span class="n">back</span> <span class="n">together</span> <span class="k">for</span> <span class="n">an</span> <span class="n">easier</span> <span class="n">parse</span><span class="o">...</span> <span class="o">*/</span>
+       <span class="n">bmRequestType</span> <span class="o">=</span> <span class="p">(</span><span class="n">sp</span><span class="o">.</span><span class="n">bmRequestType</span><span class="o">.</span><span class="n">Direction</span><span class="o">&lt;&lt;</span><span class="mi">7</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">sp</span><span class="o">.</span><span class="n">bmRequestType</span><span class="o">.</span><span class="n">Type</span><span class="o">&lt;&lt;</span><span class="mi">5</span><span class="p">)</span> <span class="o">|</span>
+                       <span class="p">(</span><span class="n">sp</span><span class="o">.</span><span class="n">bmRequestType</span><span class="o">.</span><span class="n">Recipient</span><span class="p">);</span>
+
+       <span class="k">if</span> <span class="p">((</span><span class="n">bmRequestType</span> <span class="o">==</span> <span class="n">USB_BMREQ_H2D_STANDARD_DEV</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="n">sp</span><span class="o">.</span><span class="n">bRequest</span> <span class="o">==</span> <span class="n">USB_CLEAR_FEATURE</span><span class="p">))</span> <span class="p">{</span>
+         <span class="o">//</span> <span class="n">Host</span> <span class="n">has</span> <span class="nb">set</span> <span class="n">device</span> <span class="n">address</span><span class="p">,</span> <span class="n">value</span> <span class="n">contained</span> <span class="ow">in</span> <span class="n">sp</span><span class="o">.</span><span class="n">wValue</span>
+       <span class="p">}</span>
+
+       <span class="o">/*</span> <span class="n">Handle</span> <span class="n">specific</span> <span class="n">requests</span> <span class="n">first</span> <span class="o">*/</span>
+       <span class="n">switch</span><span class="p">(</span><span class="n">bmRequestType</span><span class="p">)</span> <span class="p">{</span>
+          <span class="o">/*</span> <span class="n">Direction</span><span class="p">:</span> <span class="n">Device</span><span class="o">-</span><span class="n">to</span><span class="o">-</span><span class="n">host</span> <span class="ow">and</span> <span class="n">Host</span><span class="o">-</span><span class="n">to</span><span class="o">-</span><span class="n">device</span>
+           <span class="o">*</span> <span class="n">Type</span><span class="p">:</span> <span class="n">Class</span>
+           <span class="o">*</span> <span class="n">Recipient</span><span class="p">:</span> <span class="n">Interface</span>
+           <span class="o">*/</span>
+          <span class="n">case</span> <span class="n">USB_BMREQ_H2D_CLASS_INT</span><span class="p">:</span>
+          <span class="n">case</span> <span class="n">USB_BMREQ_D2H_CLASS_INT</span><span class="p">:</span>
+
+            <span class="o">/*</span> <span class="n">Inspect</span> <span class="k">for</span> <span class="n">mass</span> <span class="n">storage</span> <span class="n">interface</span> <span class="n">num</span> <span class="o">*/</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">sp</span><span class="o">.</span><span class="n">wIndex</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+               <span class="o">/*</span> <span class="n">Returns</span>  <span class="n">XUD_RES_OKAY</span> <span class="k">if</span> <span class="n">handled</span><span class="p">,</span>
+                <span class="o">*</span>          <span class="n">XUD_RES_ERR</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">handled</span><span class="p">,</span>
+                <span class="o">*</span>          <span class="n">XUD_RES_RST</span> <span class="k">for</span> <span class="n">bus</span> <span class="n">reset</span> <span class="o">*/</span>
+               <span class="n">result</span> <span class="o">=</span> <span class="n">MassStorageEndpoint0Requests</span><span class="p">(</span><span class="n">ep0_out</span><span class="p">,</span><span class="n">ep0_in</span><span class="p">,</span><span class="n">sp</span><span class="p">);</span>
+            <span class="p">}</span>
+            <span class="k">break</span><span class="p">;</span>
+        <span class="p">}</span>
+     <span class="p">}</span>
+
+     <span class="o">/*</span> <span class="n">If</span> <span class="n">we</span> <span class="n">haven</span><span class="s1">'t handled the request above then do standard enumeration requests */</span>
+     <span class="k">if</span><span class="p">(</span><span class="n">result</span> <span class="o">==</span> <span class="n">XUD_RES_ERR</span><span class="p">)</span> <span class="p">{</span>
+        <span class="o">/*</span> <span class="n">Returns</span>  <span class="n">XUD_RES_OKAY</span> <span class="k">if</span> <span class="n">handled</span> <span class="n">okay</span><span class="p">,</span>
+         <span class="o">*</span>          <span class="n">XUD_RES_ERR</span> <span class="k">if</span> <span class="n">request</span> <span class="n">was</span> <span class="ow">not</span> <span class="n">handled</span> <span class="p">(</span><span class="n">i</span><span class="o">.</span><span class="n">e</span><span class="o">.</span> <span class="n">STALLed</span><span class="p">),</span>
+         <span class="o">*</span>          <span class="n">XUD_RES_RST</span> <span class="k">if</span> <span class="n">USB</span> <span class="n">Reset</span> <span class="o">*/</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">USB_StandardRequests</span><span class="p">(</span><span class="n">ep0_out</span><span class="p">,</span> <span class="n">ep0_in</span><span class="p">,</span> <span class="n">devDesc</span><span class="p">,</span>
+                 <span class="n">sizeof</span><span class="p">(</span><span class="n">devDesc</span><span class="p">),</span> <span class="n">cfgDesc</span><span class="p">,</span> <span class="n">sizeof</span><span class="p">(</span><span class="n">cfgDesc</span><span class="p">),</span>
+                 <span class="n">null</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">null</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span>
+                 <span class="n">stringDescriptors</span><span class="p">,</span> <span class="n">sizeof</span><span class="p">(</span><span class="n">stringDescriptors</span><span class="p">)</span><span class="o">/</span><span class="n">sizeof</span><span class="p">(</span><span class="n">stringDescriptors</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span>
+                 <span class="n">sp</span><span class="p">,</span> <span class="n">usbBusSpeed</span><span class="p">);</span>
+     <span class="p">}</span>
+
+     <span class="o">/*</span> <span class="n">USB</span> <span class="n">bus</span> <span class="n">reset</span> <span class="n">detected</span><span class="p">,</span> <span class="n">reset</span> <span class="n">EP</span> <span class="ow">and</span> <span class="n">get</span> <span class="n">new</span> <span class="n">bus</span> <span class="n">speed</span> <span class="o">*/</span>
+     <span class="k">if</span><span class="p">(</span><span class="n">result</span> <span class="o">==</span> <span class="n">XUD_RES_RST</span><span class="p">)</span> <span class="p">{</span>
+         <span class="n">usbBusSpeed</span> <span class="o">=</span> <span class="n">XUD_ResetEndpoint</span><span class="p">(</span><span class="n">ep0_out</span><span class="p">,</span> <span class="n">ep0_in</span><span class="p">);</span>
+     <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+
+
+
+
+
+</pre></div>
+</div>
+</div>
+<div class="section" id="source-code-for-mass-storage-xc">
+<h3>Source Code for mass_storage.xc<a class="headerlink" href="#source-code-for-mass-storage-xc" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>// Copyright 2015-2021 XMOS LIMITED.
+// This Software is subject to the terms of the XMOS Public Licence: Version 1.
+
+#include &lt;xs1.h&gt;
+#include &lt;platform.h&gt;
+#include &lt;xclib.h&gt;
+#include &lt;string.h&gt;
+#include &lt;xassert.h&gt;
+#include "xud_device.h"
+#include "mass_storage.h"
+#include "debug_print.h"
+//Flash_Functions_start
+#include "flashlib.h"
+
+on tile[0]: fl_SPIPorts spiPort = {
+    XS1_PORT_1A,
+        XS1_PORT_1B,
+        XS1_PORT_1C,
+        XS1_PORT_1D,
+        XS1_CLKBLK_1
+};
+
+fl_DeviceSpec flashSpec[1] = {FL_DEVICE_NUMONYX_M25P16}; // Equivalent of Micron M25P16
+
+int pagesPerBlock_g = 0;
+int bytesPerPage_g = 0;
+unsigned char pageBuffer_g[MASS_STORAGE_BLOCKLENGTH];
+
+void massStorageInit() {
+    fl_connectToDevice(spiPort, flashSpec, 1);
+        fl_setBootPartitionSize(FLASH_PARTITION_SIZE);
+        bytesPerPage_g = fl_getPageSize();
+        pagesPerBlock_g = (MASS_STORAGE_BLOCKLENGTH / bytesPerPage_g);
+}
+
+int massStorageWrite(unsigned int blockNr, unsigned char buffer[]) {
+    for(int i = 0; i &lt; pagesPerBlock_g; i++) {
+        for(int j = 0; j &lt; bytesPerPage_g; j++) {
+            pageBuffer_g[j] = buffer[i * bytesPerPage_g + j];
+        }
+        fl_writeDataPage(blockNr * pagesPerBlock_g + i, buffer);
+    }
+    return 0;
+}
+
+int massStorageRead(unsigned int blockNr, unsigned char buffer[]) {
+    for(int i = 0; i &lt; pagesPerBlock_g; i++) {
+        fl_readDataPage(blockNr * pagesPerBlock_g + i, pageBuffer_g);
+            for(int j = 0; j &lt; bytesPerPage_g; j++) {
+                buffer[i * bytesPerPage_g + j] = pageBuffer_g[j];
+            }
+    }
+    return 0;
+}
+
+int massStorageSize() {
+#if DETECT_AS_FLOPPY
+    return FLOPPY_DISK_SIZE;
+#else
+        int x = fl_getNumDataPages();
+        return x / pagesPerBlock_g;
+#endif
+}
+//Flash_Functions_end
+static unsigned char inquiryAnswer[36] = {
+    0x00,               // Peripheral Device Type (PDT) - SBC Direct-access device
+        0x80,               // Removable Medium Bit is Set
+        0x02,               // Version
+        0x02,               // Obsolete[7:6],NORMACA[5],HISUP[4],Response Data Format[3:0]
+        0x1f,               // Additional Length
+        0x73,               // SCCS[7],ACC[6],TPGS[5:4],3PC[3],Reserved[2:1],PROTECT[0]
+        0x6d,               // BQUE[7],ENCSERV[6],VS[5],MULTIP[4],MCHNGR[3],Obsolete[2:1],ADDR16[0]
+        0x69,               // Obsolete[7:6],WBUS116[5],SYNC[4],LINKED[3],Obsolete[2],CMDQUE[1],VS[0]
+        'X', 'M', 'O', 'S', 'L', 'T', 'D', 0, // Vendor Identification
+        'F', 'l', 'a', 's', 'h', ' ', 'D', 'i', 's', 'k', 0, ' ', ' ', ' ', ' ', ' ', // Product Identification
+        '0', '.', '1', '0'  // Product Revision Level
+};
+
+static unsigned char modeSenseAnswer[4] = {
+    0x04, 0x00, 0x10, 0x00
+};
+
+//Reference: http://www.usb.org/developers/docs/devclass_docs/usb_msc_boot_1.0.pdf
+static unsigned char requestSenseAnswer[18] = {
+    0x70,   // Error Code
+        0x00,   // Segment Number (Reserved)
+        0x02,   // ILI, Sense Key
+        0x00, 0x00, 0x00, 0x00, // Information
+        0x0A,   // Additional Sense Length (n-7), i.e. 17-7
+        0x00, 0x00, 0x00, 0x00, // Command Specific Information
+        0x3A,   // Additional Sense Code
+        0x00,   // Additional Sense Qualifier (optional)
+        0x00, 0x00, 0x00, 0x00  // Reserved
+};
+
+static unsigned char blockBuffer[MASS_STORAGE_BLOCKLENGTH];
+
+/* This function receives the mass storage endpoint transfers from the host */
+void massStorageClass(chanend chan_ep1_out,chanend chan_ep1_in, int writeProtect)
+{
+    unsigned char commandBlock[CBW_SHORT_PACKET_SIZE];
+        unsigned char commandStatus[CSW_SHORT_PACKET_SIZE];
+        unsigned host_transfer_length = 0;
+        int readCapacity[8];
+        int readLength, readAddress;
+        int dCBWSignature = 0, bCBWDataTransferLength = 0;
+        int bmCBWFlags = 0, bCBWLUN = 0, bCBWCBLength = 0;
+        int Operation_Code = 0;
+        XUD_Result_t result;
+        int ready = 1;
+        
+        debug_printf("USB Mass Storage class demo started\n");
+        
+        /* Load some default CSW to reduce response time delay */
+        memset(commandStatus,0,CSW_SHORT_PACKET_SIZE);
+        /* Signature helps identify this data packet as a CSW */
+        (commandStatus, int[])[0] = byterev(CSW_SIGNATURE);
+
+        /* Initialise the XUD endpoints */
+        XUD_ep ep1_out = XUD_InitEp(chan_ep1_out);
+    XUD_ep ep1_in  = XUD_InitEp(chan_ep1_in);
+
+#if !DETECT_AS_FLOPPY
+    massStorageInit();
+#endif
+
+    while(1)
+    {
+        unsigned char bCSWStatus = CSW_STATUS_CMD_PASSED;
+        // Get Command Block Wrapper (CBW)
+        if(XUD_RES_OKAY == (result = XUD_GetBuffer(ep1_out, (commandBlock, char[CBW_SHORT_PACKET_SIZE]), host_transfer_length)) )
+        {
+            /* The CBW shall start on a packet boundary and shall end as a short packet
+             * with exactly 31 (0x1F) bytes transferred
+             */
+            assert(host_transfer_length == CBW_SHORT_PACKET_SIZE);
+                /* verify Signature - that helps identify this packet as a CBW */
+                dCBWSignature = commandBlock[0] | commandBlock[1] &lt;&lt; 8 |
+                commandBlock[2] &lt;&lt; 16 | commandBlock[3] &lt;&lt; 24;
+                assert(dCBWSignature == CBW_SIGNATURE);
+                
+                bCBWDataTransferLength = commandBlock[8] | commandBlock[9]&lt;&lt;8 |
+                commandBlock[10] &lt;&lt; 16 | commandBlock[11] &lt;&lt; 24;
+                
+                bmCBWFlags = commandBlock[12]; bCBWLUN = (commandBlock[13] &amp; 0x0F);
+                assert(bCBWCBLength = (commandBlock[14] &amp; 0x1F) &lt;= 16);
+                Operation_Code = commandBlock[15];
+                
+                switch(Operation_Code)
+                {
+                    case TEST_UNIT_READY_CMD: // Test unit ready:
+                        bCSWStatus = ready ? CSW_STATUS_CMD_PASSED : CSW_STATUS_CMD_FAILED;
+                            break;
+                            
+                    case REQUEST_SENSE_CMD: // Request sense
+                            requestSenseAnswer[2] = ready ? STATUS_GOOD : STATUS_CHECK_CONDITION;
+                                result = XUD_SetBuffer(ep1_in, requestSenseAnswer, sizeof(requestSenseAnswer));
+                                break;
+                                
+                    case INQUIRY_CMD: // Inquiry
+                                result = XUD_SetBuffer(ep1_in, inquiryAnswer, sizeof(inquiryAnswer));
+                                    break;
+                                    
+                    case START_STOP_CMD: // start/stop
+                                    ready = ((commandBlock[19] &gt;&gt; 1) &amp; 1) == 0;
+                                        break;
+                                        
+                    case MODE_SENSE_6_CMD:  // Mode sense (6)
+                    case MODE_SENSE_10_CMD: // Mode sense (10) // For Mac OSX
+                                        if (writeProtect) modeSenseAnswer[2] |= 0x80;
+                                            
+                                                result = XUD_SetBuffer(ep1_in, modeSenseAnswer, sizeof(modeSenseAnswer));
+                                                break;
+                                                
+                                                
+                    case MEDIUM_REMOVAL_CMD: // Medium removal
+                                                break;
+                                                    
+                    case RECEIVE_DIAGNOSTIC_RESULT_CMD:
+                                                       memset(readCapacity,0x0000,sizeof(readCapacity));
+                                                           result = XUD_SetBuffer(ep1_in, (readCapacity, unsigned char[8]), 32);
+                                                           break;
+                                                           
+                    case READ_FORMAT_CAPACITY_CMD: // Read Format capacity (UFI Command Spec)
+                                                           readCapacity[0] = byterev(8);
+                                                               readCapacity[1] = byterev(massStorageSize());
+                                                               readCapacity[2] = byterev(MASS_STORAGE_BLOCKLENGTH) | (DETECT_AS_FLOPPY ? NO_CARTRIDGE_IN_DRIVE : FORMATTED_MEDIA);
+                                                               result = XUD_SetBuffer(ep1_in, (readCapacity, unsigned char[8]), 12);
+                                                               break;
+                                                               
+                    case READ_CAPACITY_CMD: // Read capacity
+                                                               readCapacity[0] = byterev(massStorageSize()-1);
+                                                                   readCapacity[1] = byterev(MASS_STORAGE_BLOCKLENGTH);
+                                                                   result = XUD_SetBuffer(ep1_in, (readCapacity, unsigned char[8]), 8);
+                                                                   break;
+                                                                   
+                    case READ_CAPACITY_16_CMD:
+                                              memset(readCapacity,0x0000,sizeof(readCapacity));
+                                                  readCapacity[1] = byterev(massStorageSize()-1);
+                                                  readCapacity[2] = byterev(MASS_STORAGE_BLOCKLENGTH);
+                                                  result = XUD_SetBuffer(ep1_in, (readCapacity, unsigned char[8]), 32);
+                                                  break;
+                                                  
+                    case READ_10_CMD: // Read (10)
+                                                  readLength = commandBlock[22] &lt;&lt; 8 | commandBlock[23];
+                                                      readAddress = commandBlock[17] &lt;&lt; 24 | commandBlock[18] &lt;&lt; 16 |
+                                                      commandBlock[19] &lt;&lt; 8 | commandBlock[20];
+                                                      for(int i = 0; i &lt; readLength ; i++) {
+                                                          bCSWStatus |= massStorageRead(readAddress, blockBuffer);
+                                                              result = XUD_SetBuffer(ep1_in, blockBuffer, MASS_STORAGE_BLOCKLENGTH);
+                                                              readAddress++; }
+                                                              break;
+                                                              
+                    case WRITE_10_CMD: // Write
+                                                              readLength = commandBlock[22] &lt;&lt; 8 | commandBlock[23];
+                                                                  readAddress = commandBlock[17] &lt;&lt; 24 | commandBlock[18] &lt;&lt; 16 |
+                                                                  commandBlock[19] &lt;&lt; 8 | commandBlock[20];
+                                                                  for(int i = 0; i &lt; readLength ; i++) {
+                                                                      result = XUD_GetBuffer(ep1_out, (blockBuffer, char[128 * 4]),host_transfer_length);
+                                                                          bCSWStatus |= massStorageWrite(readAddress, blockBuffer);
+                                                                          readAddress++; }
+                                                                          break;
+                                                                          
+                    default:
+                            debug_printf("Invalid Operation Code Received : 0x%x\n",Operation_Code);
+                                bCSWStatus = CSW_STATUS_CMD_FAILED;
+                                break;
+                }
+        }
+        
+            /* Check for result, if it is found as XUD_RES_RST, then reset Endpoints */
+            if(result == XUD_RES_RST) {
+                XUD_ResetEndpoint(ep1_out,ep1_in);
+                    break;
+            }
+        
+            /* Setup Command Status Wrapper (CSW). The CSW shall start on a packet boundry
+             * and shall end as a short packet with exactly 13 (0x0D) bytes transferred */
+            /* The device shall echo the contents of dCBWTag back to the host in the dCSWTag */
+            commandStatus[4] = commandBlock[4];
+            commandStatus[5] = commandBlock[5];
+            commandStatus[6] = commandBlock[6];
+            commandStatus[7] = commandBlock[7];
+            commandStatus[12] = bCSWStatus;
+            
+            if(XUD_RES_RST == XUD_SetBuffer(ep1_in, commandStatus, CSW_SHORT_PACKET_SIZE))
+                XUD_ResetEndpoint(ep1_out,ep1_in);
+                    
+    } //while(1)
+} // END of massStorageClass
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+      </article>
+      <footer>
+        
+        <div class="related-pages">
+          <a class="next-page" href="../../../AN00126_printer_class/doc/rst/AN00126.html">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title">Printer class</div>
+              </div>
+              <svg><use href="#svg-arrow-right"></use></svg>
+            </a>
+          <a class="prev-page" href="../../../AN00124_CDC_VCOM_class/doc/rst/AN00124.html">
+              <svg><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">CDC VCOM class</div>
+                
+              </div>
+            </a>
+        </div>
+
+        <div class="related-information">
+              Copyright &#169; 2019-2021, XMOS Ltd
+            |
+            Built with <a href="https://www.sphinx-doc.org/">Sphinx</a>
+              and
+              <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+              <a href="https://github.com/pradyunsg/furo">Furo theme</a>.
+            |
+            <a class="muted-link" href="../../../../_sources/examples/AN00125_mass_storage_class/doc/rst/AN00125.rst.txt"
+               rel="nofollow">
+              Show Source
+            </a>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            Contents
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Mass Storage class</a><ul>
+<li><a class="reference internal" href="#overview">Overview</a><ul>
+<li><a class="reference internal" href="#introduction">Introduction</a></li>
+<li><a class="reference internal" href="#block-diagram">Block diagram</a></li>
+<li><a class="reference internal" href="#features">Features</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#usb-mass-storage-device-class-application-note">USB Mass Storage Device Class application note</a><ul>
+<li><a class="reference internal" href="#makefile-additions-for-this-application">Makefile additions for this application</a></li>
+<li><a class="reference internal" href="#declaring-resource-and-setting-up-the-usb-components">Declaring resource and setting up the USB components</a></li>
+<li><a class="reference internal" href="#the-application-main-function">The application main() function</a></li>
+<li><a class="reference internal" href="#configuring-the-usb-device-id">Configuring the USB Device ID</a></li>
+<li><a class="reference internal" href="#usb-mass-storage-class-specific-defines">USB Mass storage Class specific defines</a></li>
+<li><a class="reference internal" href="#usb-device-descriptor">USB Device Descriptor</a></li>
+<li><a class="reference internal" href="#usb-configuration-descriptor">USB Configuration Descriptor</a></li>
+<li><a class="reference internal" href="#usb-string-descriptor">USB string descriptor</a></li>
+<li><a class="reference internal" href="#usb-mass-storage-class-requests">USB Mass storage Class requests</a></li>
+<li><a class="reference internal" href="#usb-mass-storage-class-endpoint0">USB Mass storage Class Endpoint0</a></li>
+<li><a class="reference internal" href="#receiving-storage-data-from-the-host">Receiving storage data from the host</a></li>
+<li><a class="reference internal" href="#scsi-command-implementation">SCSI Command Implementation</a></li>
+<li><a class="reference internal" href="#serial-flash-functions">Serial Flash Functions</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#demo-hardware-setup">Demo Hardware Setup</a></li>
+<li><a class="reference internal" href="#launching-the-demo-device">Launching the demo device</a><ul>
+<li><a class="reference internal" href="#launching-from-the-command-line">Launching from the command line</a></li>
+<li><a class="reference internal" href="#launching-from-xtimecomposer-studio">Launching from xTIMEcomposer Studio</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#detecting-the-mass-storage">Detecting the Mass Storage</a><ul>
+<li><a class="reference internal" href="#windows-host">Windows Host</a></li>
+<li><a class="reference internal" href="#osx-host">OSX Host</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#references">References</a></li>
+<li><a class="reference internal" href="#full-source-code-listing">Full Source Code listing</a><ul>
+<li><a class="reference internal" href="#source-code-for-main-xc">Source Code for main.xc</a></li>
+<li><a class="reference internal" href="#source-code-for-endpoint0-xc">Source Code for endpoint0.xc</a></li>
+<li><a class="reference internal" href="#source-code-for-mass-storage-xc">Source Code for mass_storage.xc</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </main>
+</div>
+    <script id="documentation_options" data-url_root="../../../../" src="../../../../_static/documentation_options.js"></script>
+    <script src="../../../../_static/jquery.js"></script>
+    <script src="../../../../_static/underscore.js"></script>
+    <script src="../../../../_static/doctools.js"></script>
+    <script src="../../../../_static/clipboard.min.js"></script>
+    <script src="../../../../_static/copybutton.js"></script>
+    <script src="../../../../_static/tabs.js"></script>
+    <script src="../../../../_static/scripts/main.js?digest=e931d09b2a40c1bb82b542effe772014573baf67"></script></body>
+</html>
