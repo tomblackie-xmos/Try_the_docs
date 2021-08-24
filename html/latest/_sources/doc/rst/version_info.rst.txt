@@ -1,6 +1,7 @@
 Tool and Architecture Dependencies
 ==================================
 
-.. csv-table:: Tool and Architecture support.
-  :file: ../version_info.csv
-  :header-rows: 1
+Still TBD
+
+Purpose is to define which xcore architectures are supported and which version of tools to use.
+

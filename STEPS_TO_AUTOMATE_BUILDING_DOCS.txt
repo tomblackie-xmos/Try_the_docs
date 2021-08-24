@@ -49,6 +49,8 @@ The sphinx-build command needs the output path, which is where the versioning sc
 previous folders - so again could be mage a common argument - BUT, depending where we store the 
 html output we may not have the previous versions in the folder (i.e. we don't commit them to the project)
 
-
+I created a "version_info.rst" file which is supposed to be standard info that appears in every "Before you start" page.
+Its purpose is to define the xcore architectures and Tools version that are required/supported.
+It seems this info is probably already "defined" soewhere else - for testing etc.  We should use a script to pick this up and template the page.
 
 
