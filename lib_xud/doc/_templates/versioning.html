@@ -1,17 +1,14 @@
-﻿
 
-<select name="version" id="version-select" value="Latest" onchange="changeVersion(this.value)" >
+    <select name="version" id="version-select" value="Latest" onchange="changeVersion(this.value)" >
     <option selected disabled>Other versions</option>
-    <option value="html/latest/">Latest</option>
-    <!-- <option value="html/v3/">3.0.0</option> -->
-    <option value="html/v2/">2.0.0</option>
-    <option value="html/v1/">1.0.0</option>
-</select>
+    <option value="html/v1/">v1</option>
+    <option value="html/v2/">v2</option>
+    <option value="html/v3/">v3</option>
+    <option value="html/v4/">v4</option>
+    <option value="html/latest/">latest</option>
+    </select>
 
-
-
-
-<script>
+    <script>
     function changeVersion(val) {
         var loc = window.location.toString();
         var i = loc.indexOf("html/");
@@ -39,7 +36,4 @@
         request.send();    
         }
     }
-</script>
-
-
-
+    </script>

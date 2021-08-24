@@ -12,10 +12,6 @@
 #
 import os
 import sys
-#sys.path.insert(0, os.path.abspath('../lib_xud/doc/rst'))
-
-
-
 
 from sphinx.builders.html import StandaloneHTMLBuilder
 
@@ -24,7 +20,7 @@ from sphinx.builders.html import StandaloneHTMLBuilder
 # TODO
 # WHAT TO DO ABOUT COPYRIGHTS - this is for all the docs! not the cof.py file itself!
 #
-copyright = '2021, XMOS Ltd'
+copyright = '2019-2021, XMOS Ltd'
 author = 'XMOS Ltd'
 
 # ----------------------------------------------
@@ -48,12 +44,12 @@ def read_mbi(mbi_file, key_str, val_str):
             n = 'no match'
     return n
 
-project = 'XMOS Docs'
-release = 'NOT FOUND'
-
-project = read_mbi('../lib_xud/module_build_info', 'TITLE', '.*')
-release = read_mbi('../lib_xud/module_build_info', 'VERSION', '[0-9]*\.[0-9]*\.[0-9]*')
-
+try:
+    project = read_mbi('../module_build_info', 'TITLE', '.*')
+    release = read_mbi('../module_build_info', 'VERSION', '[0-9]*\.[0-9]*\.[0-9]*')
+except:
+    project = 'NO PROJECT DEFINED'
+    release = 'NO VERSION DEFINED'
 
 
 # TODO
