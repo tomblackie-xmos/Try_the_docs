@@ -1,0 +1,5 @@
+﻿Device Name,Description,Device Type,Vendor ID,Product ID,USB Class,USB SubClass,USB Protocol,Service Name,USB Version,Driver Description
+XVF3610 (UAC1.0) Adaptive,USB Composite Device,Unknown,20b1,16,0,0,0,usbccgp,2,USB Composite Device
+XVF3610 (UAC1.0) Adaptive,USB Audio Device,Audio,20b1,16,1,1,0,usbaudio,2,USB Audio Device
+XVF3610 (UAC1.0) Adaptive,XMOS Control,Vendor Specific,20b1,16,ff,ff,ff,,2,
+XVF3610 (UAC1.0) Adaptive,USB Input Device,HID (Human Interface Device),20b1,16,3,0,0,HidUsb,2,USB Input Device

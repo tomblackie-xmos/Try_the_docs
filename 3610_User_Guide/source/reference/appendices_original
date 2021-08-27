@@ -1,0 +1,1573 @@
+Appendices
+==========
+
+.. todo::
+
+  Rework into a "Reference" section.
+
+
+
+-  A: Parameter summary
+
+-  B: Boot Status codes (RUN_STATUS)
+
+-  C: Example SPISPEC file format
+
+-  D: Custom connection for SPI Booting of XVF3610-UA on Development kit
+
+-  E: USB Enumeration data
+
+-  F: USB HID - Development kit worked example
+
+-  G: General purpose filter example
+
+-  H: Control parameter protocol
+
+-  I: Flash programming and update flow
+
+-  J: Capturing packed samples for system integration
+
+A: Parameter summary
+=============================
+
+The following section summarises the XVF3610 parameters which are
+programmable via the control interfaces or flash data partition. These
+parameters allow the setup of the XVF3610 processor’s interfaces and
+tuning of the internal signal processing.
+
+To aid quick reference of the key parameters the summary is split into
+two sections. The first details the most frequently used parameters
+which are required for interface configuration and basic control, and
+the second detail advanced parameters which will not generally need to
+be modified. Further details on the specific usage of parameters are
+discussed in the previous sections of the document and referenced below
+for convenience.
+
+NOTE: The parameters shown below can be formatted into Read and Write
+commands, where appropriate by adding the prefix ‘GET\_’ and ‘SET\_’ for
+Read and Write respectively.
+
+Table 6‑1 Basic parameter summary ('-' used to indicate not applicable)
+
++-------------+----+------------------------+-----------+-----------+
+| Parameter   | Re | Description            | 3610-UA   | 3610-INT  |
+|             | ad |                        | default   | default   |
+|             | /  |                        |           |           |
+|             | W  |                        |           |           |
+|             | ri |                        |           |           |
+|             | te |                        |           |           |
++=============+====+========================+===========+===========+
+| VERSION     | R  | Firmware version – See | vX.Y.Z    | vX.Y.Z    |
+|             |    | release notes and      |           |           |
+|             |    | section 3.1 above      |           |           |
++-------------+----+------------------------+-----------+-----------+
+| DE          | R  | Configurable delay in  | 0         | 0         |
+| LAY_SAMPLES | /W | samples                |           |           |
++-------------+----+------------------------+-----------+-----------+
+| STATUS      | R  | Status                 | 0         | 0         |
++-------------+----+------------------------+-----------+-----------+
+| DEVICE_TO   | R  | Device to USB bit      | 16        | -         |
+| _USB_BIT_RES| /W | resolution             |           |           |
++-------------+----+------------------------+-----------+-----------+
+| DEVICE      | R  | Device to USB rate     | 48000     | -         |
+| _TO_USB_RATE| /W |                        |           |           |
++-------------+----+------------------------+-----------+-----------+
+| GPI         | W  | Sets the interrupt     | -         | -         |
+| _INT_CONFIG |    | config for a specific  |           |           |
+|             |    | pin                    |           |           |
++-------------+----+------------------------+-----------+-----------+
+| GPI_INT     | R  | Read whether interrupt | -         | -         |
+| _PENDING_PIN|    | was triggered for      |           |           |
+|             |    | selected pin           |           |           |
++-------------+----+------------------------+-----------+-----------+
+| GPI_INT_P   | R  | Read whether interrupt | -         | -         |
+| ENDING_PORT |    | was triggered for all  |           |           |
+|             |    | pins on selected port  |           |           |
++-------------+----+------------------------+-----------+-----------+
+| GPI_PIN     | R  | Read current state of  | -         | -         |
+|             |    | the selected GPIO pin  |           |           |
++-------------+----+------------------------+-----------+-----------+
+| GPI_PIN_A   | W  | Set the active level   | 0         | 0         |
+| CTIVE_LEVEL |    | for a specific GPI     |           |           |
+|             |    | pin. 0: active low 1:  |           |           |
+|             |    | active high            |           |           |
++-------------+----+------------------------+-----------+-----------+
+| GPI_PORT    | R  | Read current state of  | -         | -         |
+|             |    | the selected GPIO port |           |           |
++-------------+----+------------------------+-----------+-----------+
+| GPI         | R  | Sets the selected port |  0  0     |  0  0     |
+| _READ_HEADER| /W | and pin for the next   |           |           |
+|             |    | GPIO read              |           |           |
++-------------+----+------------------------+-----------+-----------+
+| G           | W  | Set the serial flash   | 0         | 0         |
+| PO_FLASHING |    | mask for a specific    |           |           |
+|             |    | pin. Each bit in the   |           |           |
+|             |    | mask describes the GPO |           |           |
+|             |    | state for 100ms        |           |           |
+|             |    | intervals              |           |           |
++-------------+----+------------------------+-----------+-----------+
+| GPO_PIN     | W  | Write to a specific    | -         | -         |
+|             |    | GPIO pin               |           |           |
++-------------+----+------------------------+-----------+-----------+
+| GPO_PIN_A   | W  | Set the active level   | 0         | 0         |
+| CTIVE_LEVEL |    | for a specific GPO     |           |           |
+|             |    | pin. 0: active low 1:  |           |           |
+|             |    | active high            |           |           |
++-------------+----+------------------------+-----------+-----------+
+| GPO_PORT    | W  | GPIO: Write to all     | -         | -         |
+|             |    | pins of a GPIO port    |           |           |
++-------------+----+------------------------+-----------+-----------+
+| G           | W  | GPIO: Set the pwm duty | 0         | 0         |
+| PO_PWM_DUTY |    | for a specific pin.    |           |           |
+|             |    | Value given as an      |           |           |
+|             |    | integer percentage     |           |           |
++-------------+----+------------------------+-----------+-----------+
+| I2S_RATE    | R  | I2S rate. This command | 48000     | 48000     |
+|             | /W | can be used in SPI     |           |           |
+|             |    | Boot Delay mode prior  |           |           |
+|             |    | to                     |           |           |
+|             |    | SET_MIC_START_STATUS 1 |           |           |
++-------------+----+------------------------+-----------+-----------+
+| I2S_S       | R  | Start I2S. This        | -         | -         |
+| TART_STATUS | /W | command can be         |           |           |
+|             |    | specified from the     |           |           |
+|             |    | control interface in   |           |           |
+|             |    | case of SPI booting    |           |           |
+|             |    | INT device in delayed  |           |           |
+|             |    | start mode.            |           |           |
++-------------+----+------------------------+-----------+-----------+
+| IO_MAP      | W  | Set IO map for the     | -         | -         |
+|             |    | device.                |           |           |
+|             |    |                        |           |           |
+|             |    | arg1: dest             |           |           |
+|             |    |                        |           |           |
+|             |    | arg2: source           |           |           |
++-------------+----+------------------------+-----------+-----------+
+| IO_MA       | R  | Get IO map and output  | -         | -         |
+| P_AND_SHIFT |    | shift values for the   |           |           |
+|             |    | device.                |           |           |
++-------------+----+------------------------+-----------+-----------+
+| O           | W  | For a selected output  | -         | -         |
+| UTPUT_SHIFT |    | set the no. of bits    |           |           |
+|             |    | the output samples     |           |           |
+|             |    | will be shifted by.    |           |           |
+|             |    | Positive shift value   |           |           |
+|             |    | indicates left shift,  |           |           |
+|             |    | negative indicates     |           |           |
+|             |    | right shift.           |           |           |
++-------------+----+------------------------+-----------+-----------+
+| SE          | R  | Read / Write the       |  0        |  0        |
+| RIAL_NUMBER | /W | serial number from USB |           |           |
+|             |    | descriptor (normally   |           |           |
+|             |    | initialised from       |           |           |
+|             |    | flash.                 |           |           |
++-------------+----+------------------------+-----------+-----------+
+| SYS_C       | R  | Get XCore divider from | 11        | 11        |
+| LK_TO_MCLK  | /W | system clock to output |           |           |
+| _OUT_DIVIDER|    | master clock. This     |           |           |
+|             |    | command can be used in |           |           |
+|             |    | SPI Boot Delay mode    |           |           |
+|             |    | prior to               |           |           |
+|             |    | SET_MIC_START_STATUS 1 |           |           |
++-------------+----+------------------------+-----------+-----------+
+| USB         | R  | USB Device Release     | 1         | -         |
+| _BCD_DEVICE | /W | Number (bcdDevice)     |           |           |
++-------------+----+------------------------+-----------+-----------+
+| USB         | R  | USB Product ID         | 20        | -         |
+| _PRODUCT_ID | /W |                        | (0x0014)  |           |
++-------------+----+------------------------+-----------+-----------+
+| USB_PRO     | R  |  Get USB Product       |  XVF3610  |  -        |
+| DUCT_STRING | /W | string                 | (UAC1.0)  |           |
+|             |    |                        | Adaptive  |           |
++-------------+----+------------------------+-----------+-----------+
+| USB_SE      | W  | Load serial number     | -         | -         |
+| RIAL_NUMBER |    | from flash and         |           |           |
+|             |    | initialise USB device  |           |           |
+|             |    | descriptor with it.    |           |           |
+|             |    | Will not work after    |           |           |
+|             |    | boot since descriptor  |           |           |
+|             |    | is populated only      |           |           |
+|             |    | once  with USB start.  |           |           |
++-------------+----+------------------------+-----------+-----------+
+| USB_S       | R  | Start USB. This        | -         | 0         |
+| TART_STATUS | /W | command is only run    |           |           |
+|             |    | from the flash. Run it |           |           |
+|             |    | only with -l option to |           |           |
+|             |    | generate the json item |           |           |
+|             |    | to use in the flash    |           |           |
+|             |    | data-partition         |           |           |
++-------------+----+------------------------+-----------+-----------+
+| USB_TO_DEV  | R  | USB to device bit      | 16        | -         |
+| ICE_BIT_RES | /W | resolution             |           |           |
++-------------+----+------------------------+-----------+-----------+
+| USB_TO      | R  | USB to device rate     | 48000     | -         |
+| _DEVICE_RATE| /W |                        |           |           |
++-------------+----+------------------------+-----------+-----------+
+| US          | R  | USB Vendor ID          | 8369      | -         |
+| B_VENDOR_ID | /W |                        | (0x20B1)  |           |
++-------------+----+------------------------+-----------+-----------+
+| USB_VE      | R  | USB Vendor string      |  XMOS     |  -        |
+| NDOR_STRING | /W |                        |           |           |
++-------------+----+------------------------+-----------+-----------+
+| MCLK        | R  | xCORE divider from     | 2         | 2         |
+| _IN_TO_PDM  | /W | input master clock to  |           |           |
+| _CLK_DIVIDER|    | 6.144MHz DDR PDM       |           |           |
+|             |    | microphone clock       |           |           |
++-------------+----+------------------------+-----------+-----------+
+| A           | R  | Automatic delay        | 0         | 0         |
+| DEC_ENABLED | /W | estimator controller   |           |           |
+|             |    | enabled: 0: off  1: on |           |           |
++-------------+----+------------------------+-----------+-----------+
+| ADEC_MODE   | R  | Automatic delay        | 0         | 0         |
+|             |    | estimator controller   |           |           |
+|             |    | mode: 0: normal AEC    |           |           |
+|             |    | mode  1: delay         |           |           |
+|             |    | estimation mode        |           |           |
++-------------+----+------------------------+-----------+-----------+
+| DELA        | R  | Configurable delay     | 0         | 0         |
+| Y_DIRECTION | /W | direction: 0: delay    |           |           |
+|             |    | references  1: delay   |           |           |
+|             |    | mics                   |           |           |
++-------------+----+------------------------+-----------+-----------+
+| DEL         | R  | Delay estimate         | -         | -         |
+| AY_ESTIMATE |    |                        |           |           |
++-------------+----+------------------------+-----------+-----------+
+| D           | R  | Enable/disable delay   | 0         | 0         |
+| ELAY_ESTIMA | /W | estimation             |           |           |
+| TOR_ENABLED |    |                        |           |           |
++-------------+----+------------------------+-----------+-----------+
+| MAN         | W  | Trigger a delay        | -         | -         |
+| UAL_ADEC_CY |    | estimate               |           |           |
+| CLE_TRIGGER |    |                        |           |           |
++-------------+----+------------------------+-----------+-----------+
+| MIC_SHI     | R  | The shift value and    |  0  0     |  0  0     |
+| FT_SATURATE | /W | saturation (1=enable)  |           |           |
+|             |    | to be applied to the   |           |           |
+|             |    | input mic samples      |           |           |
++-------------+----+------------------------+-----------+-----------+
+
+Table 6‑2 Advanced parameter summary
+
++--------------+-----+---------------------+------------+------------+
+| Parameter    | R   | Description         | 3610-UA    | 3610-INT   |
+|              | ead |                     | default    | default    |
+|              | /   |                     |            |            |
+|              | Wr  |                     |            |            |
+|              | ite |                     |            |            |
++==============+=====+=====================+============+============+
+| BLD_HOST     | R   | Build host          |  Jenkins   |  Jenkins   |
++--------------+-----+---------------------+------------+------------+
+| BLD_MODIFIED | R   | Build modified from |  false     |  false     |
+|              |     | given view/hash     |            |            |
++--------------+-----+---------------------+------------+------------+
+| BLD_MSG      | R   | Build message       |  Default   |  Default   |
++--------------+-----+---------------------+------------+------------+
+| B            | R   | Repo hash – unique  |  See       |  See       |
+| LD_REPO_HASH |     | source version      | release    | release    |
+|              |     |                     | notes      | notes      |
++--------------+-----+---------------------+------------+------------+
+| B            | R   | xgit hash – unique  |  See       |  See       |
+| LD_XGIT_HASH |     | build version       | release    | release    |
+|              |     |                     | notes      | notes      |
++--------------+-----+---------------------+------------+------------+
+| B            | R   | xgit view           |  sw_xvf3   |  sw_xvf3   |
+| LD_XGIT_VIEW |     |                     | 510_master | 510_master |
++--------------+-----+---------------------+------------+------------+
+| F            | R/W | Filter bypass       | 1          | 1          |
+| ILTER_BYPASS |     | state.              |            |            |
+|              |     |                     |            |            |
+|              |     | arg1: 0 - filter    |            |            |
+|              |     | enabled  1 -        |            |            |
+|              |     | bypassed            |            |            |
++--------------+-----+---------------------+------------+------------+
+| FILTER_COEFF | R/W | Set biquad coeffs   | 0.000000   | 0.000000   |
+|              |     | for a selected      | 0.000000   | 0.000000   |
+|              |     | filter using        | 0.000000   | 0.000000   |
+|              |     | floating point.     | 0.000000   | 0.000000   |
+|              |     |                     | 0.000000   | 0.000000   |
+|              |     | arg1..10: 5x2 float | 0.000000   | 0.000000   |
+|              |     | coeffs in forward   | 0.000000   | 0.000000   |
+|              |     | order (a1, a2, b0,  | 0.000000   | 0.000000   |
+|              |     | b1, b2) where a0    | 0.000000   | 0.000000   |
+|              |     | always is 1.0.      | 0.000000   | 0.000000   |
++--------------+-----+---------------------+------------+------------+
+| FILT         | R/W | Set raw biquad      |  0  0  0   |  0  0  0   |
+| ER_COEFF_RAW |     | coeffs for a        | 0  0  0    | 0  0  0    |
+|              |     | selected filters.   | 0  0  0    | 0  0  0    |
+|              |     |                     | 0          | 0          |
+|              |     | arg1..10: 2 sets of |            |            |
+|              |     | coeffs in forward   |            |            |
+|              |     | order (b0, b1, b2,  |            |            |
+|              |     | =-E1, -a2) signed   |            |            |
+|              |     | Q28 format          |            |            |
++--------------+-----+---------------------+------------+------------+
+| FILTER_INDEX | R/W | Set filter index.   | 0          | 0          |
+|              |     | Selects which       |            |            |
+|              |     | filter block will   |            |            |
+|              |     | be read             |            |            |
+|              |     | from/written to     |            |            |
+|              |     |                     |            |            |
+|              |     | arg1: dest          |            |            |
++--------------+-----+---------------------+------------+------------+
+| HA           | R   | Get the build       | -1         | -1         |
+| RDWARE_BUILD |     | number from the     |            |            |
+|              |     | hardware build      |            |            |
+|              |     | section of the      |            |            |
+|              |     | flash data          |            |            |
+|              |     | partition.          |            |            |
++--------------+-----+---------------------+------------+------------+
+| I2C          | R/W | Read from an I2C    | -          | -          |
+|              |     | device connected to |            |            |
+|              |     | the xvf device      |            |            |
++--------------+-----+---------------------+------------+------------+
+| I2C          | R/W | Get the address     |  0  0  0   | -          |
+| _READ_HEADER |     | register address    |            |            |
+|              |     | and count of next   |            |            |
+|              |     | I2C read            |            |            |
++--------------+-----+---------------------+------------+------------+
+| I2C_WITH_REG | R/W | Read from the       |  -         | -          |
+|              |     | register of an I2C  |            |            |
+|              |     | device connected to |            |            |
+|              |     | the xvf device      |            |            |
++--------------+-----+---------------------+------------+------------+
+| MONITOR      | W   | Enable monitoring   | -          | -          |
+| _STATE_USING |     | of AEC and Delay    |            |            |
+| _GPO_ENABLED |     | Estimation state on |            |            |
+|              |     | GPO. This command   |            |            |
+|              |     | is only run from    |            |            |
+|              |     | the flash. Run it   |            |            |
+|              |     | only with -l option |            |            |
+|              |     | to generate the     |            |            |
+|              |     | json item to use in |            |            |
+|              |     | the flash           |            |            |
+|              |     | data-partition      |            |            |
++--------------+-----+---------------------+------------+------------+
+| KWD          | R   | Gets boot status    | 0          | 0          |
+| _BOOT_STATUS |     | for keyword         |            |            |
+|              |     | detectors           |            |            |
++--------------+-----+---------------------+------------+------------+
+| KWD_I        | R/W | GPI pin index to    | 4          | 4          |
+| NTERRUPT_PIN |     | receive keyword     |            |            |
+|              |     | interrupt on        |            |            |
++--------------+-----+---------------------+------------+------------+
+| MA           | R   | Get maximum no. of  | -          | -          |
+| X_UBM_CYCLES |     | cycles taken by the |            |            |
+|              |     | user buffer         |            |            |
+|              |     | management function |            |            |
++--------------+-----+---------------------+------------+------------+
+| MIC_START    | R/W | Get microphone      | 2          | 2          |
+| _STATUS      |     | client start        |            |            |
+|              |     | status.             |            |            |
++--------------+-----+---------------------+------------+------------+
+| REMA         | W   | Reset the max user  | -          | -          |
+| X_UBM_CYCLES |     | buffer management   |            |            |
+|              |     | cycles count        |            |            |
++--------------+-----+---------------------+------------+------------+
+| RUN_STATUS   | R   | Gets run status for | -          | -          |
+|              |     | the device (See     |            |            |
+|              |     | B )        |            |            |
++--------------+-----+---------------------+------------+------------+
+| SPI          | R   | Gets the contents   | -          | -          |
+|              |     | of the SPI read     |            |            |
+|              |     | buffer              |            |            |
++--------------+-----+---------------------+------------+------------+
+| SPI_PUSH     | W   | Push SPI command    | -          | -          |
+|              |     | data onto the       |            |            |
+|              |     | execution queue     |            |            |
++--------------+-----+---------------------+------------+------------+
+| SPI_P        | W   | Push SPI command    | -          | -          |
+| USH_AND_EXEC |     | data and execute    |            |            |
+|              |     | the command from    |            |            |
+|              |     | the stack           |            |            |
++--------------+-----+---------------------+------------+------------+
+| SPI          | R/W | Address and count   |  0  0      |  0  0      |
+| _READ_HEADER |     | of next SPI read    |            |            |
++--------------+-----+---------------------+------------+------------+
+| ADAPTATIO    | R/W | Adaptation config   | 0          | 0          |
+| N_CONFIG_AEC |     |                     |            |            |
+|              |     | 0 = filter adapt    |            |            |
+|              |     | with variable       |            |            |
+|              |     | stepsize            |            |            |
+|              |     |                     |            |            |
+|              |     | 1 = filter adapt    |            |            |
+|              |     | with fixed stepsize |            |            |
+|              |     |                     |            |            |
+|              |     | 2 = filter fixed    |            |            |
++--------------+-----+---------------------+------------+------------+
+| BYPASS_AEC   | R/W | AEC bypass          | 1          | 1          |
++--------------+-----+---------------------+------------+------------+
+| COE          | R/W | AEC coefficient     | 0          | 0          |
+| FF_INDEX_AEC |     | index               |            |            |
++--------------+-----+---------------------+------------+------------+
+| ERLE_CH0_AEC | R   | AEC channel 0 ERLE  | -          | -          |
++--------------+-----+---------------------+------------+------------+
+| ERLE_CH1_AEC | R   | AEC channel 1 ERLE  | -          | -          |
++--------------+-----+---------------------+------------+------------+
+| F_B          | R   | AEC f bin count     | 257        | 257        |
+| IN_COUNT_AEC |     |                     |            |            |
++--------------+-----+---------------------+------------+------------+
+| FILTER_COEF  | R   | AEC filter          | -          | -          |
+| FICIENTS_AEC |     | coefficients        |            |            |
++--------------+-----+---------------------+------------+------------+
+| FORCED_MU    | R/W | AEC forced mu value | 1          | 1          |
+| _VALUE_AEC   |     |                     |            |            |
++--------------+-----+---------------------+------------+------------+
+| FRAME        | R   | AEC frame advance   | 240        | 240        |
+| _ADVANCE_AEC |     |                     |            |            |
++--------------+-----+---------------------+------------+------------+
+| M            | R/W | AEC mu_high and     | 1.0000     | 1.0000     |
+| U_LIMITS_AEC |     | mu_low              | 0.0001     | 0.0001     |
++--------------+-----+---------------------+------------+------------+
+| M            | R/W | AEC get mu_scalar   | 0.4        | 0.4        |
+| U_SCALAR_AEC |     |                     |            |            |
++--------------+-----+---------------------+------------+------------+
+| RESE         | W   | AEC reset filter.   | -          | -          |
+| T_FILTER_AEC |     | Note: do NOT prefix |            |            |
+|              |     | with SET\_          |            |            |
++--------------+-----+---------------------+------------+------------+
+| SIGM         | R/W | AEC sigma alphas    | 5  5  11   | 5  5  11   |
+| A_ALPHAS_AEC |     |                     |            |            |
++--------------+-----+---------------------+------------+------------+
+| X_CHANNE     | R   | AEC x channel       | 15  15  4  | 15  15  4  |
+| L_PHASES_AEC |     | phases              | 0  0  0    | 0  0  0    |
+|              |     |                     | 0  0  0    | 0  0  0    |
+|              |     |                     | 0          | 0          |
++--------------+-----+---------------------+------------+------------+
+| X_CHANNELS   | R   | AEC x channels      | 2          | 2          |
+| _AEC         |     |                     |            |            |
++--------------+-----+---------------------+------------+------------+
+| X_ENER       | R/W | AEC X energy delta  |  -         |  -         |
+| GY_DELTA_AEC |     |                     |            |            |
++--------------+-----+---------------------+------------+------------+
+| X_ENERGY_GA  | R/W | AEC X energy gamma  | -          | -          |
+| MMA_LOG2_AEC |     | log2                |            |            |
++--------------+-----+---------------------+------------+------------+
+| Y_CHANNELS   | R   | AEC y channels      | 1          | 1          |
+| _AEC         |     |                     |            |            |
++--------------+-----+---------------------+------------+------------+
+| ADAPTATI     | R/W |  IC: get adaptation | 0          | 0          |
+| ON_CONFIG_IC |     | config              |            |            |
++--------------+-----+---------------------+------------+------------+
+| BYPASS_IC    | R/W |  IC: get bypass     | 0          | 0          |
+|              |     | state               |            |            |
++--------------+-----+---------------------+------------+------------+
+| CH1_BEA      | R/W | Channel 1           | 1          | 1          |
+| MFORM_ENABLE |     | Beamforming enabled |            |            |
++--------------+-----+---------------------+------------+------------+
+| COEFFICI     | R/W | IC Coefficient      | 0          | 0          |
+| ENT_INDEX_IC |     | index               |            |            |
++--------------+-----+---------------------+------------+------------+
+| FILTER_COE   | R   | IC Filter           | -          | -          |
+| FFICIENTS_IC |     | coefficients        |            |            |
++--------------+-----+---------------------+------------+------------+
+| FORCED       | R/W | IC forced mu value  | -          | -          |
+| _MU_VALUE_IC |     |                     |            |            |
++--------------+-----+---------------------+------------+------------+
+| PHASES_IC    | R   | IC phases           | 10         | 10         |
++--------------+-----+---------------------+------------+------------+
+| PROC_F       | R   | IC proc frame bins  | 256        | 256        |
+| RAME_BINS_IC |     |                     |            |            |
++--------------+-----+---------------------+------------+------------+
+| RES          | W   | IC reset filter,    | -          | -          |
+| ET_FILTER_IC |     | note: do not prefix |            |            |
+|              |     | with SET\_          |            |            |
++--------------+-----+---------------------+------------+------------+
+| SI           | R/W | IC adaptation       | 11         | 11         |
+| GMA_ALPHA_IC |     | config              |            |            |
++--------------+-----+---------------------+------------+------------+
+| X_ENE        | R/W | IC X energy delta   |  -         | -          |
+| RGY_DELTA_IC |     |                     |            |            |
++--------------+-----+---------------------+------------+------------+
+| X_ENERGY_G   | R/W | IC X energy gamma   | -          | -          |
+| AMMA_LOG2_IC |     | log2                |            |            |
++--------------+-----+---------------------+------------+------------+
+| BYPASS_SUP   | R/W | SUP bypass          | 0          | 0          |
++--------------+-----+---------------------+------------+------------+
+| ENABLED_AES  | R/W | SUP echo            | 0          | 0          |
+|              |     | suppression enabled |            |            |
+|              |     | (DO NOT ENABLE)     |            |            |
++--------------+-----+---------------------+------------+------------+
+| ENABLED_NS   | R/W | SUP noise           | 1          | 1          |
+|              |     | suppression enabled |            |            |
++--------------+-----+---------------------+------------+------------+
+| NO           | R/W | SUP noise           | 0.1259     | 0.1259     |
+| ISE_FLOOR_NS |     | suppression noise   |            |            |
+|              |     | floor               |            |            |
++--------------+-----+---------------------+------------+------------+
+| ADEC_F       | R/W | ADEC Far-end signal |  0.000002  |  0.000002  |
+| AR_THRESHOLD |     | energy threshold    |            |            |
+|              |     | above which AGM is  |            |            |
+|              |     | updated             |            |            |
++--------------+-----+---------------------+------------+------------+
+| ADEC_PEAK    | R/W | ADEC the peak to    |  4.000000  |  4.000000  |
+| _TO_AVER     |     | average ratio that  |            |            |
+| AGE_GOOD_AEC |     | is considered good  |            |            |
+|              |     | when in normal AEC  |            |            |
+|              |     | mode                |            |            |
++--------------+-----+---------------------+------------+------------+
+| ADEC_TIME    | R   | Time in             | -          | -          |
+| _SINCE_RESET |     | milliseconds since  |            |            |
+|              |     | last automatic      |            |            |
+|              |     | delay change by     |            |            |
+|              |     | ADEC                |            |            |
++--------------+-----+---------------------+------------+------------+
+| A            | R   | AEC coefficients    | -          | -          |
+| EC_PEAK_TO_A |     | peak to average     |            |            |
+| VERAGE_RATIO |     | ratio               |            |            |
++--------------+-----+---------------------+------------+------------+
+| AGM          | R   | AEC Goodness Metric | -          | -          |
+|              |     | estimate (0.0 -     |            |            |
+|              |     | 1.0)                |            |            |
++--------------+-----+---------------------+------------+------------+
+| ALT_ARCH     | R/W | State of XVF3610    | 1          | 1          |
+| _ENABLED     |     | alternate           |            |            |
+|              |     | architecture        |            |            |
+|              |     | setting             |            |            |
++--------------+-----+---------------------+------------+------------+
+| E            | R/W | ERLE bad threshold  | -          | -          |
+| RLE_BAD_BITS |     | in bits (log2)      |            |            |
++--------------+-----+---------------------+------------+------------+
+| E            | R/W | Set how steeply AGM | 0.0664     | 0.0664     |
+| RLE_BAD_GAIN |     | drops off when ERLE |            |            |
+|              |     | below threshold     |            |            |
++--------------+-----+---------------------+------------+------------+
+| ER           | R/W | ERLE good threshold | 2          | 2          |
+| LE_GOOD_BITS |     | in bits (log2)      |            |            |
++--------------+-----+---------------------+------------+------------+
+| LOCKER_DELAY | R/W | Delay set point     | 0          | 0          |
+| _SETPOINT    |     | direction           |            |            |
+| _DIRECTION   |     |                     |            |            |
++--------------+-----+---------------------+------------+------------+
+| LOCKER       | R/W | Delay set point     | 0          | 0          |
+| _DELAY_SETP  |     | enabled             |            |            |
+| OINT_ENABLED |     |                     |            |            |
++--------------+-----+---------------------+------------+------------+
+| LOCKE        | R/W | Delay setpoint      | 0          | 0          |
+| R_DELAY_SETP |     | samples             |            |            |
+| OINT_SAMPLES |     |                     |            |            |
++--------------+-----+---------------------+------------+------------+
+| LOCKER       | R/W | Locker delay        | 0          | 0          |
+| _ENABLED     |     | detection and       |            |            |
+|              |     | control             |            |            |
++--------------+-----+---------------------+------------+------------+
+| LOCKER_NUM   | R/W | No. of bad peak to  | 666        | 666        |
+| _BAD_FRAM    |     | avg ERLE frames     |            |            |
+| ES_THRESHOLD |     | that locker sees    |            |            |
+|              |     | before it triggers  |            |            |
+|              |     | ADEC.               |            |            |
++--------------+-----+---------------------+------------+------------+
+| LOCKER_STATE | R   | Locker state        | BOTH_WAIT  | BOTH_WAIT  |
++--------------+-----+---------------------+------------+------------+
+| MAX_CONTROL  | R   | Max control time    |  -         | -          |
+| _TIME_STAGE_A|     | per frame           |            |            |
++--------------+-----+---------------------+------------+------------+
+| MAX_DSP      | R   | Max dsp time per    | -          | -          |
+| _TIME_STAGE_A|     | frame               |            |            |
++--------------+-----+---------------------+------------+------------+
+| MAX_IDLE     | R   | Max idle time per   | -          | -          |
+| _TIME_STAGE_A|     | frame               |            |            |
++--------------+-----+---------------------+------------+------------+
+| MAX_RX       | R   | Max rx time per     | -          | -          |
+| _TIME_STAGE_A|     | frame               |            |            |
++--------------+-----+---------------------+------------+------------+
+| MAX_TX       | R   | Max tx time per     | -          | -          |
+| _TIME_STAGE_A|     | frame               |            |            |
++--------------+-----+---------------------+------------+------------+
+| MIN_CONTROL  | R   | Min control time    | -          | -          |
+| _TIME_STAGE_A|     | per frame           |            |            |
++--------------+-----+---------------------+------------+------------+
+| MIN_DSP      | R   | Min dsp time per    | -          | -          |
+| _TIME_STAGE_A|     | frame               |            |            |
++--------------+-----+---------------------+------------+------------+
+| MIN_IDLE     | R   | Min idle time per   | -          | -          |
+| _TIME_STAGE_A|     | frame               |            |            |
++--------------+-----+---------------------+------------+------------+
+| MIN_RX       | R   | Min rx time per     | -          | -          |
+| _TIME_STAGE_A|     | frame               |            |            |
++--------------+-----+---------------------+------------+------------+
+| MIN_TX       | R   | Min tx time per     | -          | -          |
+| _TIME_STAGE_A|     | frame               |            |            |
++--------------+-----+---------------------+------------+------------+
+| PEAK         | R/W | Value which sets    | 3          | 3          |
+| _PHASE_ENERG |     | AGM sensitivity to  |            |            |
+| Y_TREND_GAIN |     | peak phase energy   |            |            |
+|              |     | slope               |            |            |
++--------------+-----+---------------------+------------+------------+
+| PHASE        | R/W | ERLE gain           | 0          | 0          |
+| _POWER_INDEX |     |                     |            |            |
++--------------+-----+---------------------+------------+------------+
+| PHASE_POWERS | R   | 5 phase powers (240 | 0.000000   | 0.000000   |
+|              |     | samples per phase)  | dB         | dB         |
+|              |     | used in delay       | 0.000000   | 0.000000   |
+|              |     | estimation from the | dB         | dB         |
+|              |     | index set.          | 0.000000   | 0.000000   |
+|              |     |                     | dB         | dB         |
+|              |     |                     | 0.000000   | 0.000000   |
+|              |     |                     | dB         | dB         |
+|              |     |                     | 0.000000   | 0.000000   |
+|              |     |                     | dB         | dB         |
++--------------+-----+---------------------+------------+------------+
+| RESET        | W   | Reset stage A frame | -          | -          |
+| _TIME_STAGE_A|     | time                |            |            |
++--------------+-----+---------------------+------------+------------+
+| MAX_CONTROL  | R   | Max control time    | -          | -          |
+| _TIME_STAGE_B|     | per frame           |            |            |
++--------------+-----+---------------------+------------+------------+
+| MAX_DSP      | R   | Stage B max dsp     | -          | -          |
+| _TIME_STAGE_B|     | time per frame      |            |            |
++--------------+-----+---------------------+------------+------------+
+| MAX_IDLE     | R   | Stage B max idle    | -          | -          |
+| _TIME_STAGE_B|     | time per frame      |            |            |
++--------------+-----+---------------------+------------+------------+
+| MAX_RX       | R   | Stage B max rx time | -          | -          |
+| _TIME_STAGE_B|     | per frame           |            |            |
++--------------+-----+---------------------+------------+------------+
+| MAX_TX       | R   | Stage B max tx time | -          | -          |
+| _TIME_STAGE_B|     | per frame           |            |            |
++--------------+-----+---------------------+------------+------------+
+| MIN_CONTROL  | R   | Stage B min control | -          | -          |
+| _TIME_STAGE_B|     | time per frame      |            |            |
++--------------+-----+---------------------+------------+------------+
+| MIN_DSP      | R   | Stage B min dsp     | -          | -          |
+| _TIME_STAGE_B|     | time per frame      |            |            |
++--------------+-----+---------------------+------------+------------+
+| MIN_IDLE     | R   | Stage B min idle    | -          | -          |
+| _TIME_STAGE_B|     | time per frame      |            |            |
++--------------+-----+---------------------+------------+------------+
+| MIN_RX       | R   | Stage B min rx time | -          | -          |
+| _TIME_STAGE_B|     | per frame           |            |            |
++--------------+-----+---------------------+------------+------------+
+| MIN_TX       | R   | Stage B min tx time | -          | -          |
+| _TIME_STAGE_B|     | per frame           |            |            |
++--------------+-----+---------------------+------------+------------+
+| RESET        | W   | Reset stage B frame | -          | -          |
+| _TIME_STAGE_B|     | time                |            |            |
++--------------+-----+---------------------+------------+------------+
+| A            | R/W | AGC adaptation for  | 1          | 1          |
+| DAPT_CH0_AGC |     | channel 0           |            |            |
++--------------+-----+---------------------+------------+------------+
+| A            | R/W | AGC adaptation for  | 1          | 1          |
+| DAPT_CH1_AGC |     | channel 1           |            |            |
++--------------+-----+---------------------+------------+------------+
+| DECREME      | R/W | Stepsize with which | 0.87       | 0.87       |
+| NT_GAIN_STEP |     | gain is decremented |            |            |
+| SIZE_CH0_AGC |     | for AGC ch0         |            |            |
++--------------+-----+---------------------+------------+------------+
+| DECREME      | R/W | Stepsize with which | 0.988      | 0.988      |
+| NT_GAIN_STEP |     | gain is decremented |            |            |
+| SIZE_CH1_AGC |     | for AGC ch1         |            |            |
++--------------+-----+---------------------+------------+------------+
+| GAIN_CH0_AGC | R/W | Gain for channel 0  | -          | -          |
++--------------+-----+---------------------+------------+------------+
+| GAIN_CH1_AGC | R/W | Gain for channel 1  | -          | -          |
++--------------+-----+---------------------+------------+------------+
+| INCREME      | R/W | Stepsize with which | 1.197      | 1.197      |
+| NT_GAIN_STEP |     | gain is incremented |            |            |
+| SIZE_CH0_AGC |     | for AGC ch0         |            |            |
++--------------+-----+---------------------+------------+------------+
+| INCREME      | R/W | Stepsize with which | 1.0034     | 1.0034     |
+| NT_GAIN_STEP |     | gain is incremented |            |            |
+| SIZE_CH1_AGC |     | for AGC ch1         |            |            |
++--------------+-----+---------------------+------------+------------+
+| LC_ENA       | R/W | Loss control enable | 0          | 0          |
+| BLED_CH0_AGC |     | for channel 0       |            |            |
++--------------+-----+---------------------+------------+------------+
+| LC_ENA       | R/W | Loss control enable | 1          | 1          |
+| BLED_CH1_AGC |     | for channel 1       |            |            |
++--------------+-----+---------------------+------------+------------+
+| LOWER_THRES  | R/W | Lower threshold of  | 0.1905     | 0.1905     |
+| HOLD_CH0_AGC |     | AGC desired level   |            |            |
+|              |     | for channel 0       |            |            |
++--------------+-----+---------------------+------------+------------+
+| LOWER_THRES  | R/W | Lower threshold of  | 0.4        | 0.4        |
+| HOLD_CH1_AGC |     | AGC desired level   |            |            |
+|              |     | for channel 1       |            |            |
++--------------+-----+---------------------+------------+------------+
+| UPPER_THRES  | R/W | Upper threshold of  | 0.7079     | 0.7079     |
+| HOLD_CH0_AGC |     | AGC desired level   |            |            |
+|              |     | for channel 0       |            |            |
++--------------+-----+---------------------+------------+------------+
+| UPPER_THRES  | R/W | Upper threshold of  | 0.4        | 0.4        |
+| HOLD_CH1_AGC |     | AGC desired level   |            |            |
+|              |     | for channel 1       |            |            |
++--------------+-----+---------------------+------------+------------+
+| MAX_CONTROL  | R   | Stage C max control | -          | -          |
+| _TIME_STAGE_C|     | time per frame      |            |            |
++--------------+-----+---------------------+------------+------------+
+| MAX_DSP      | R   | Stage C max dsp     | -          | -          |
+| _TIME_STAGE_C|     | time per frame      |            |            |
++--------------+-----+---------------------+------------+------------+
+| MAX_GAIN     | R/W | Max gain for        | 999.9847   | 999.9847   |
+| _CH0_AGC     |     | channel 0           |            |            |
++--------------+-----+---------------------+------------+------------+
+| MAX_GAIN     | R/W | Max gain for        | 999.9847   | 999.9847   |
+| _CH1_AGC     |     | channel 1           |            |            |
++--------------+-----+---------------------+------------+------------+
+| MAX_IDLE     | R   | Stage C max idle    | -          | -          |
+| _TIME_STAGE_C|     | time per frame      |            |            |
++--------------+-----+---------------------+------------+------------+
+| MAX_RX       | R   | Stage C max rx time | -          | -          |
+| _TIME_STAGE_C      | per frame           |            |            |
++--------------+-----+---------------------+------------+------------+
+| MAX_TX       | R   | Stage C max tx time | -          | -          |
+| _TIME_STAGE_C|     | per frame           |            |            |
++--------------+-----+---------------------+------------+------------+
+| MIN_CONTROL  | R   | Stage C min control | -          | -          |
+| _TIME_STAGE_C|     | time per frame      |            |            |
++--------------+-----+---------------------+------------+------------+
+| MIN_DSP      | R   | Stage C min dsp     | -          | -          |
+| _TIME_STAGE_C|     | time per frame      |            |            |
++--------------+-----+---------------------+------------+------------+
+| MIN_IDLE     | R   | Stage C min idle    | -          | -          |
+| _TIME_STAGE_C|     | time per frame      |            |            |
++--------------+-----+---------------------+------------+------------+
+| MIN_RX       | R   | Stage C min rx time | -          | -          |
+| _TIME_STAGE_C|     | per frame           |            |            |
++--------------+-----+---------------------+------------+------------+
+| MIN_TX       | R   | Stage C min tx time | -          | -          |
+| _TIME_STAGE_C|     | per frame           |            |            |
++--------------+-----+---------------------+------------+------------+
+| REF_OUT_CH1  | R/W | Stage C: check if   | 0          | 0          |
+|              |     | reference audio is  |            |            |
+|              |     | output in channel 1 |            |            |
++--------------+-----+---------------------+------------+------------+
+| RESET_TIME   | W   | Reset stage C frame | -          | -          |
+| _STAGE_C     |     | time                |            |            |
++--------------+-----+---------------------+------------+------------+
+
+B: Boot status codes (RUN_STATUS)
+==========================================
+
+The following table describes the Boot status codes returned by the
+startup processes accessible though the GET_RUN_STATUS control utility
+command.
+
++----+-----------------------+-----------------------------------------+
+| Co | Label                 | Note                                    |
+| de |                       |                                         |
++====+=======================+=========================================+
+| 0  | INIT                  | Reserved initial value. Decline         |
+|    |                       | attempts to initiate DFU.               |
++----+-----------------------+-----------------------------------------+
+| 1  | DAT                   | Not used.                               |
+|    | A_PARTITION_NOT_FOUND |                                         |
++----+-----------------------+-----------------------------------------+
+| 2  | FACTORY_DATA_SUCCESS  | Normal operation.                       |
++----+-----------------------+-----------------------------------------+
+| 3  | UPGRADE_DATA_SUCCESS  | Normal operation.                       |
++----+-----------------------+-----------------------------------------+
+| 4  | FAC                   | Image scanning in progress. Decline     |
+|    | TORY_DATA_IN_PROGRESS | attempts to initiate DFU.               |
++----+-----------------------+-----------------------------------------+
+| 5  | UPG                   | Image scanning in progress. Decline     |
+|    | RADE_DATA_IN_PROGRESS | attempts to initiate DFU.               |
++----+-----------------------+-----------------------------------------+
+| 6  | DFU_IN_PROGRESS       | Enough DFU commands received to         |
+|    |                       | establish a connection to on-board      |
+|    |                       | flash memory. Not cleared until reboot. |
++----+-----------------------+-----------------------------------------+
+| 7  | HW_BUILD_READ_SUCCESS | Reserved intermediate value. Normally   |
+|    |                       | never returned.                         |
++----+-----------------------+-----------------------------------------+
+| 8  | HW_BUILD              | Problem reading data partition header.  |
+|    | _PARTITION_SIZE_ERROR | Check factory programming.              |
++----+-----------------------+-----------------------------------------+
+| 9  | HW_BUILD              | Problem reading data partition header.  |
+|    | _PARTITION_BASE_ERROR | Check factory programming.              |
++----+-----------------------+-----------------------------------------+
+| 10 | HW_BUILD_READ_ERROR   | Problem reading data partition header.  |
+|    |                       | Check factory programming.              |
++----+-----------------------+-----------------------------------------+
+| 11 | HW_BUILD_CRC_ERROR    | Problem reading data partition header.  |
+|    |                       | Check factory programming. May indicate |
+|    |                       | that no data partition is present or a  |
+|    |                       | flash wear issue.                       |
++----+-----------------------+-----------------------------------------+
+| 12 | HW_BUILD_TAG_ERROR    | Problem reading data partition header.  |
+|    |                       | Check factory programming.              |
++----+-----------------------+-----------------------------------------+
+| 13 | FACTORY_VERSION_ERROR | No valid upgrade image found. A factory |
+|    |                       | image did not match running version.    |
+|    |                       | This can indicate fail-safe mode.       |
++----+-----------------------+-----------------------------------------+
+| 14 | UPGRADE_VERSION_ERROR | Valid upgrade boot and data images      |
+|    |                       | found but data image version does not   |
+|    |                       | match running version. Check correct    |
+|    |                       | version of deployed field upgrade.      |
++----+-----------------------+-----------------------------------------+
+| 15 | FA                    | Problem reading configuration items     |
+|    | CTORY_ITEM_READ_ERROR | from data image. Unexpected error.      |
++----+-----------------------+-----------------------------------------+
+| 16 | UP                    | Problem reading configuration items     |
+|    | GRADE_ITEM_READ_ERROR | from data image. Unexpected error.      |
++----+-----------------------+-----------------------------------------+
+| 17 | FACT                  | Last item encountered is not of         |
+|    | ORY_ITEM_INVALID_TYPE | terminator type. Should never happen    |
+|    |                       | with script generated data images.      |
+|    |                       | Check generation procedure.             |
++----+-----------------------+-----------------------------------------+
+| 18 | UPGR                  | Last item encountered is not of         |
+|    | ADE_ITEM_INVALID_TYPE | terminator type. Should never happen    |
+|    |                       | with script generated data images.      |
+|    |                       | Check generation procedure.             |
++----+-----------------------+-----------------------------------------+
+| 19 | DFU                   | Failed to establish on-board flash      |
+|    | _FLASH_CONNECT_FAILED | connection. Check factory programming.  |
+|    |                       | Check flash specification (see section  |
+|    |                       | below).                                 |
++----+-----------------------+-----------------------------------------+
+| 20 | DFU                   | Flash specification unsuitable for DFU. |
+|    | _FLASH_SPEC_UNSUITABLE| Check flash specification (see section  |
+|    |                       | below).                                 |
++----+-----------------------+-----------------------------------------+
+
+C: Example .SPISPEC file format
+========================================
+
+SPISPEC file for Adesto AT25SF161.
+
+0, /\* AT25SF161 - Just specify 0 as flash_id \*/
+
+256, /\* page size \*/
+
+8192, /\* num pages \*/
+
+3, /\* address size \*/
+
+4, /\* log2 clock divider \*/
+
+0x9F, /\* QSPI_RDID \*/
+
+0, /\* id dummy bytes \*/
+
+3, /\* id size in bytes \*/
+
+0, /\* device id (leave zero) \*/
+
+0x20, /\* QSPI_SE \*/
+
+4096, /\* Sector erase is always 4KB \*/
+
+0x06, /\* QSPI_WREN \*/
+
+0x04, /\* QSPI_WRDI \*/
+
+PROT_TYPE_SR, /\* Protection via SR \*/
+
+{{0x18,0x00},{0,0}}, /\* QSPI_SP, QSPI_SU \*/
+
+0x02, /\* QSPI_PP \*/
+
+0xEB, /\* QSPI_READ_FAST \*/
+
+1, /\* 1 read dummy byte \*/
+
+SECTOR_LAYOUT_REGULAR, /\* mad sectors \*/
+
+{4096,{0,{0}}}, /\* regular sector sizes \*/
+
+0x05, /\* QSPI_RDSR \*/
+
+0x01, /\* QSPI_WRSR \*/
+
+0x01, /\* QSPI_WIP_BIT_MASK \*/
+
+D: SPI Boot custom connection
+======================================
+
+SPI boot UA XVF3610 device
+---------------------------
+
+The *UA* release package contains the send_image_from_rpi.py and the SPI
+bootable image of the corresponding build in the bin folder. If booting
+an UA binary via SPI, the ribbon cable between the PiHat and the XVF3610
+device must be disconnected and the following pins must be connected:
+
++--------------------+------------+-------------+--------------------+
+| Signal connection  | Connector  | Connector   | Signal connection  |
+|                    |            |             |                    |
+| (odd pins)         | (odd pins) | (even pins) | (even pins)        |
++====================+============+=============+====================+
+|                    | 1          | 2           |                    |
++--------------------+------------+-------------+--------------------+
+|                    | 3          | 4           |                    |
++--------------------+------------+-------------+--------------------+
+|                    | 5          | 6           | GND\*              |
++--------------------+------------+-------------+--------------------+
+|                    | 7          | 8           | BOOT_SEL           |
++--------------------+------------+-------------+--------------------+
+| GND\*              | 9          | 10          | RST_N              |
++--------------------+------------+-------------+--------------------+
+|                    | 11         | 12          |                    |
++--------------------+------------+-------------+--------------------+
+|                    | 13         | 14          | GND\*              |
++--------------------+------------+-------------+--------------------+
+|                    | 15         | 16          |                    |
++--------------------+------------+-------------+--------------------+
+|                    | 17         | 18          |                    |
++--------------------+------------+-------------+--------------------+
+| SPI_MOSI           | 19         | 20          | GND\*              |
++--------------------+------------+-------------+--------------------+
+| SPI_MISO           | 21         | 22          |                    |
++--------------------+------------+-------------+--------------------+
+| SPI_CLK            | 23         | 24          | SPI_CSn            |
++--------------------+------------+-------------+--------------------+
+| GND\*              | 25         | 26          |                    |
++--------------------+------------+-------------+--------------------+
+|                    | 27         | 28          |                    |
++--------------------+------------+-------------+--------------------+
+|                    | 29         | 30          | GND\*              |
++--------------------+------------+-------------+--------------------+
+|                    | 31         | 32          |                    |
++--------------------+------------+-------------+--------------------+
+|                    | 33         | 34          | GND\*              |
++--------------------+------------+-------------+--------------------+
+|                    | 35         | 36          |                    |
++--------------------+------------+-------------+--------------------+
+|                    | 37         | 38          |                    |
++--------------------+------------+-------------+--------------------+
+| GND\*              | 39         | 40          |                    |
++--------------------+------------+-------------+--------------------+
+
+\* Note: all ground connections need to be connected.
+
+E: USB enumeration
+===========================
+
+The XVF3610 includes a Human Interface Device (HID) endpoint to enable
+the XVF3610 to signal interrupts caused by GPIO events. The table below
+shows how the XVF3610 HID appears on Windows using `USB
+view <https://www.nirsoft.net/utils/usb_devices_view.html>`__.
+
++----+-------+----+----+-----+---+------+------+----+-----+-------+
+| De | D     | De | Ve | P   | U | USB  | USB  | S  | USB | D     |
+| vi | escri | vi | nd | rod | S | SubC | Prot | er | V   | river |
+| ce | ption | ce | or | uct | B | lass | ocol | vi | ers | D     |
+| Na |       | Ty | ID | ID  | C |      |      | ce | ion | escri |
+| me |       | pe |    |     | l |      |      | Na |     | ption |
+|    |       |    |    |     | a |      |      | me |     |       |
+|    |       |    |    |     | s |      |      |    |     |       |
+|    |       |    |    |     | s |      |      |    |     |       |
++====+=======+====+====+=====+===+======+======+====+=====+=======+
+| X  | USB   | U  | 20 | 0   | 0 | 00   | 00   | u  | 2   | USB   |
+| VF | Comp  | nk | b1 | 014 | 0 |      |      | sb | .00 | Comp  |
+| 35 | osite | no |    |     |   |      |      | cc |     | osite |
+| 10 | D     | wn |    |     |   |      |      | gp |     | D     |
+| (U | evice |    |    |     |   |      |      |    |     | evice |
+| AC |       |    |    |     |   |      |      |    |     |       |
+| 1. |       |    |    |     |   |      |      |    |     |       |
+| 0) |       |    |    |     |   |      |      |    |     |       |
+| Ad |       |    |    |     |   |      |      |    |     |       |
+| ap |       |    |    |     |   |      |      |    |     |       |
+| ti |       |    |    |     |   |      |      |    |     |       |
+| ve |       |    |    |     |   |      |      |    |     |       |
++----+-------+----+----+-----+---+------+------+----+-----+-------+
+| X  | USB   | A  | 20 | 0   | 0 | 01   | 00   | us | 2   | USB   |
+| VF | Audio | ud | b1 | 014 | 1 |      |      | ba | .00 | Audio |
+| 35 | D     | io |    |     |   |      |      | ud |     | D     |
+| 10 | evice |    |    |     |   |      |      | io |     | evice |
+| (U |       |    |    |     |   |      |      |    |     |       |
+| AC |       |    |    |     |   |      |      |    |     |       |
+| 1. |       |    |    |     |   |      |      |    |     |       |
+| 0) |       |    |    |     |   |      |      |    |     |       |
+| Ad |       |    |    |     |   |      |      |    |     |       |
+| ap |       |    |    |     |   |      |      |    |     |       |
+| ti |       |    |    |     |   |      |      |    |     |       |
+| ve |       |    |    |     |   |      |      |    |     |       |
++----+-------+----+----+-----+---+------+------+----+-----+-------+
+| X  | XMOS  | Ve | 20 | 0   | f | ff   | ff   |    | 2   |       |
+| VF | Co    | nd | b1 | 014 | f |      |      |    | .00 |       |
+| 35 | ntrol | or |    |     |   |      |      |    |     |       |
+| 10 |       | Sp |    |     |   |      |      |    |     |       |
+| (U |       | ec |    |     |   |      |      |    |     |       |
+| AC |       | if |    |     |   |      |      |    |     |       |
+| 1. |       | ic |    |     |   |      |      |    |     |       |
+| 0) |       |    |    |     |   |      |      |    |     |       |
+| Ad |       |    |    |     |   |      |      |    |     |       |
+| ap |       |    |    |     |   |      |      |    |     |       |
+| ti |       |    |    |     |   |      |      |    |     |       |
+| ve |       |    |    |     |   |      |      |    |     |       |
++----+-------+----+----+-----+---+------+------+----+-----+-------+
+| X  | USB   | H  | 20 | 0   | 0 | 00   | 00   | Hi | 2   | USB   |
+| VF | Input | ID | b1 | 014 | 3 |      |      | dU | .00 | Input |
+| 35 | D     | (H |    |     |   |      |      | sb |     | D     |
+| 10 | evice | um |    |     |   |      |      |    |     | evice |
+| (U |       | an |    |     |   |      |      |    |     |       |
+| AC |       | I  |    |     |   |      |      |    |     |       |
+| 1. |       | nt |    |     |   |      |      |    |     |       |
+| 0) |       | er |    |     |   |      |      |    |     |       |
+| Ad |       | fa |    |     |   |      |      |    |     |       |
+| ap |       | ce |    |     |   |      |      |    |     |       |
+| ti |       | D  |    |     |   |      |      |    |     |       |
+| ve |       | ev |    |     |   |      |      |    |     |       |
+|    |       | ic |    |     |   |      |      |    |     |       |
+|    |       | e) |    |     |   |      |      |    |     |       |
++----+-------+----+----+-----+---+------+------+----+-----+-------+
+
+During USB enumeration, the XVF3610 HID produces three descriptors. The
+listing below shows them as recorded on Windows using `USB
+View <https://docs.microsoft.com/en-us/windows-hardware/drivers/debugger/usbview>`__.
+For details of the structure and meaning of these descriptors, see the
+`USB Specification
+v2.0 <https://www.usb.org/document-library/usb-20-specification>`__
+sections 9.6.5 and 9.6.6 and the `Device Class Definition for Human
+Interface Devices (HID)
+v1.11 <https://www.usb.org/document-library/device-class-definition-hid-111>`__
+section 6.2.1.
+
+===>Interface Descriptor<===
+
+bLength: 0x09
+
+bDescriptorType: 0x04
+
+bInterfaceNumber: 0x04
+
+bAlternateSetting: 0x00
+
+bNumEndpoints: 0x01
+
+bInterfaceClass: 0x03 -> HID Interface Class
+
+bInterfaceSubClass: 0x00
+
+bInterfaceProtocol: 0x00
+
+iInterface: 0x00
+
+===>HID Descriptor<===
+
+bLength: 0x09
+
+bDescriptorType: 0x21
+
+bcdHID: 0x0110
+
+bCountryCode: 0x00
+
+bNumDescriptors: 0x01
+
+bDescriptorType: 0x22 (Report Descriptor)
+
+wDescriptorLength: 0x002B
+
+===>Endpoint Descriptor<===
+
+bLength: 0x07
+
+bDescriptorType: 0x05
+
+bEndpointAddress: 0x82 -> Direction: IN - EndpointID: 2
+
+bmAttributes: 0x03 -> Interrupt Transfer Type
+
+wMaxPacketSize: 0x0040 = 0x40 bytes
+
+bInterval: 0x08
+
+F: USB HID - Example using the development kit
+=======================================================
+
+Worked example
+--------------
+
+An XVF3610 development kit, a Raspberry Pi and a jump wire are required
+for this example.
+
+The development kit should be configured as XVF3610-UA. Instructions on
+updating the firmware are available in the *Updating the firmware*
+section.
+
+The development kit should then be connected to a Raspberry Pi and set
+up according to the development kit setup guide. Extract the Raspberry
+Pi host utilities from the release package, and use them to enable
+interrupts like so:
+
+vfctrl_usb.exe SET_GPI_INT_CONFIG 0 0 3
+
+The HID events can be observed on /dev/input/event0 on the Raspberry Pi
+either directly (eg xxd) or using the evtest utility (normally available
+through APT on Raspbian).
+
+event0 will be the correct HID device is most cases. If the test system
+has additional sources of events, the correct one can be identified
+under /dev/input by looking at the Handlers line in the output of
+/proc/bus/input/devices.
+
+Now toggle INT_N signal on the XK-VF3610 board by connecting it to 3V3
+and GND using a jump wire. Example output from evtest is:
+
+Input driver version is 1.0.1
+
+Input device ID: bus 0x3 vendor 0x20b1 product 0x14 version 0x110
+
+Input device name: "XMOS XVF3610 (UAC1.0) Adaptive"
+
+Supported events:
+
+Event type 0 (EV_SYN)
+
+Event type 1 (EV_KEY)
+
+Event code 128 (KEY_STOP)
+
+Event code 193 (KEY_F23)
+
+Event code 194 (KEY_F24)
+
+Event code 217 (KEY_SEARCH)
+
+Event type 4 (EV_MSC)
+
+Event code 4 (MSC_SCAN)
+
+Key repeat handling:
+
+Repeat type 20 (EV_REP)
+
+Repeat code 0 (REP_DELAY)
+
+Value 250
+
+Repeat code 1 (REP_PERIOD)
+
+Value 33
+
+Properties:
+
+Testing ... (interrupt to exit)
+
+Event: time 1586524983.094859, type 4 (EV_MSC), code 4 (MSC_SCAN), value
+70072
+
+Event: time 1586524983.094859, type 1 (EV_KEY), code 193 (KEY_F23),
+value 1
+
+Event: time 1586524983.094859, -------------- SYN_REPORT ------------
+
+Event: time 1586524983.353655, type 1 (EV_KEY), code 193 (KEY_F23),
+value 2
+
+Event: time 1586524983.353655, -------------- SYN_REPORT ------------
+
+Event: time 1586524983.403671, type 1 (EV_KEY), code 193 (KEY_F23),
+value 2
+
+Event: time 1586524983.403671, -------------- SYN_REPORT ------------
+
+Event: time 1586524983.453659, type 1 (EV_KEY), code 193 (KEY_F23),
+value 2
+
+Event: time 1586524983.453659, -------------- SYN_REPORT ------------
+
+G: General purpose filter example
+==========================================
+
+
+Worked Example
+--------------
+
+Steps in this example:
+
+-  Set the stereo USB output to listen to the stereo USB input
+     (loopback, skipping audio processing pipeline completely)
+
+-  Apply a stereo 500Hz high-pass and 4kHz low-pass cascaded biquad
+     filter
+
+-  The 500Hz high-pass filter coefficients are:
+
+-  | a1 = -1.90748889
+     | a2 = 0.91158173
+     | b0 = 0.95476766
+     | b1 = -1.90953531
+     | b2 = 0.95476766
+
+-  The 4kHz low-pass filter coefficients are:
+
+-  | a1 = -1.27958194
+     | a2 = 0.47753396
+     | b0 = 0.04948800
+     | b1 = 0.09897601
+     | b2 = 0.04948800
+
+-  Hear the effect filtered signals when the filters are enabled
+
+This example assumes that the input and output sample rate is 48kHz.
+
+**First, connect the USB output to the USB input:**
+
+vfctrl_usb SET_IO_MAP 0 7 # (USB output left outputs USB input left)
+
+vfctrl_usb SET_IO_MAP 1 8 # (As above for right channel)
+
+**Now configure the filter:**
+
+vfctrl_usb SET_FILTER_INDEX 2 (USB output left filter)
+
+vfctrl_usb SET_FILTER_COEFF -1.90748889 0.91158173 0.95476766
+-1.90953531 0.95476766 -1.27958194 0.47753396 0.04948800 0.09897601
+0.04948800
+
+vfctrl_usb SET_FILTER_INDEX 3 (USB output right filter)
+
+vfctrl_usb SET_FILTER_COEFF -1.90748889 0.91158173 0.95476766
+-1.90953531 0.95476766 -1.27958194 0.47753396 0.04948800 0.09897601
+0.04948800
+
+**Now enable the filter:**
+
+vfctrl_usb SET_FILTER_INDEX 0
+
+vfctrl_usb SET_FILTER_BYPASS 0
+
+vfctrl_usb SET_FILTER_INDEX 1
+
+vfctrl_usb SET_FILTER_BYPASS 0
+
+Play a white noise source from the USB device and record the input. Use
+a spectrogram to show the band limited signal due to the effect of the
+filters. The effect should also be audible.
+
+H: Command transport protocol
+======================================
+
+TRANSPORTING CONTROL PARAMETERS PROTOCOL
+----------------------------------------
+
+Control parameters are converted to an array of bytes in network byte
+order (big endian) before they’re sent over the transport protocol. For
+example, to set a control parameter to integer value 305419896 which
+corresponds to hex 0x12345678, the array of bytes sent over the
+transport protocol would be {0x12, 0x34, 0x56, 0x78}. Similarly, a 4
+byte payload {0x00, 0x01, 0x23, 0x22} read over the transport protocol
+is interpreted as an integer value 0x00012322.
+
+In addition to the control parameters values, commands include Resource
+ID, the Command ID and Payload Length fields that must be communicated
+from the host to the device. The Resource ID is an 8-bit identifier that
+identifies the resource within the device that the command is for. The
+Command ID is an 8-bit identifier used to identify a command for a
+resource in the device. Payload length is the length of the data in
+bytes that the host wants to write to the device or read from the
+device.
+
+The payload length is interpreted differently for GET\_ and SET\_
+commands. For SET_commands, the payload length is simply the number of
+bytes worth of control parameters to write to the device. For example,
+the payload length for a SET\_ command to set a control parameter of
+type int32 to a certain value, would be set to 4. For GET\_ commands the
+payload length is 1 more than the number of bytes of control parameters
+to read from the device. For example, a GET\_ command to read a
+parameter of type int32, payload length would be set to 5. The one extra
+byte is used for status and is the first byte (payload[0]) of the
+payload received from the device. In the example above, payload[0] would
+be the status byte and payload[1]..payload[4] would be the 4 bytes that
+make up the value of the control parameter.
+
+The table below lists the different values of the status byte and the
+action the user is expected to take for each status:
+
++------+-----+--------------------------------------------------------+
+| Re   | Va  | Description                                            |
+| turn | lue |                                                        |
+| code |     |                                                        |
++======+=====+========================================================+
+|      | 0   | Read command successful. The payload bytes contain     |
+| ctrl |     | valid payload returned from the device                 |
+| _done|     |                                                        |
++------+-----+--------------------------------------------------------+
+|      | 1   | Read command not serviced. Retry until ctrl_done       |
+| ctrl |     | status returned                                        |
+| _wait|     |                                                        |
++------+-----+--------------------------------------------------------+
+| ctrl | 3   | Error in read command. Abort and debug                 |
+| _inv |     |                                                        |
+| alid |     |                                                        |
++------+-----+--------------------------------------------------------+
+
+The GET_commands need the extra status byte since the device might not
+return the control parameter value immediately due to timing
+constraints. If that is the case the status byte would indicate the
+status as ctrl_wait and the user would need to retry the command. When
+returned a ctrl_wait, the user is expected to retry the GET\_ command
+until the status is returned as ctrl_done. The first GET_command is
+placed in a queue and it will be serviced by the end of each 15ms audio
+frame. Once the status byte indicates ctrl_done, the rest of the bytes
+in the payload indicate the control parameter value.
+
+TRANSPORTING CONTROL PARAMETERS OVER I2C
+-----------------------------------------
+
+This section describes the I2C command sequence when issuing read and
+write commands to the device.
+
+The first byte sent over I2C after start contains the device address and
+information about whether this is an I2C read transaction or a write
+transaction. This byte is 0x58 for a write command or 0x59 for a read
+command. These values are derived by left shifting the device address
+(0x2c) by 1 and doing a logical OR of the resulting value with 0 for an
+I2C write and 1 for an I2C read.
+
+The bytes sequence sent between I2C start and stop for SET\_ commands is
+shown in the figure below.
+
+.. image:: media/image28.png
+
+
+For GET\_ commands, the I2C commands sequence consists of a write
+command followed by a read command with a repeated start between the 2
+commands. The write command writes the resource ID, command ID and the
+expected data length to the device and the read command reads the status
+byte followed by the rest of the payload that makes up the control
+parameter value. The figure below shows the I2C bytes sequence sent and
+received for a GET\_ command.
+
+.. image:: media/image29.png
+
+TRANSPORTING CONTROL PARAMETERS OVER USB
+-----------------------------------------
+
+Use the vendor_id 0x20b1, product_id 0x0014 and interface number 3 to
+initialize for USB. The API function libusb_control_transfer() is used
+for transporting over USB. When calling libusb_control_transfer(),
+wIndex corresponds to the Resource ID, wValue is the Command ID and
+wLength is the payload length.
+
+FLOATING POINT TO FIXED POINT (Q format) CONVERSION
+---------------------------------------------------
+
+Numbers with fractional parts can be represented as floating-point or
+fixed-point numbers. Floating point formats are widely used but carry
+performance overheads. Fixed point formats can improve system efficiency
+and are used extensively within the XVF3610. Fixed point numbers have
+the position of the decimal point fixed and this is indicated as a part
+of the format description.
+
+In this document, Q format is used to describe fixed point number
+formats, with the representation given as Q\ *m*.\ *n* format where *m*
+is the number of bits reserved for the sign and integer part of the
+number and *n* is the number of bits reserved for the fractional part of
+the number. The position of the decimal point is a trade-off between the
+range of values supported and the resolution provided by the fractional
+bits.
+
+The dynamic range of Q\ *m*.\ *n* format is -2\ :sup:`m-1` and
+2\ :sup:`m-1`-2\ :sup:`-n` with a resolution of 2\ :sup:`-n`
+
+To convert a floating-point format number to Q\ *m*.\ *n* format
+fixed-point number:
+
+-  Multiply the floating-point number by 2\ *m*.
+
+-  Round the result to the nearest integer.
+
+-  The resulting integer number is the Q\ *m*.\ *n* fixed-point
+     representation of the initial floating-point number.
+
+To convert a Q\ *m*.\ *n* fixed-point number to floating-point:
+
+-  Divide the fixed-point number by 2\ *m*.
+
+-  The resulting decimal number is a floating-point representation of
+     the fixed-point number.
+
+Converting a number into fixed point format and then back to a floating
+point number may introduce an error of up to ±2\ :sup:`-(n+1)`
+
+Example:
+
+To represent a floating-point number 14.765467 in Q8.24 format, the
+equivalent fixed-point number would be 14.765467 x 2\ :sup:`24` =
+247723429.2 which rounds to 247723429.
+
+To get back the floating-point number given the Q8.24 number 247723429,
+calculate 247723429 ÷ 2\ :sup:`24` and get back the floating-point
+number as 14.76546699. The difference of 0.00000001 is correct to with
+the error bounds of ±2\ :sup:`-25` which is ±0.00000003
+
+I: Flash programming and update flow
+=============================================
+
+.. image:: media/image30.png
+
+
+J: Capturing packed samples for system integration
+===========================================================
+
+To assist with system integration, the XVF3610 provides the ability to
+pack multiple 16kHz channels into a 48kHz output. The following section
+describes the usage of packed signals.
+
+All packed functions provide a **snapshot of a 16kHz signals over a
+48kHz output**. If the output stream is not 48kHz, it will not work
+because the 3x bandwidth is needed for packing the 16kHz signals. They
+all also require that **no volume scaling be applied on the
+host** otherwise it will break the marker sequence resulting in the
+captured audio being unable to be unpacked. There are two packing
+mechanisms however for typical usage where a full capture of the
+pipeline is needed, PACKED_ALL is recommended.
+
+Capturing PACKED_ALL signals
+-----------------------------------------
+
+PACKED_ALL packs 3 channels into a single channel (mic, ref, pipeline
+out) so requires two output channels to capture all 6 signals of
+interest. When using -UA it uses the bit resolution of the USB output
+interface (even if you output to I2S on the -UA device) or assumes 32b
+it you are using -INT where the output interface is always I2S. The
+sequence is as follows:
+
+-  top bitres-1 bits of mic sample with LSbit marker ‘0’
+
+-  top bitres-1 bits of ref sample with LSbit marker ‘1’
+
+-  top bitres-1 bits of pipeline oit sample with LSbit marker ‘1’
+
+The unpacker_packed_all.pyscript looks for 0, 0, 1 for the LS bit to
+check for a packed_all sequence, else it will report an error. This
+packing will work with 16b, 24b and 32b USB bit width. It is not
+bit-perfect (it loses 1b for the marker). It can work on a Mac if you
+use a 16b or 24b output resolution on -UA device. Since microphones
+signal levels are quite low from the output of the decimators, it is
+recommended to use at least 24b resolution to keep the quantisation
+noise floor down with respect to signal.
+
+Capturing all pipeline input and output signals over a 48kHz USB interface
+-----------------------------------------------------------------------------
+
+The goal here is to capture the pipeline input and output to provide
+visibility on what signals are actually entering the pipeline and what
+processed output was generated. This can be useful when checking the
+microphone and reference signals are correctly routed, as well as
+checking signal delay issues causing poor AEC performance.
+
+First, set the USB output interface resolution to 24b. This is important
+because mic signals in a quiet room (35dBA) may be quantised away in a
+16b audio capture. Also, 24b audio has been found to work on most hosts.
+
+Second, configure the audio crossbar to output PACKED_ALL on USB output
+channels 0 and 1.
+
+This can be done by setting the parameters in the data partition. To do
+this, navigate to the data-partition directory of the Release package.
+Note, it recommended to make a copy of the default .json config file for
+future reference.
+
+To create the “packed output to USB” commands in file
+input/set_packed_all_on_usb_out.txt Add the following contents to this
+file.
+
+SET_IO_MAP 0 16
+
+SET_IO_MAP 1 16
+
+Note that the IO map source 16 is set for both USB output channels.
+Source 16 automatically resolves the channel indices so this will result
+in a stereo output containing a packed capture of all six discrete
+channels of interest.
+
+Next, add the following sections to a ua_24b_packed.json file item
+section and save it:
+
+::
+  {
+
+  "path": "input/set_packed_all_on_usb_out.txt",
+
+  "comment": ""
+
+  },
+
+  {
+
+  "path": "input/device_to_usb_bit_res_24.txt",
+
+  "comment": ""
+
+  },
+
+Now we generate the data partition from our updated json file:
+
+python3 xvf3610_data_partition_generator.py ua_24b_packed.json
+
+This will generate the new data partition file as
+follows:output/data_partition_factory_ua_24b_packed_v4_0_0.bin.
+
+Finally cd up one level to root of the release package and flash the
+firmware along with the newly created data partition configuration file:
+
+xflash --no-compression --boot-partition-size 1048576
+bin/app_xvf3610_ua_v4_0_0.xe \\
+
+--data
+data-partition/output/data_partition_factory_ua_24b_packed_v4_0_0.bin
+
+Once the firmware has booted following the flashing operation it can be
+verified in the sound control panel that the USB input stream from the
+XVF3610-UA to the host is now set to 24b.
+
+Next the audio of interest is captured. Do this with a wav capture
+utility to capture the stereo output from the USB input from the XVF3610
+device at 48kHz. Ensure the file is saved as 32b Signed Integer which is
+needed for the next step. Note that viewing/listening to the packed wav
+is non-sensical because it contains packed/multiplexed signals and will
+sound noisy.
+
+Finally convert these packed files into unpacked, 16kHz, 6-Channel audio
+files.
+
+python host/unpacker_packed_all.py packed_capture.wav
+unpacked_6ch_16kHz.wav 24
+
+The output file unpacked_6ch_16kHz.wav may now be inspected. Note that
+the channel assignment is as follows:
+
+-  Microphone Ch 0
+
+-  Microphone Ch 1
+
+-  Reference input Left
+
+-  Reference input Right
+
+-  Pipeline Output Ch 0 (nominally ASR)
+
+-  Pipeline Output Ch 1 (nominally Comms)
+
+Below is a visualisation of a six-channel audio capture. Note the
+relatively quiet mic signals compared with the reference. This is
+typical and allows for loud near-end signals without distortion.
+
+.. image:: media/image31.png
+
+
+Packing specific signals
+-------------------------
+
+PACKED_PIPELINE_OUTPUT, PACKED_MIC, PACKED_REF all use the same
+underlying packing function. They pack 2 channels (mic0/1 or ref/refr
+or pipe0/pipe1) into a single audio channel. **It requires that the
+output interface, including host processing, be capable of bit-perfect
+32b audio**. It packs the two 16kHz samples into three 48kHz samples as
+follows: 
+
+-  top 24b of sample[0] with 8b LSB marker ‘0x00’
+
+-  top 24b of sample[1] with 8b LSB marker ’0x01’
+
+-  the bottom 8b of sample[0], the bottom 8b of sample[1], 0x00, 8b LSB
+     marker ’0x02’ 
+
+The unpacker.py script then looks for 0x00, 0x01, 0x02 in the LSByte to
+check for a packed sequence. So inspecting the wav in a hex editor
+should make it clear when it is captured properly. 
+
+It will capture bit-perfect data.
+
+.. warning::
+
+  Packing specific signals will not work on a Mac because it only supports
+  24b audio due to core audio representing audio using single-precision
+  floating-point. It has been tested and works well on Linux (x86/RPI)
+  which supports bit-perfect 32b audio.
