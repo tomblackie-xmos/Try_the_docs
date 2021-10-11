@@ -15,7 +15,7 @@ This licence agreement (“**Agreement**”) is a legal agreement
 between you (acting in your individual capacity or on behalf of a legal
 entity) (“**Licensee**" or “**you**”) and **XMOS LIMITED** Company
 No. 05494985 of 9th Floor, 107 Cheapside, London, EC2V 6DN
-(“**XMOS**”, “**us**" or ”\ **we**").
+(“**XMOS**”, “**us**" or ”**we**").
 
 The Agreement relates to the Devices defined below, which the Licensee
 has purchased from XMOS in accordance with its standard terms of sale,
@@ -92,60 +92,61 @@ granted to Licensee.
 as permitted by any local law, Licensee undertakes that it shall and
 it shall procure that any Users shall:
 
-    \(a) not copy or reproduce the Software (or any part thereof) except where
-    such copying is incidental or necessary for back-up;
+\(a) not copy or reproduce the Software (or any part thereof) except where
+such copying is incidental or necessary for back-up;
 
-    \(b) not sell, distribute, sublicense, transfer or make available
-    in any manner or means the Software or Devices to any third party on a
-    standalone basis save this shall not prevent the Licensee distributing
-    or using the Devices with the Software installed therein and making this
-    available to a third party;
+\(b) not sell, distribute, sublicense, transfer or make available
+in any manner or means the Software or Devices to any third party on a
+standalone basis save this shall not prevent the Licensee distributing
+or using the Devices with the Software installed therein and making this
+available to a third party;
 
-    \(c) not alter, modify, adapt, translate, disassemble, decompile,
-    reverse-engineer, decrypt, create derivative works, reverse assemble,
-    attempt to derive source code or algorithm nature of the Software or
-    Devices or create derivative works based on the whole or any part of
-    the Software or Devices nor attempt to do any such thing except to the
-    extent that (by virtue of section 296A of the Copyright, Designs and
-    Patents Act 1988) such actions cannot be prohibited because they are
-    essential for the purpose of achieving inter-operability and provided that
-    the information obtained by Licensee during such activities:
-    (i) is used only for the purpose of achieving inter-operability with such
-    other software program and/or the Devices; and
-    (ii) is not disclosed or communicated to any third party; and
-    (iii) is not used to create any software, firmware, device or otherwise
-    which is/are substantially similar to the Software.
+\(c) not alter, modify, adapt, translate, disassemble, decompile,
+reverse-engineer, decrypt, create derivative works, reverse assemble,
+attempt to derive source code or algorithm nature of the Software or
+Devices or create derivative works based on the whole or any part of
+the Software or Devices nor attempt to do any such thing except to the
+extent that (by virtue of section 296A of the Copyright, Designs and
+Patents Act 1988) such actions cannot be prohibited because they are
+essential for the purpose of achieving inter-operability and provided that
+the information obtained by Licensee during such activities:
+(i) is used only for the purpose of achieving inter-operability with such
+other software program and/or the Devices; and
+(ii) is not disclosed or communicated to any third party; and
+(iii) is not used to create any software, firmware, device or otherwise
+which is/are substantially similar to the Software.
 
-    \(d) not decode, de-crypt, turn off, remove, circumvent or neutralise any
-    security measures, identification or activation codes or protection within
-    the Software;
+\(d) not decode, de-crypt, turn off, remove, circumvent or neutralise any
+security measures, identification or activation codes or protection within
+the Software;
 
-    \(e) not remove any copyright notices;
+\(e) not remove any copyright notices;
 
-    \(f) not attempt to learn information about the internal architecture,
-    algorithms, design, operation, manufacture, features or functionalities
-    of the Software beyond that information provided by XMOS;
+\(f) not attempt to learn information about the internal architecture,
+algorithms, design, operation, manufacture, features or functionalities
+of the Software beyond that information provided by XMOS;
 
-    \(g) not produce its own version of the Software (in whole or in part);
+\(g) not produce its own version of the Software (in whole or in part);
 
-    \(h) not perform any action with regard to the Software in a manner that
-    would require all or any of the Software to be licensed under any Open
-    Source Terms. Such actions shall include:
+\(h) not perform any action with regard to the Software in a manner that
+would require all or any of the Software to be licensed under any Open
+Source Terms. Such actions shall include:
 
-    \(i) combining the Software (in whole or in part) or any derivative work
-    thereof with any Open Source Software, by means of incorporation or linking
-    or otherwise; and
-    (ii) using Open Source Software to create a derivative work of the Software
-    (including any part of the Software);
-    (i) not making any representations, warranties or guarantees in relation
-    to the Software or on behalf of XMOS or any of its licensors in relation
-    to the Software or any part(s) therein; and
+\(i) combining the Software (in whole or in part) or any derivative work
+thereof with any Open Source Software, by means of incorporation or linking
+or otherwise; and
+(ii) using Open Source Software to create a derivative work of the Software
+(including any part of the Software);
 
-    \(j) not create any software, firmware, device or otherwise which is/are
-    substantially similar to the Software;
+\(i) not making any representations, warranties or guarantees in relation
+to the Software or on behalf of XMOS or any of its licensors in relation
+to the Software or any part(s) therein; and
 
-    \(k) only use the Software (in whole or in part), in conjunction with
-    the Devices.
+\(j) not create any software, firmware, device or otherwise which is/are
+substantially similar to the Software;
+
+\(k) only use the Software (in whole or in part), in conjunction with
+the Devices.
 
 3.  **Intellectual Property Rights.** Licensee shall not use any
 trademarks, names or marks of XMOS, its licensors (including of any
@@ -175,25 +176,25 @@ not apply, or shall cease to apply, to such part of the XMOS
 Confidential Information as the Licensee can show to the reasonable
 satisfaction of XMOS:
 
-    (a) has become public knowledge other than through the fault of
-    Licensee or a User;
+\(a) has become public knowledge other than through the fault of
+Licensee or a User;
 
-    (b) was already known to Licensee prior to disclosure to it by XMOS
-    without any obligations of confidentiality;
+\(b) was already known to Licensee prior to disclosure to it by XMOS
+without any obligations of confidentiality;
 
-    (c) is subject to a valid court order, provided Licensee:
+\(c) is subject to a valid court order, provided Licensee:
 
-    (i) promptly notifies XMOS of the pending disclosure subject to such
-    valid order in writing and gives XMOS the opportunity to obtain a
-    protective order or otherwise to protect the confidentiality of the
-    XMOS Confidential Information; and
+  (i) promptly notifies XMOS of the pending disclosure subject to such
+  valid order in writing and gives XMOS the opportunity to obtain a
+  protective order or otherwise to protect the confidentiality of the
+  XMOS Confidential Information; and
 
-    (ii) minimises the amount of XMOS Confidential Information which is
-    disclosed under the valid court order, whilst still complying with
-    such court order; and/or
+  (ii) minimises the amount of XMOS Confidential Information which is
+  disclosed under the valid court order, whilst still complying with
+  such court order; and/or
 
-    (d) has been received from a third party who has not directly or
-    indirectly breached any duty or obligation of confidence.
+\(d) has been received from a third party who has not directly or
+indirectly breached any duty or obligation of confidence.
 
 5.  **Regulatory Compliance and Instructions.** Licensee understands
 that the Software or portions thereof may not have received all
@@ -302,34 +303,34 @@ in the event such breach fails to be remedied to XMOS’ satisfaction,
 XMOS may terminate this Agreement immediately. XMOS may also
 terminate this Agreement:
 
-(a) immediately on written notice to Licensee in the event a creditor or
+\(a) immediately on written notice to Licensee in the event a creditor or
 other claimant takes possession of, or a receiver, administrator or
 similar officer is appointed over any of the assets of Licensee;
 
-(b) immediately on written notice to Licensee in the event Licensee is
+\(b) immediately on written notice to Licensee in the event Licensee is
 subject to any voluntary arrangement with its creditors (other than for
 the purposes of solvent re-organisation) or becomes subject to any court
 or administration order or similar pursuant to any bankruptcy or
 insolvency law;
 
-(c\ **)** for convenience, on giving Licensee 7 days prior written
+\(c) for convenience, on giving Licensee 7 days prior written
 notice at any time.
 
 Upon termination of this Agreement for any reason:
 
-    (a) all rights granted to Licensee under this Agreement shall cease
-    (save this shall not apply to any prior authorised use of the Software
-    up to the date of termination);
+\(a) all rights granted to Licensee under this Agreement shall cease
+(save this shall not apply to any prior authorised use of the Software
+up to the date of termination);
 
-    (b) Licensee must immediately cease all activities authorised by this
-    Agreement; and
+\(b) Licensee must immediately cease all activities authorised by this
+Agreement; and
 
-    (c) Licensee must immediately delete or remove the Software from all
-    devices, storage and computer equipment in its possession, and
-    immediately destroy or return to XMOS (at XMOS’ option) all copies of
-    the Software and any documents then in its possession, custody or
-    control and, in the case of destruction, certify to XMOS that Licensee
-    has complied with the above.
+\(c) Licensee must immediately delete or remove the Software from all
+devices, storage and computer equipment in its possession, and
+immediately destroy or return to XMOS (at XMOS’ option) all copies of
+the Software and any documents then in its possession, custody or
+control and, in the case of destruction, certify to XMOS that Licensee
+has complied with the above.
 
 11. **General.** In the event of conflict, the terms of this Agreement
 shall prevail over any terms of supply, purchase order or other
