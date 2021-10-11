@@ -30,49 +30,49 @@ install certain XMOS Tools, available at http://www.xmos.ai/.
 
 **DEFINITIONS**
 
-**Devices**: the xCORE VocalFusion processors and evaluation boards
-produced by XMOS.
+    **Devices**: the xCORE VocalFusion processors and evaluation boards
+    produced by XMOS.
 
-**Effective Date:** the date this Agreement comes into effect.
+    **Effective Date:** the date this Agreement comes into effect.
 
-**Open Source Software:** means any software which is licensed under
-Open Source Terms.
+    **Open Source Software:** means any software which is licensed under
+    Open Source Terms.
 
-**Open Source Terms**: means terms in any licence that requires as a
-condition of use, modification and/or distribution of a work:
+    **Open Source Terms**: means terms in any licence that requires as a
+    condition of use, modification and/or distribution of a work:
 
-\(a) the making available of source code or other materials;
+    \(a) the making available of source code or other materials;
 
-\(b) the granting of permission for creating derivative works;
+    \(b) the granting of permission for creating derivative works;
 
-\(c) the reproduction of certain notices or licence terms in derivative
-works or accompanying documentation; and/or
+    \(c) the reproduction of certain notices or licence terms in derivative
+    works or accompanying documentation; and/or
 
-\(d) the granting of a royalty free licence to any party under
-intellectual property rights, regarding the work and/or any work
-that contains, is combined with, requires or otherwise is based on a
-work.
+    \(d) the granting of a royalty free licence to any party under
+    intellectual property rights, regarding the work and/or any work
+    that contains, is combined with, requires or otherwise is based on a
+    work.
 
-**Purpose**: has the meaning given to it in clause 1.
+    **Purpose**: has the meaning given to it in clause 1.
 
-**Software:** the Vocalfusion software downloaded by the User from the
-XMOS website, or provided by an XMOS representative, which includes the
-Third-Party Software, customized for the Devices and any Updates and
-documentation made available with this Agreement.
+    **Software:** the Vocalfusion software downloaded by the User from the
+    XMOS website, or provided by an XMOS representative, which includes the
+    Third-Party Software, customized for the Devices and any Updates and
+    documentation made available with this Agreement.
 
-**Third Party Software:** the proprietary BeClear software owned by
-Philips International BV and any Updates thereof.
+    **Third Party Software:** the proprietary BeClear software owned by
+    Philips International BV and any Updates thereof.
 
-**Updates:** any updates to the Software or Third-Party Software which
-XMOS makes available via http://www.xmos.ai/ and which a User can
-download and install with the XMOS tools available on the site.
+    **Updates:** any updates to the Software or Third-Party Software which
+    XMOS makes available via http://www.xmos.ai/ and which a User can
+    download and install with the XMOS tools available on the site.
 
-**User(s):** shall mean you and any named third party authorised by the
-Licensee and XMOS who acts on behalf of the Licensee to integrate the
-Software into the Device (such as an ODM or Third Party Design House)
-provided in each case they have agreed to be bound by this Agreement.
+    **User(s):** shall mean you and any named third party authorised by the
+    Licensee and XMOS who acts on behalf of the Licensee to integrate the
+    Software into the Device (such as an ODM or Third Party Design House)
+    provided in each case they have agreed to be bound by this Agreement.
 
-**XMOS Confidential Information:** has the meaning at clause 4.
+    **XMOS Confidential Information:** has the meaning at clause 4.
 
 1.  **Permitted Use**. In consideration of Licensee agreeing to be bound
 by the terms of this Agreement, XMOS grants Licensee a
