@@ -223,7 +223,7 @@ error-free, that any defects or errors will be corrected, or that
 the Software will be compatible or work with any third party
 software or devices, other than the Devices.
 
-7.  Limitation of Liability. TO THE EXTENT NOT PROHIBITED BY APPLICABLE
+7.  **Limitation of Liability.** TO THE EXTENT NOT PROHIBITED BY APPLICABLE
 LAW, NEITHER XMOS NOR ITS LICENSORS SHALL BE LIABLE FOR ANY LOST
 REVENUE, PROFIT, CONTRACTS OR DATA, LOSS OF BUSINESS OPPORTUNITY OR
 DAMAGE TO REPUTATION, OR FOR SPECIAL, INDIRECT, CONSEQUENTIAL,
@@ -262,7 +262,7 @@ giving rise to such claim and XMOS shall not be liable for any claim
 for damages or otherwise whatsoever brought or filed after the
 aforementioned period.
 
-8.  High Risk Activities. The Software is not designed or intended for
+8.  **High Risk Activities.** The Software is not designed or intended for
 use in conjunction with high risk, critical applications or
 technology, on-line control equipment in hazardous environments
 requiring fail-safe performance, including without limitation the
